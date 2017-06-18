@@ -1,3 +1,4 @@
+```
 {
   currentUser: {
     id: 100,
@@ -6,7 +7,7 @@
   forms: {
     signUp: {errors: [] },
     logIn: { errors: [] },
-    uploadTrack: { errors: ['Track name can't be blank!] } 
+    uploadTrack: { errors: ['Track name can't be blank!] }
   }
   currentlyPlaying: {
     2: {
@@ -48,3 +49,4 @@
     }, ...
   }
 }
+```
