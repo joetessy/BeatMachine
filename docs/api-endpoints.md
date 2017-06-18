@@ -38,6 +38,8 @@
 - `POST /api/comments`
 - `DELETE /api/comments/:id`
 
+### BONUS:
+
 ### Playlists
 
 - `GET /api/playlists`
@@ -51,8 +53,6 @@
 - `GET /api/favorites`
 - `POST /api/favorites`
 - `DELETE /api/favorites/:id`
-
-### BONUS:
 
 ### Reposts
 
