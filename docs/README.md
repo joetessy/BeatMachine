@@ -65,5 +65,4 @@ React/Redux. It will have the following features.
 ### Bonus Features (TBD)
 - [ ] Waveforms
 - [ ] Infinite Scroll
-- [ ] Infinite Scroll
 - [ ] Reposts, Playlists, Tags
