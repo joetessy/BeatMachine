@@ -14,7 +14,7 @@ React/Redux. It will have the following features.
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Track Crud
+- [ ] Track CRUD
 - [ ] Plays songs with progress bar with continuous play
 - [ ] Comments
 - [ ] User Pages
@@ -42,7 +42,7 @@ React/Redux. It will have the following features.
 
 **Objective:** Functioning rails project with front-end authentication
 
-### Phase 2: Tracks Model API, Components, AWS Web Hosting (2 days)
+### Phase 2: Tracks, Model API, Components, AWS Web Hosting (2 days)
 
 **Objective:** Seed DB. Tracks and images are hosted on AWS. CRUD API features for tracks. Create track container components.
 
@@ -58,7 +58,7 @@ React/Redux. It will have the following features.
 
 **Objective:** Users can comment on, favorite tracks, & follow other users.
 
-## Phase 6: Likes, Followers, Followings, Comments Pages (1 days)
+### Phase 6: Likes, Followers, Followings, Comments Pages (1 days)
 
 **Objective:** Users have separate show pages containing all favorites, followers, followings, comments.
 

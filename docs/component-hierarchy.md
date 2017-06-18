@@ -11,8 +11,8 @@
  - NavContainer
  - TrackContainer
  - Sidebar
-  + FollowSuggestionsBox
-  + LikesBox
+   - FollowSuggestionsBox
+   - LikesBox
  - FooterPlayer
 
 **ProfileContainer**
@@ -20,9 +20,9 @@
  - TrackContainer
  - PlaylistContainer
  - Sidebar
-  + StatsBox
-  + LikesBox
-  + FollowingBox
+   - StatsBox
+   - LikesBox
+   - FollowingBox
  - FooterPlayer
 
 **LikesPageContainer**
@@ -44,11 +44,11 @@
  - NavContainer
  - TrackContainer
  - CommentsContainer
-  + CommentFormContainer
-  + CommentItem
+   - CommentFormContainer
+   - CommentItem
  - FooterPlayer
 
- **UploadFormContainer*
+ **UploadFormContainer**
 
 
 **NavbarContainer**
