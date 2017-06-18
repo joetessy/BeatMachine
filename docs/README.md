@@ -44,7 +44,7 @@ React/Redux. It will have the following features.
 
 ### Phase 2: Tracks, Model API, Components, AWS Web Hosting (2 days)
 
-**Objective:** Seed DB. Tracks and images are hosted on AWS. CRUD API features for tracks. Create track container components.
+**Objective:** Seed DB. Tracks and images are hosted on AWS. Create track container component. CRUD API & UI features for tracks. 
 
 ### Phase 3: The Feed (2 days)
 

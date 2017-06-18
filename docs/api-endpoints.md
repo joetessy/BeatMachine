@@ -33,18 +33,6 @@
 - `POST /api/comments`
 - `DELETE /api/comments/:id`
 
-### Follows
-
-- `GET /api/follows`
-- `POST /api/follows`
-- `DELETE /api/follows/:id`
-
-### Favorites
-
-- `GET /api/favorites`
-- `POST /api/favorites`
-- `DELETE /api/favorites/:id`
-
 ### BONUS:
 
 ### Playlists
