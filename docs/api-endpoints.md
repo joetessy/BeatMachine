@@ -9,7 +9,7 @@
 ## JSON API
 
 ### Users
-
+- `GET /api/users`
 - `POST /api/users`
 - `PATCH /api/users`
 
@@ -26,17 +26,18 @@
 - `PATCH /api/tracks/:id`
 - `DELETE /api/tracks/:id`
 
-### Follows
-
-- `GET /api/follows`
-- `POST /api/follows`
-- `DELETE /api/follows/:id`
 
 ### Comments
 
 - `GET /api/comments`
 - `POST /api/comments`
 - `DELETE /api/comments/:id`
+
+### Follows
+
+- `GET /api/follows`
+- `POST /api/follows`
+- `DELETE /api/follows/:id`
 
 ### Favorites
 

@@ -40,27 +40,27 @@ React/Redux. It will have the following features.
 
 ### Phase 1: Backend and Front End User Authentication (2 days)
 
-**Objective:** Functioning rails project with front-end Authentication
+**Objective:** Functioning rails project with front-end authentication
 
 ### Phase 2: Tracks Model API, Components, AWS Web Hosting (2 days)
 
-**Objective:** Tracks are seeded and hosted on AWS. Have a functioning audio player component.
+**Objective:** Seed DB. Tracks and images are hosted on AWS. CRUD API features for tracks. Create track container components.
 
 ### Phase 3: The Feed (2 days)
 
-**Objective:** Complete home page & profile page. Both will show a feed of tracks.
+**Objective:** Complete home page & user page. Both will show a feed of tracks.
 
-### Phase 4: Upload Tracks (1 day)
+### Phase 4: Footer Player (1 day)
 
-**Objective:** Users can upload tracks.
+**Objective:** Complete footer audio player that persists between page changes.
 
-### Phase 6: Add Comment, Favorite, Follow Features (1 day)
+### Phase 5: Add Comment, Favorite, Follow Features (1 day)
 
-**Objective:** Users can comment, favorite tracks, & follow other users.
+**Objective:** Users can comment on, favorite tracks, & follow other users.
 
-## Phase 7 : Likes, Followers, Followings, Comments Pages (2 days, W2 TR/F)
+## Phase 6: Likes, Followers, Followings, Comments Pages (1 days)
 
-**Objective:** Users respective show pages showing all favorites,  followers, followings, comments.
+**Objective:** Users have separate show pages containing all favorites, followers, followings, comments.
 
 ### Bonus Features (TBD)
 - [ ] Waveforms
