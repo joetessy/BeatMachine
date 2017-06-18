@@ -26,6 +26,12 @@
 - `PATCH /api/tracks/:id`
 - `DELETE /api/tracks/:id`
 
+### Follows
+
+- `GET /api/follows`
+- `POST /api/follows`
+- `DELETE /api/follows/:id`
+
 ### Comments
 
 - `GET /api/comments`
@@ -46,17 +52,13 @@
 - `POST /api/favorites`
 - `DELETE /api/favorites/:id`
 
+### BONUS:
+
 ### Reposts
 
 - `GET /api/reposts`
 - `POST /api/reposts`
 - `DELETE /api/reposts/:id`
-
-### Follows
-
-- `GET /api/follows`
-- `POST /api/follows`
-- `DELETE /api/follows/:id`
 
 ### Messages
 

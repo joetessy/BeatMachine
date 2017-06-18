@@ -28,6 +28,7 @@ id          | integer   | not null, primary key
 follower_id | integer   | not null, foreign key (references users)
 followee_id | integer   | not null, foreign key (references users)
 
+# BONUS:
 
 ## playlists
 column name   | data type | details
@@ -64,7 +65,7 @@ track_id    | integer   | foreign key (references tracks)
 playlist_id | integer   | foreign key (references playlists)
 
 
-# messages
+## messages
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -72,7 +73,7 @@ author_id   | integer   | not null, foreign_key
 recipient_id| integer   | not null, foreign_key
 
 
-# tags
+## tags
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
