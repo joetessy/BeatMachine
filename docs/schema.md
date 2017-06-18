@@ -28,6 +28,14 @@ id          | integer   | not null, primary key
 follower_id | integer   | not null, foreign key (references users)
 followee_id | integer   | not null, foreign key (references users)
 
+## favorites
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+track_id    | integer   | foreign key (references tracks)
+playlist_id | integer   | foreign key (references playlists)
+
+
 # BONUS:
 
 ## playlists
@@ -47,14 +55,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users)
 track_id    | integer   | not null. foreign key (references tracks)
-
-
-## favorites
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-track_id    | integer   | foreign key (references tracks)
-playlist_id | integer   | foreign key (references playlists)
 
 
 ## reposts
