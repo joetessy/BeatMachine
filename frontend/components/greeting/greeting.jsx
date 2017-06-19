@@ -9,7 +9,7 @@ class Greeting extends React.Component{
 
   handleClick(e){
     e.preventDefault();
-    this.props.logOut();
+    this.props.logout();
   }
 
 
