@@ -8,7 +8,7 @@ const ModalReducer = (state = null, action) => {
     case SIGNUP:
       return 'signup';
     default:
-      return null;
+      return state;
   }
 };
 

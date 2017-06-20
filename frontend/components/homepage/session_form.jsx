@@ -24,10 +24,10 @@ class SessionForm extends React.Component {
     this.setState({username: '', password: '' });
   }
 
-
   handleChange(e){
     this.setState({ [e.currentTarget.id]: e.currentTarget.value});
   }
+
 
   render(){
 		let title = null;
@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
 				title = 'Sign in to BeatMachine';
 				buttonText = 'Sign In';
 				pwText = 'Enter Your Password';
-				break;
+			break;
 			case 'signup':
 				title = 'Create your BeatMachine Account';
 				buttonText = 'Continue';
@@ -46,14 +46,12 @@ class SessionForm extends React.Component {
 			break;
 		}
     let errors = (this.props.errors) ? this.props.errors.join(", ") : null;
-    const linkText = this.props.formType === 'login' ? '/signup' : '/login';
     return(
 			<div className='auth-form-container'>
       <div className='session-form'>
         <form onSubmit={this.handleSubmit}>
 					<header><h1>{title}</h1></header>
-					<Link to={linkText}></Link>
-          <label htmlFor='username'>Enter Your Email
+          <label htmlFor='username'>Enter Your Username
             <input id='username' type='text'
               onChange={this.handleChange}
               value={this.state.username}></input>

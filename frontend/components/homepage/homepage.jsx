@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import SessionFormContainer from './session_form_container';
 import { Route, Redirect } from 'react-router-dom';
+import LoginHomePageContainer
+  from './../login_homepage/login_homepage_container';
 
 const customStyles = {
   content : {
@@ -33,6 +35,7 @@ class HomePage extends React.Component{
   }
 
   closeModal(e) {
+    this.props.clearErrors();
     this.setState({ isOpen: false });
   }
 
@@ -57,16 +60,12 @@ class HomePage extends React.Component{
   render(){
     if (this.props.currentUser) {
       return (
-        <div>
-          <h1>Welcome, {this.props.currentUser.username}</h1>
-          <button onClick={this.handleClick}>Log Out!</button>
-        </div>
+        <Redirect to="/stream" />
       );
     } else {
       return(
         <div>
           <Modal
-
             onRequestClose={this.closeModal}
             isOpen={this.state.isOpen}
             style={customStyles}
@@ -77,18 +76,17 @@ class HomePage extends React.Component{
           <div className='welcome-pic'>
             <div className='home-logo'>BeatMachine</div>
             <div className='auth-links'>
+              <button className='signin'
+                onClick={this.handleModal}>
+                  Sign in
+              </button>
 
-                <button className='signin'
-                  onClick={this.handleModal}>
-                    Sign in
-                </button>
-
-                <button className='signup'
-                  onClick={this.handleModal}>
-                    Create account
-                </button>
+              <button className='signup'
+                onClick={this.handleModal}>
+                  Create account
+              </button>
             </div>
-              <main>
+              <main className='home-content'>
                 <h1>Connect on BeatMachine</h1>
                 <h2>Discover, stream, and share a constantly
                   expanding mix of beats from emerging and major
