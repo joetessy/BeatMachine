@@ -1,0 +1,109 @@
+.home-logo{
+  font-size:20px;
+}
+
+h1, h2 {
+  color: white;
+  text-align: center;
+}
+
+h1{
+  font-size: 36px;
+  font-weight: lighter;
+  margin-bottom: 8px;
+
+}
+
+h2{
+  font-weight: lighter;
+  font-size: 18px;
+  max-width: 530px;
+  margin-bottom: 10px;
+}
+
+.auth-links{
+  display: flex;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+}
+
+.home-logo{
+  position: absolute;
+  top: 13px;
+  left: 19px;
+  color: white;
+}
+
+.auth-links > a, .auth-links > a:visited, .auth-links > a:hover, .auth-links >a.link{
+  color: white;
+}
+
+.signup{
+  background-color: #f50;
+  height: 30px;
+  padding: 0 16px;
+  color: white;
+  line-height: 20px;
+  text-align: center;
+  border: 0;
+  font-size: 14px;
+  font-family: interstateplus;
+  font-weight: lighter;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.signin{
+  margin-right: 6px;
+  background-color: transparent;
+  height: 30px;
+  padding: 0 15px;
+  line-height: 20px;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  font-weight: lighter;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: interstateplus;
+  border-radius: 3px;
+}
+.signup:focus, .signin:focus, .signup-main:focus {outline:0;}
+
+.welcome-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1080px;
+  margin: auto;
+  height: 450px;
+  position: relative;
+  background-color: green;
+  background: url(https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg) 0 0/cover no-repeat;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orange-bar{
+  height: 5px;
+  width: 1080px;
+  margin: auto;
+  background-color: #f50;
+}
+
+.signup-main{
+  margin-top: 17px;
+  font-size: 18px;
+  min-width: 210px;
+  height: 46px;
+  background-color: #f50;
+  border-radius: 3px;
+  border: 0;
+  color: white;
+}

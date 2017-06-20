@@ -24,9 +24,33 @@ class Greeting extends React.Component{
     } else {
       return(
         <div>
-          <Link to='/signup'>Sign Up</Link>
-          <br/>
-          <Link to='/login'>Log In</Link>
+          <div className='orange-bar'></div>
+          <div className='welcome-pic'>
+            <div className='home-logo'>BeatMachine</div>
+            <div className='auth-links'>
+              <Link className='login'
+                to='/login'>
+                <button className='signin'>
+                  Sign in
+                </button>
+              </Link>
+
+              <Link className='create-account'
+                to='/signup'>
+                <button className='signup'>Create account</button>
+              </Link>
+            </div>
+              <main>
+                <h1>Connect on BeatMachine</h1>
+                <h2>Discover, stream, and share a constantly
+                  expanding mix of beats from emerging and major
+                  artists around the world.</h2>
+                  <Link className='create-account'
+                    to='/signup'>
+                    <button className='signup-main'>Sign up for free</button>
+                  </Link>
+              </main>
+          </div>
         </div>
       );
     }

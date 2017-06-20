@@ -1,0 +1,12 @@
+body, div, li, ul, a {
+  padding: inherit;
+  margin: inherit;
+  text-decoration: none;
+  list-style: none;
+  font-family: interstateplus;
+  font-weight: lighter;
+}
+
+body{
+  background-color: #f2f2f2;
+}
