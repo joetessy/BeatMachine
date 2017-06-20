@@ -19,7 +19,7 @@ const customStyles = {
 class HomePage extends React.Component{
   constructor(props){
     super(props);
-    this.state = { isOpen: false, redirect: false };
+    this.state = { isOpen: false};
     this.handleClick = this.handleClick.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -32,7 +32,7 @@ class HomePage extends React.Component{
 
   closeModal(e) {
     e.preventDefault();
-    this.setState({ isOpen: false });
+    this.setState({ isOpen: false, redirect: true });
   }
 
   openModal(e){
@@ -41,12 +41,10 @@ class HomePage extends React.Component{
   }
 
   componentWillMount(){
-    this.setState({redirect: false});
     Modal.setAppElement('body');
   }
 
   render(){
-
     if (this.props.currentUser) {
       return (
         <div>
@@ -62,8 +60,7 @@ class HomePage extends React.Component{
             isOpen={this.state.isOpen}
             style={customStyles}
             contentLabel="Modal">
-            <AuthRoute path="/login" component={SessionFormContainer} />
-            <AuthRoute path="/signup" component={SessionFormContainer} />
+            <SessionFormContainer></SessionFormContainer>
           </Modal>
           <div className='orange-bar'></div>
           <div className='welcome-pic'>
@@ -72,8 +69,7 @@ class HomePage extends React.Component{
 
                 <button onClick={this.openModal}
                   className='signin'>
-                  <Link className='login'
-                    to='/login'>
+                  <Link className='login'to='/login'>
                     Sign in
                   </Link>
                 </button>
@@ -93,8 +89,7 @@ class HomePage extends React.Component{
                   artists around the world.</h2>
                 <button onClick={this.openModal}
                   className='signup-main'>
-                  <Link className='create-account'
-                    to='/signup'>
+                  <Link className='create-account' to='/signup'>
                     Sign up for free
                   </Link>
                 </button>

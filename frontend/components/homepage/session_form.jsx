@@ -40,9 +40,7 @@ class SessionForm extends React.Component {
 				buttonText = 'Continue';
 				pwText = 'Choose a password';
 			break;
-
 		}
-
     let errors = (this.props.errors) ? this.props.errors.join(", ") : null;
     const linkText = this.props.formType === 'login' ? '/signup' : '/login';
     return(
