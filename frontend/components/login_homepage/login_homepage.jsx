@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
 import { Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './../navbar/navbar_container';
 
@@ -27,7 +26,7 @@ class LoginHomePage extends React.Component{
         <div>
           <NavBarContainer />
           <div className='login-home-container'>
-            <p>Stream</p>
+            <h2>Stream</h2>
           </div>
         </div>
       );

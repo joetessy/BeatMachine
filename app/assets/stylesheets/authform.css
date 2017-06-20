@@ -3,7 +3,30 @@
   text-align: center;
   margin: 0 auto;
   justify-content: space-around;
+  height: 500px;
 }
+
+.modal-content{
+  width: 430px;
+  margin: 10% auto;
+}
+
+.transform-active{
+  width: 430px;
+  margin: -50% auto;
+}
+
+.modal-content:focus{outline:0;}
+
+.transform {
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+
 
 .session-form{
   width: 350px;
@@ -16,7 +39,8 @@
 
 .session-form > form > header > h1 {
   color: black;
-  font-size: 30px;
+  font-size: 31px;
+  padding-top: 25px;
 }
 
 .session-form > form{
@@ -49,6 +73,5 @@ form > label{
   line-height: 18px;
   padding: 10px 15px;
   height: 40px;
-
 }
 .session-form input:focus {outline:0;}

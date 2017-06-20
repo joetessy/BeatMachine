@@ -5,19 +5,8 @@ import SessionFormContainer from './session_form_container';
 import { Route, Redirect } from 'react-router-dom';
 import LoginHomePageContainer
   from './../login_homepage/login_homepage_container';
-
-const customStyles = {
-  content : {
-    top                   : '40%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    border                : '0px',
-
-  }
-};
+import { findDOMNode } from 'react-dom';
+import $ from 'jquery';
 
 class HomePage extends React.Component{
   constructor(props){
@@ -35,12 +24,19 @@ class HomePage extends React.Component{
   }
 
   closeModal(e) {
+    if (this.state.isOpen){
+      $('.transform').toggleClass('transform-active');
+    }
     this.props.clearErrors();
-    this.setState({ isOpen: false });
+    let that = this;
+    setTimeout(function(){
+      that.setState({ isOpen: false });
+    }, 300);
   }
 
   openModal(){
     this.setState({ isOpen: true });
+    $('.transform').toggleClass('transform-active');
   }
 
   componentWillMount(){
@@ -68,9 +64,9 @@ class HomePage extends React.Component{
           <Modal
             onRequestClose={this.closeModal}
             isOpen={this.state.isOpen}
-            style={customStyles}
+            className='modal-content transform'
             contentLabel="Modal">
-            <SessionFormContainer/>
+            <SessionFormContainer isOpen={this.state.isOpen}/>
           </Modal>
           <div className='orange-bar'></div>
           <div className='welcome-pic'>

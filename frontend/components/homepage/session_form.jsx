@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { findDOMNode } from 'react-dom';
+import $ from 'jquery';
 
 
 class SessionForm extends React.Component {
@@ -27,6 +29,13 @@ class SessionForm extends React.Component {
   handleChange(e){
     this.setState({ [e.currentTarget.id]: e.currentTarget.value});
   }
+
+	componentDidMount(){
+		if (this.props.isOpen){
+			$('.transform').toggleClass('transform-active');
+		}
+	}
+
 
 
   render(){

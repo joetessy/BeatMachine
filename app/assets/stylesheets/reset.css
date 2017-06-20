@@ -1,6 +1,6 @@
-body, div, li, ul, a, p {
-  padding: inherit;
-  margin: inherit;
+body, li, ul, div, a, p {
+  padding: 0;
+  margin: 0;
   text-decoration: none;
   list-style: none;
   font-family: interstateplus;
