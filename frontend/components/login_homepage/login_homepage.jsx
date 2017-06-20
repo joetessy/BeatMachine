@@ -27,7 +27,7 @@ class LoginHomePage extends React.Component{
         <div>
           <NavBarContainer />
           <div className='login-home-container'>
-            
+            <p>Stream</p>
           </div>
         </div>
       );

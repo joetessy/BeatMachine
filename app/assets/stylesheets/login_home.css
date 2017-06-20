@@ -5,3 +5,13 @@
   margin: auto;
   height: 100vh;
 }
+
+.login-home-container > p {
+  color: #f50;
+  border-bottom: 2px solid #f50;
+  text-align: left;
+  padding-top: 10px;
+  margin: 30px;
+  width: 120px;
+  font-size:30px;
+}
