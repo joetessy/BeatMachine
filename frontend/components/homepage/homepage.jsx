@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import SessionFormContainer from './session_form_container';
-import { AuthRoute } from './../../util/route_util';
 import { Route, Redirect } from 'react-router-dom';
 
 const customStyles = {
@@ -23,6 +22,7 @@ class HomePage extends React.Component{
     this.handleClick = this.handleClick.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   handleClick(e){
@@ -31,17 +31,25 @@ class HomePage extends React.Component{
   }
 
   closeModal(e) {
-    e.preventDefault();
     this.setState({ isOpen: false, redirect: true });
   }
 
-  openModal(e){
-    e.preventDefault();
+  openModal(){
     this.setState({ isOpen: true });
   }
 
   componentWillMount(){
     Modal.setAppElement('body');
+  }
+
+  handleModal(e){
+    if (e.currentTarget.textContent === 'Sign up for free' ||
+      e.currentTarget.textContent === 'Create account'){
+      this.props.signupForm();
+    } else if (e.currentTarget.textContent === 'Sign in'){
+      this.props.loginForm();
+    }
+    this.openModal();
   }
 
   render(){
@@ -60,26 +68,21 @@ class HomePage extends React.Component{
             isOpen={this.state.isOpen}
             style={customStyles}
             contentLabel="Modal">
-            <SessionFormContainer></SessionFormContainer>
+            <SessionFormContainer/>
           </Modal>
           <div className='orange-bar'></div>
           <div className='welcome-pic'>
             <div className='home-logo'>BeatMachine</div>
             <div className='auth-links'>
 
-                <button onClick={this.openModal}
-                  className='signin'>
-                  <Link className='login'to='/login'>
+                <button className='signin'
+                  onClick={this.handleModal}>
                     Sign in
-                  </Link>
                 </button>
 
-                <button onClick={this.openModal}
-                  className='signup'>
-                  <Link className='create-account'
-                    to='/signup'>
+                <button className='signup'
+                  onClick={this.handleModal}>
                     Create account
-                  </Link>
                 </button>
             </div>
               <main>
@@ -87,11 +90,9 @@ class HomePage extends React.Component{
                 <h2>Discover, stream, and share a constantly
                   expanding mix of beats from emerging and major
                   artists around the world.</h2>
-                <button onClick={this.openModal}
-                  className='signup-main'>
-                  <Link className='create-account' to='/signup'>
+                <button className='signup-main'
+                  onClick={this.handleModal}>
                     Sign up for free
-                  </Link>
                 </button>
               </main>
           </div>

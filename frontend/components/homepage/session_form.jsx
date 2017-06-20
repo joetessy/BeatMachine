@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
 		let title = null;
 		let buttonText = null;
 		let pwText = null;
-		switch(this.props.formType){
+		switch(this.props.type){
 			case 'login':
 				title = 'Sign in to BeatMachine';
 				buttonText = 'Sign In';

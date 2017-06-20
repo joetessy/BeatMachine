@@ -1,6 +1,7 @@
 import HomePage from "./homepage";
 import { connect } from "react-redux";
 import { logout } from './../../actions/session_actions';
+import { signupForm, loginForm } from './../../actions/modal_actions';
 
 
 const mapStateToProps = ({session: {currentUser}}) => {
@@ -11,7 +12,9 @@ const mapStateToProps = ({session: {currentUser}}) => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    signupForm: () => dispatch(signupForm()),
+    loginForm: () => dispatch(loginForm())
   });
 };
 
