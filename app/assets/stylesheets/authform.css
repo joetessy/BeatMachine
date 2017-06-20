@@ -1,0 +1,52 @@
+.auth-form-container{
+  background-color: white;
+  text-align: center;
+  border: 1px solid black;
+  width: 500px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.session-form{
+  width: 400px;
+  height: 520px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.session-form > form{
+  display: flex;
+  flex-direction: column;
+  padding-top: 0px;
+  height: 56%;
+  justify-content: space-around;
+}
+
+form > label{
+  display: flex;
+  flex-direction: column;
+}
+
+.session-form input {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 7px 8px;
+  border-radius: 5px;
+}
+
+.session-form input[type=submit] {
+  background-color: #f50;
+  color: white;
+  border-width: 0;
+  height: 40px;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px 15px;
+  height: 40px;
+
+}
+
+.session-form input:focus {outline:0;}

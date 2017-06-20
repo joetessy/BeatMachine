@@ -1,4 +1,4 @@
-import Greeting from "./greeting";
+import HomePage from "./homepage";
 import { connect } from "react-redux";
 import { logout } from './../../actions/session_actions';
 
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Greeting);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

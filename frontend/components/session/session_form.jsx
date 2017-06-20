@@ -26,27 +26,47 @@ class SessionForm extends React.Component {
   }
 
   render(){
+		let title = null;
+		let buttonText = null;
+		let pwText = null;
+		switch(this.props.formType){
+			case 'login':
+				title = 'Sign in to BeatMachine';
+				buttonText = 'Sign In';
+				pwText = 'Enter Your Password';
+				break;
+			case 'signup':
+				title = 'Create your BeatMachine Account';
+				buttonText = 'Continue';
+				pwText = 'Choose a password';
+			break;
+
+		}
+
     let errors = (this.props.errors) ? this.props.errors.join(", ") : null;
     const linkText = this.props.formType === 'login' ? '/signup' : '/login';
     return(
+			<div className='auth-form-container'>
       <div className='session-form'>
-        <header>{this.props.formType}</header>
-        <Link to={linkText}></Link>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='username'>Username:</label>
+					<header>{title}</header>
+					<Link to={linkText}></Link>
+          <label htmlFor='username'>Enter Your Email
             <input id='username' type='text'
               onChange={this.handleChange}
               value={this.state.username}></input>
+					</label>
+					<label htmlFor='password'>{pwText}
+          	<input id='password' type='password'
+            	onChange={this.handleChange}
+            	value={this.state.password}></input>
+					</label>
 
-            <label htmlFor='password'>Password:</label>
-            <input id='password' type='password'
-              onChange={this.handleChange}
-              value={this.state.password}></input>
-
-            <input type='submit' value={this.props.formType}/>
+						<input type='submit' value={buttonText}/>
         </form>
         <p>{errors}</p>
       </div>
+			</div>
     );
   }
 }
