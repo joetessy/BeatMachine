@@ -29,9 +29,9 @@
 
 ### Comments
 
-- `GET /api/comments`
-- `POST /api/comments`
-- `DELETE /api/comments/:id`
+- `GET /api/tracks/comments`
+- `POST /api/tracks/comments`
+- `DELETE /api/tracks/comments/:id`
 
 ### BONUS:
 

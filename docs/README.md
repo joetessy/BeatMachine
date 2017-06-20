@@ -38,7 +38,7 @@ React/Redux. It will have the following features.
 
 ## Implementation Timeline
 
-### Phase 1: Backend and Front End User Authentication (2 days)
+### Phase 1: Backend and Front End User Authentication (1 day)
 
 **Objective:** Functioning rails project with front-end authentication
 

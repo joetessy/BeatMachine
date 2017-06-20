@@ -4,11 +4,6 @@
     id: 100,
     username: 'joeTessyRules'
   },
-  forms: {
-    signUp: {errors: [] },
-    logIn: { errors: [] },
-    uploadTrack: { errors: ['Track name can't be blank!] }
-  }
   currentlyPlaying: {
     2: {
       title: 'Since I've Been Loving You,

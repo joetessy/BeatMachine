@@ -9,7 +9,6 @@ username        | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-profile_img     | string    |
 location        | string    |
 
 ## tracks
@@ -18,8 +17,6 @@ column name   | data type | details
 id            | integer   | not null, primary key
 title         | string    | not null
 artist_id     | text      | not null, foreign key (references users)
-track_url     | string    | not null
-image_url     | string    |
 description   | string    |
 
 ## comments
