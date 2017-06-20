@@ -54,6 +54,11 @@ h2{
   border-radius: 3px;
   box-sizing: border-box;
 }
+.signup > a, .signin > a, .signup-main > a {
+  color:white;
+  padding: 0;
+  margin: 0;
+}
 
 .signin{
   margin-right: 6px;
@@ -70,7 +75,8 @@ h2{
   font-family: interstateplus;
   border-radius: 3px;
 }
-.signup:focus, .signin:focus, .signup-main:focus {outline:0;}
+.signup:focus, .signin:focus, .signup-main:focus,
+.signup > a:focus, .signin > a:focus, .create-account {outline:0;}
 
 .welcome-pic{
   display: flex;

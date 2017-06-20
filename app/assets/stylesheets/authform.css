@@ -1,8 +1,6 @@
 .auth-form-container{
   background-color: white;
   text-align: center;
-  border: 1px solid black;
-  width: 500px;
   margin: 0 auto;
   justify-content: space-around;
 }
