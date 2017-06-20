@@ -11,11 +11,14 @@ const mapStateToProps = ({session, modal}) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, { history }) => {
-
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    login: (u) => dispatch(login(u)),
+    signup: (u) => dispatch(signup(u))
+  });
 };
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(SessionForm);

@@ -6,12 +6,14 @@ import { Route, Redirect } from 'react-router-dom';
 
 const customStyles = {
   content : {
-    top                   : '50%',
+    top                   : '40%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    border                : '0px',
+
   }
 };
 
@@ -31,7 +33,7 @@ class HomePage extends React.Component{
   }
 
   closeModal(e) {
-    this.setState({ isOpen: false, redirect: true });
+    this.setState({ isOpen: false });
   }
 
   openModal(){
@@ -64,6 +66,7 @@ class HomePage extends React.Component{
       return(
         <div>
           <Modal
+
             onRequestClose={this.closeModal}
             isOpen={this.state.isOpen}
             style={customStyles}

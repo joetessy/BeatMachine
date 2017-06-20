@@ -16,7 +16,11 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm({user});
+		if (this.props.type === 'login'){
+			this.props.login({user});
+		} else {
+			this.props.signup({user});
+		}
     this.setState({username: '', password: '' });
   }
 
@@ -47,7 +51,7 @@ class SessionForm extends React.Component {
 			<div className='auth-form-container'>
       <div className='session-form'>
         <form onSubmit={this.handleSubmit}>
-					<header>{title}</header>
+					<header><h1>{title}</h1></header>
 					<Link to={linkText}></Link>
           <label htmlFor='username'>Enter Your Email
             <input id='username' type='text'

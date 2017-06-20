@@ -6,20 +6,25 @@
 }
 
 .session-form{
-  width: 400px;
-  height: 520px;
+  width: 350px;
+  height: 450px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;
 }
 
+.session-form > form > header > h1 {
+  color: black;
+  font-size: 30px;
+}
+
 .session-form > form{
   display: flex;
   flex-direction: column;
   padding-top: 0px;
-  height: 56%;
-  justify-content: space-around;
+  height: 100%;
+  justify-content: space-between;
 }
 
 form > label{
@@ -46,5 +51,4 @@ form > label{
   height: 40px;
 
 }
-
 .session-form input:focus {outline:0;}
