@@ -31,12 +31,11 @@ class HomePage extends React.Component{
     let that = this;
     setTimeout(function(){
       that.setState({ isOpen: false });
-    }, 300);
+    }, 400);
   }
 
   openModal(){
     this.setState({ isOpen: true });
-    $('.transform').toggleClass('transform-active');
   }
 
   componentWillMount(){

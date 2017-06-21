@@ -18,12 +18,15 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+
+		const doIt = () => {
 		if (this.props.type === 'login'){
 			this.props.login({user});
 		} else {
 			this.props.signup({user});
 		}
     this.setState({username: '', password: '' });
+		};
   }
 
   handleChange(e){
@@ -73,8 +76,10 @@ class SessionForm extends React.Component {
 
 						<input type='submit' value={buttonText}/>
         </form>
-        <p>{errors}</p>
-      </div>
+					<div className='error-container'>
+					<p className='errors'>{errors}</p>
+					</div>
+      	</div>
 			</div>
     );
   }

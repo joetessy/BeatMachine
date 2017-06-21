@@ -13,7 +13,7 @@
 
 .transform-active{
   width: 430px;
-  margin: -50% auto;
+  margin: -60% auto;
 }
 
 .modal-content:focus{outline:0;}
@@ -35,6 +35,7 @@
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .session-form > form > header > h1 {
@@ -67,11 +68,21 @@ form > label{
   background-color: #f50;
   color: white;
   border-width: 0;
-  height: 40px;
   border-radius: 3px;
   font-size: 16px;
   line-height: 18px;
   padding: 10px 15px;
   height: 40px;
+  margin-bottom: 30px;
 }
 .session-form input:focus {outline:0;}
+
+
+.error-container{
+  height: 35px;
+  width: 100%;
+}
+
+.errors{
+  text-align: center;
+}
