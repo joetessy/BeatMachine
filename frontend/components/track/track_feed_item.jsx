@@ -18,7 +18,7 @@ const TrackFeedItem = ({track}) => {
           </div>
         </div>
           <div className='track-waveform'>
-            <ReactHowler src={track.audio_url}/>
+
           </div>
       </div>
     </div>

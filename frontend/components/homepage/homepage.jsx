@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import SessionFormContainer from './session_form_container';
 import { Route, Redirect } from 'react-router-dom';

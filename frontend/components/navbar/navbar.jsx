@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const handleClick = (e, logout) => {
@@ -18,13 +19,17 @@ const NavBar = ({currentUser, logout}) => {
                 Upload
               </div>
               <div className='right-item user'>
+                <Link to={`/${currentUser.username}`}>
                 <div className='thumbnail-container'>
                 <img className='thumbnail'
                   src={currentUser.image_url} />
                 </div>
-              <div className='username'>
-                {currentUser.username}
-              </div>
+
+
+                <div className='username'>
+                  {currentUser.username}
+                </div>
+                </Link>
               </div>
               <button className='logout-navbar right-item'
                 onClick={(e) => handleClick(e, logout)}>Log Out!</button>

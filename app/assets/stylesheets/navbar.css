@@ -61,6 +61,10 @@
 .right-item{
   margin-left: 20px;
 }
+.right-item > a {
+  display: flex;
+  align-items: center;
+}
 
 .upload-link{
   color: #ccc;
