@@ -9,26 +9,45 @@ class SessionForm extends React.Component {
 		super(props);
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			imageFile: null,
+			imageUrl: null
 		};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+		this.updateFile = this.updateFile.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
 		if (this.props.type === 'login'){
-			this.props.login({user});
+			this.props.login({user})
+				.then(() => this.setState({username: '', password: '' }));
 		} else {
-			this.props.signup({user});
+			let formData = new FormData();
+				formData.append('user[username]', this.state.username);
+				formData.append('user[password]', this.state.password);
+				formData.append('user[avatar]', this.state.imageFile);
+				this.props.signup(formData)
+					.then(() => this.setState({username: '', password: '' }));
 		}
-    this.setState({username: '', password: '' });
   }
 
   handleChange(e){
     this.setState({ [e.currentTarget.id]: e.currentTarget.value});
   }
+
+	updateFile(e){
+		const file = e.currentTarget.files[0];
+		const fileReader = new FileReader();
+		fileReader.onloadend = function(){
+			this.setState({imageFile: file, imageUrl: fileReader.result});
+		}.bind(this);
+		if (file){
+			fileReader.readAsDataURL(file);
+		}
+	}
 
 	componentDidMount(){
 		if (this.props.isOpen){
@@ -42,6 +61,7 @@ class SessionForm extends React.Component {
 		let title = null;
 		let buttonText = null;
 		let pwText = null;
+		let imageInput = () => {return null;};
 		switch(this.props.type){
 			case 'login':
 				title = 'Sign in to BeatMachine';
@@ -52,6 +72,19 @@ class SessionForm extends React.Component {
 				title = 'Create your BeatMachine Account';
 				buttonText = 'Continue';
 				pwText = 'Choose a password';
+				imageInput = () => {
+					return (
+						<div className='image-input'>
+						<label className='file-container'
+							htmlFor='image'>Upload Profile Image
+							<input type='file' onChange={this.updateFile} />
+							</label>
+							<div className='img-cropper'>
+								<img src={this.state.imageUrl}/>
+							</div>
+						</div>
+					);
+				};
 			break;
 		}
     let errors = (this.props.errors) ? this.props.errors.join(", ") : null;
@@ -70,8 +103,8 @@ class SessionForm extends React.Component {
             	onChange={this.handleChange}
             	value={this.state.password}></input>
 					</label>
-
-						<input type='submit' value={buttonText}/>
+					{imageInput()}
+					<input type='submit' value={buttonText}/>
         </form>
 					<div className='error-container'>
 					<p className='errors'>{errors}</p>

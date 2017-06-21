@@ -71,11 +71,21 @@
   cursor: pointer;
 }
 
-.thumbnail{
-  height: 30px;
+.thumbnail-container{
+  width: 26px;
+  height: 26px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
+  margin: 0 auto;
 }
 
+.thumbnail-container > img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
 .user{
   display: flex;
   align-items: center;

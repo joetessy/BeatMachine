@@ -18,8 +18,10 @@ const NavBar = ({currentUser, logout}) => {
                 Upload
               </div>
               <div className='right-item user'>
+                <div className='thumbnail-container'>
                 <img className='thumbnail'
                   src={currentUser.image_url} />
+                </div>
               <div className='username'>
                 {currentUser.username}
               </div>

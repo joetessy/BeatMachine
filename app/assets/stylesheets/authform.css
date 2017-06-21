@@ -30,7 +30,7 @@
 
 .session-form{
   width: 350px;
-  height: 450px;
+  height: 600px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -85,4 +85,44 @@ form > label{
 
 .errors{
   text-align: center;
+}
+
+.img-cropper{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 16px auto;
+}
+
+.img-cropper > img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.file-container [type=file] {
+  bottom: 247px;
+  opacity: 0;
+  width: 341px;
+  height: 38px;
+  position: absolute;
+  right: -2px;
+}
+
+.file-container{
+  border: 1px solid rgba(128, 128, 128, 0.48);
+  border-radius: 8px;
+  padding: 13px 98px;
+}
+
+.file-container:hover {
+  border: 1px solid black;
+}
+.image-input{
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
 }

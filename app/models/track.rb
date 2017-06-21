@@ -21,12 +21,15 @@
 class Track < ApplicationRecord
   validates :title, :artist_id, presence: true
   has_attached_file :image, styles: { medium: "300x300", thumb: "100x100" }, default_url: 'chicken.jpg'
-  has_attached_file :audio
-  validates_attachment_presence :audio, :image
-  validates_image_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates_attachment_content_type :mp3, content_type: [ 'application/mp3', 'application/x-mp3', 'audio/mpeg', 'audio/mp3' ]
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  beglongs_to :artist,
+  has_attached_file :audio
+  validates_attachment_content_type :audio, :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
+
+
+
+
+  belongs_to :artist,
   class_name: :User,
   primary_key: :id,
   foreign_key: :artist_id
