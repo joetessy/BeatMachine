@@ -53,6 +53,7 @@ h2{
   font-weight: lighter;
   border-radius: 3px;
   box-sizing: border-box;
+
 }
 .signup > a, .signin > a, .signup-main > a {
   color:white;
@@ -70,7 +71,7 @@ h2{
   padding: 0 15px;
   line-height: 32px;
   color: white;
-  border: 1px solid white;
+  border: 1px solid #e5e5e5;
   text-align: center;
   font-weight: lighter;
   box-sizing: border-box;
@@ -78,6 +79,10 @@ h2{
   font-family: interstateplus;
   border-radius: 3px;
 }
+.signin:hover{
+  border-color: white;
+}
+
 .signup:focus, .signin:focus, .signup-main:focus,
 .signup > a:focus, .signin > a:focus, .create-account {outline:0;}
 
