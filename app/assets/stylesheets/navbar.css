@@ -26,7 +26,12 @@
 
 .username{
   padding: 0 10px;
+  color: #ccc;
+}
+
+.username:hover{
   color: white;
+  cursor: pointer;
 }
 
 .logout-navbar{
