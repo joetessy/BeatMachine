@@ -53,6 +53,9 @@
   display: flex;
 }
 
+.right-item{
+  margin-left: 20px;
+}
 
 .upload-link{
   color: #ccc;
@@ -61,4 +64,14 @@
 .upload-link:hover{
   color: white;
   cursor: pointer;
+}
+
+.thumbnail{
+  height: 30px;
+  border-radius: 50%;
+}
+
+.user{
+  display: flex;
+  align-items: center;
 }

@@ -17,10 +17,14 @@ const NavBar = ({currentUser, logout}) => {
               <div className='upload-link'>
                 Upload
               </div>
+              <div className='right-item user'>
+                <img className='thumbnail'
+                  src={currentUser.image_url} />
               <div className='username'>
-                Welcome, {currentUser.username}
+                {currentUser.username}
               </div>
-              <button className='logout-navbar'
+              </div>
+              <button className='logout-navbar right-item'
                 onClick={(e) => handleClick(e, logout)}>Log Out!</button>
             </div>
           </div>

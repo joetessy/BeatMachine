@@ -27,6 +27,7 @@ class LoginHomePage extends React.Component{
           <NavBarContainer />
           <div className='login-home-container'>
             <h2>Stream</h2>
+            <img src={this.props.currentUser.image_url}/>
           </div>
         </div>
       );
