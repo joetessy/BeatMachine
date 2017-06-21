@@ -1,0 +1,51 @@
+
+
+.track-body{
+  margin: 20px;
+  height: 168px;
+  display: flex;
+}
+
+.track-image{
+  height: 168px;
+}
+
+.track-content{
+  padding-left: 10px;
+  display: flex;
+}
+
+.track-header{
+  display: flex;
+}
+
+.track-metadata{
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-artist{
+  color: #999;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.track-title{
+  font-size: 15px;
+  line-height: 1.2;
+  color: #333;
+}
+
+.play-button{
+  opacity: 0.9;
+  background-color: #f50;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  transition: opacity, .3s;
+}
+
+.play-button:hover{
+  opacity: 1;
+}

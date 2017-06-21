@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './../navbar/navbar_container';
+import TrackStreamContainer from './../track/track_stream_container';
 
 
 class LoginHomePage extends React.Component{
@@ -27,6 +28,9 @@ class LoginHomePage extends React.Component{
           <NavBarContainer />
           <div className='login-home-container'>
             <h2>Stream</h2>
+            <div className='TrackFeed'>
+              <TrackStreamContainer/>
+            </div>
           </div>
         </div>
       );
