@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { clearErrors } from "./actions/session_actions";
+import { requestTracks } from "./actions/track_actions";
 import { AuthRoute } from './util/route_util';
 
-window.clearErrors = clearErrors;
+window.requestTracks = requestTracks;
 window.store = configureStore();
 
 
