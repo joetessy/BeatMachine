@@ -59,6 +59,9 @@ h2{
   padding: 0;
   margin: 0;
 }
+.signup:hover, .signin:hover, .signup-main:hover{
+  cursor: pointer;
+}
 
 .signin{
   margin-right: 6px;
