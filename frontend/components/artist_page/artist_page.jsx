@@ -10,7 +10,7 @@ class ArtistPage extends React.Component{
     super(props);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.props.requestArtist(this.props.match.params.username);
   }
 
