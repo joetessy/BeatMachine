@@ -1,5 +1,8 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container.jsx';
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
 
 class UploadTrackForm extends React.Component {
   constructor(props){
@@ -48,13 +51,19 @@ class UploadTrackForm extends React.Component {
     e.preventDefault();
     const track = Object.assign({}, this.state);
     let formData = new FormData();
-      formData.append('track[title]', this.state.title);
-      formData.append('track[artist_id]', this.props.currentUser.id);
-      formData.append('track[image]', this.state.imageFile);
-      formData.append('track[audio]', this.state.audioFile);
-      this.props.createTrack(formData)
-        .then(() => this.setState({title: '', description: ''}));
+    formData.append('track[title]', this.state.title);
+    formData.append('track[artist_id]', this.props.currentUser.id);
+    formData.append('track[image]', this.state.imageFile);
+    formData.append('track[audio]', this.state.audioFile);
+    this.props.createTrack(formData).then(() => {
+      this.setState({title: '', description: ''});
+    });
+    debugger;
+
   }
+
+
+
   render(){
     return(
       <div>
@@ -91,4 +100,4 @@ class UploadTrackForm extends React.Component {
   }
 }
 
-export default UploadTrackForm;
+export default withRouter(UploadTrackForm);
