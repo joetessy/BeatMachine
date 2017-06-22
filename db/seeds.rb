@@ -33,10 +33,10 @@ artists = User.create!([
 
 tracks = Track.create([
   {
-    title: 'Super Crip',
+    title: 'Gin N Juice',
     artist_id: artists[0].id,
     description: 'Another dope track by Snoop',
-    audio: File.open('app/assets/tracks/supercrip.mp3')
+    audio: File.open('app/assets/tracks/ginNjuice.mp3')
   },
   {
     title: 'Drop It Like It\'s Hot',
