@@ -1,8 +1,6 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NavBarContainer from './../navbar/navbar_container';
-import ArtistTrackStreamContainer
-  from './../track/artist_track_stream_container';
 import TrackFeed from './../track/track_feed';
 
 
@@ -32,7 +30,17 @@ class ArtistPage extends React.Component{
         <NavBarContainer />
         <div className='login-home-container'>
           <div className='profile-header'>
+            <div className='profile-header-content'>
             {image}
+            <div className='artist-metadata'>
+              <div className='artist-name'>
+                {this.props.artist.username}
+              </div>
+              <div className='artist-location'>
+                <p>{this.props.artist.location}</p>
+              </div>
+            </div>
+          </div>
           </div>
           <h2>All</h2>
           <div className='TrackFeed'>

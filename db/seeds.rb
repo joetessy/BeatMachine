@@ -1,25 +1,33 @@
 User.destroy_all
+User.reset_pk_sequence
+
 Track.destroy_all
+Track.reset_pk_sequence
+
 
 artists = User.create!([
   {
-    username: 'snoopdogg',
+    username: 'SnoopDogg',
     password: 'password',
+    location: 'Compton',
     avatar: File.open('app/assets/images/snoopdogg.jpg')
   },
   {
-    username: 'flyinglotus',
+    username: 'FlyingLotus',
     password: 'password',
+    location: 'LA',
     avatar: File.open('app/assets/images/flyinglotus.jpg')
   },
   {
-    username: 'quasimoto',
+    username: 'Quasimoto',
     password: 'password',
+    location: 'cloud 9',
     avatar: File.open('app/assets/images/quasimoto.jpg')
   },
   {
-    username: 'madlib',
+    username: 'Madlib',
     password: 'password',
+    location: 'tha bombshelter',
     avatar: File.open('app/assets/images/madlib.jpg')
   }])
 
@@ -49,7 +57,7 @@ tracks = Track.create([
     audio: File.open('app/assets/tracks/microphonemathematics.mp3')
   },
   {
-    title: 'Conducted Rhythems',
+    title: 'Conducted Rhythms',
     artist_id: artists[3].id,
     description: 'Chill to this!',
     audio: File.open('app/assets/tracks/conductedrhythms.mp3')

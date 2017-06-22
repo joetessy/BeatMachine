@@ -17,9 +17,11 @@ const NavBar = ({currentUser, logout}) => {
               </Link>
             </div>
             <div className='navbar-right'>
+              <Link to='/upload'>
               <div className='upload-link'>
                 Upload
               </div>
+            </Link>
               <div className='right-item user'>
                 <Link to={`/${currentUser.username}`}>
                 <div className='thumbnail-container'>

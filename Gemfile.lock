@@ -33,6 +33,7 @@ GEM
       activemodel (= 5.0.3)
       activesupport (= 5.0.3)
       arel (~> 7.0)
+    activerecord-reset-pk-sequence (0.2.1)
     activesupport (5.0.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -196,6 +197,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-reset-pk-sequence
   annotate
   aws-sdk (>= 2.0)
   bcrypt (~> 3.1.7)
@@ -221,4 +223,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
