@@ -20,7 +20,6 @@ export const clearErrors = () => ({
 
 
 export const signup = (user) => dispatch => {
-  debugger;
   return APIUtil.signup(user).then(response => dispatch(receiveCurrentUser(response)) && dispatch(receiveErrors([])),
   error => dispatch(receiveErrors(error.responseJSON)));
 };

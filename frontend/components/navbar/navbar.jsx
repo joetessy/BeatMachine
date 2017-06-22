@@ -7,7 +7,6 @@ const handleClick = (e, logout) => {
 };
 
 const NavBar = ({currentUser, logout}) => {
-  debugger;
   return(
     <div className='navbar'>
       <div className='navbar-container'>

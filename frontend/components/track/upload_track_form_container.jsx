@@ -6,14 +6,13 @@ import UploadTrackForm from './upload_track_form';
 
 
 const mapStateToProps = ({session: currentUser}) => {
-  return {
+  return ({
     currentUser
-  };
+  });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    logout: () => dispatch(logout()),
     createTrack: () => dispatch(createTrack())
   });
 };

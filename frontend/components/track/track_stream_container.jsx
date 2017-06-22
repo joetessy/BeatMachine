@@ -5,7 +5,8 @@ import { selectAllTracks } from './../../reducers/selectors';
 
 
 const mapStateToProps = (state) => ({
-  tracks: selectAllTracks(state)
+  tracks: selectAllTracks(state),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => {
