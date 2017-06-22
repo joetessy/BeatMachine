@@ -1,0 +1,21 @@
+.upload-track-form{
+  width: 1020px;
+  height: 100vh;
+  margin: auto;
+  background-color: white;
+  padding-top: 90px;
+
+}
+
+.form-container > form > h1 {
+  padding-top: 60px;
+  margin: 0;
+  color: black;
+}
+
+.form-container{
+  width: 800px;
+  height: 418px;
+  border: 1px solid #f2f2f2;
+  margin: auto;
+}
