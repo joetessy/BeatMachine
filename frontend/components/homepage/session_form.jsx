@@ -87,7 +87,8 @@ class SessionForm extends React.Component {
 				};
 			break;
 		}
-    let errors = (this.props.errors) ? this.props.errors.join(", ") : null;
+    let errors = (this.props.errors.length > 0) ?
+			this.props.errors.join(", ") : null;
     return(
 			<div className='auth-form-container'>
       <div className='session-form'>

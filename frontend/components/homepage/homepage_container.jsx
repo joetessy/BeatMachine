@@ -1,6 +1,7 @@
 import HomePage from "./homepage";
 import { connect } from "react-redux";
-import { logout, clearErrors } from './../../actions/session_actions';
+import { logout } from './../../actions/session_actions';
+import { clearErrors } from './../../actions/errors_actions';
 import { signupForm, loginForm }
   from './../../actions/modal_actions';
 
