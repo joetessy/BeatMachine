@@ -9,12 +9,8 @@ class LoginHomePage extends React.Component{
   constructor(props){
     super(props);
     this.state = { isOpen: false};
-    this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(e){
-    e.preventDefault();
-    this.props.logout();
-  }
+
 
   render(){
     if (!this.props.currentUser) {
@@ -22,7 +18,6 @@ class LoginHomePage extends React.Component{
         <Redirect to="/" />
       );
     }
-
       return (
         <div>
           <NavBarContainer />

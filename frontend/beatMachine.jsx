@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { requestArtist } from "./actions/artist_actions";
+import { createTrack } from "./actions/track_actions";
 import { AuthRoute } from './util/route_util';
 
-window.requestArtist = requestArtist;
+window.createTrack = createTrack;
 window.store = configureStore();
 
 
