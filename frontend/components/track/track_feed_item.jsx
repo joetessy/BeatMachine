@@ -11,7 +11,8 @@ const TrackFeedItem = ({track}) => {
           <div className='play-button'></div>
           <div className='track-metadata'>
             <div className='track-artist'>
-              <Link to={`/${track.artist}`}>
+              <Link
+                to={`/${track.artist}`}>
               {track.artist}
               </Link>
             </div>

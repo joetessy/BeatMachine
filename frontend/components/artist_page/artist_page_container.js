@@ -1,4 +1,4 @@
-import ProfilePage from "./profile_page";
+import ArtistPage from "./artist_page";
 import { connect } from "react-redux";
 import { logout } from './../../actions/session_actions';
 
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage);

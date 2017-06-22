@@ -1,19 +1,14 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './../navbar/navbar_container';
-import ProfileTrackStreamContainer
-  from './../track/profile_track_stream_container';
+import ArtistTrackStreamContainer
+  from './../track/artist_track_stream_container';
 
 
-class ProfilePage extends React.Component{
+class ArtistPage extends React.Component{
   constructor(props){
     super(props);
-    this.state = { isOpen: false};
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick(e){
-    e.preventDefault();
-    this.props.logout();
+
   }
 
   render(){
@@ -25,7 +20,7 @@ class ProfilePage extends React.Component{
 
           </div>
           <div className='TrackFeed'>
-            <ProfileTrackStreamContainer/>
+            <ArtistTrackStreamContainer/>
           </div>
         </div>
       </div>
@@ -33,4 +28,4 @@ class ProfilePage extends React.Component{
   }
 }
 
-export default ProfilePage;
+export default ArtistPage;
