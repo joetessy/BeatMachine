@@ -2,6 +2,7 @@ import React from 'react';
 import NavBarContainer from '../navbar/navbar_container.jsx';
 import { Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import omit from 'lodash/omit';
 
 
 class UploadTrackForm extends React.Component {
@@ -13,7 +14,8 @@ class UploadTrackForm extends React.Component {
       imageFile: null,
       imageUrl: null,
       audioFile: null,
-      audioUrl: null
+      audioUrl: null,
+      willRedirect: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.updateImage = this.updateImage.bind(this);
@@ -50,21 +52,23 @@ class UploadTrackForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const track = Object.assign({}, this.state);
+    delete track.willRedirect;
     let formData = new FormData();
-    formData.append('track[title]', this.state.title);
+    formData.append('track[title]', track.title);
     formData.append('track[artist_id]', this.props.currentUser.id);
-    formData.append('track[image]', this.state.imageFile);
-    formData.append('track[audio]', this.state.audioFile);
+    formData.append('track[image]', track.imageFile);
+    formData.append('track[audio]', track.audioFile);
     this.props.createTrack(formData).then(() => {
-      this.setState({title: '', description: ''});
+      this.setState({title: '', description: '', willRedirect: true});
     });
-    debugger;
-
   }
 
 
 
   render(){
+    if (this.state.willRedirect === true){
+      return <Redirect to={`/${this.props.currentUser.username}`} />;
+    }
     return(
       <div>
         <NavBarContainer/>
