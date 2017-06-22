@@ -8,10 +8,4 @@ const mapStateToProps = (state, ownProps) => ({
   artist: ownProps.artist
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return ({
-    requestArtist: (artist) => dispatch(requestArtist(artist))
-  });
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TrackFeed);
+export default connect(mapStateToProps, null)(TrackFeed);

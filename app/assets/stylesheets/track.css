@@ -13,6 +13,11 @@
 .track-content{
   padding-left: 10px;
   display: flex;
+  flex-direction: column;
+}
+
+.track-waveform{
+  margin-top: 50px;
 }
 
 .track-header{

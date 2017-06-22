@@ -22,7 +22,9 @@ const TrackFeedItem = ({track}) => {
           </div>
         </div>
           <div className='track-waveform'>
-
+            <audio controls="controls">
+              <source src={track.audio_url} />
+            </audio>
           </div>
       </div>
     </div>

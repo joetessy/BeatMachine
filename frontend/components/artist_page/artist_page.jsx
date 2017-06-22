@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './../navbar/navbar_container';
 import ArtistTrackStreamContainer
   from './../track/artist_track_stream_container';
+import TrackFeed from './../track/track_feed';
 
 
 class ArtistPage extends React.Component{
@@ -35,7 +36,7 @@ class ArtistPage extends React.Component{
           </div>
           <h2>All</h2>
           <div className='TrackFeed'>
-            <ArtistTrackStreamContainer artist={this.props.artist}/>
+            <TrackFeed artist={this.props.artist}/>
           </div>
         </div>
       </div>
