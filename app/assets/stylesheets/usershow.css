@@ -2,4 +2,14 @@
   height: 260px;
   width: 100%;
   background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profile-header > img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 0 30px;
 }
