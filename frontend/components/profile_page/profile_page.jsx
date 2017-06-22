@@ -17,10 +17,20 @@ class ProfilePage extends React.Component{
   }
 
   render(){
-      return (
-        <div>Hi</div>
-      );
-    }
+    return (
+      <div>
+        <NavBarContainer />
+        <div className='login-home-container'>
+          <div className='profile-header'>
+
+          </div>
+          <div className='TrackFeed'>
+            <ProfileTrackStreamContainer/>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default ProfilePage;

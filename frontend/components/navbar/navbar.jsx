@@ -12,7 +12,9 @@ const NavBar = ({currentUser, logout}) => {
       <div className='navbar-container'>
         <div className='navbar-content'>
             <div className='navbar-left'>
-              <div className='navbar-logo'>BeatMachine</div>
+              <Link to="/">
+                <div className='navbar-logo'>BeatMachine</div>
+              </Link>
             </div>
             <div className='navbar-right'>
               <div className='upload-link'>

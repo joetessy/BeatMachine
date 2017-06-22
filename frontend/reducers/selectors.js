@@ -3,12 +3,13 @@ import values from 'lodash/values';
 
 export const selectAllTracks = ({ tracks }) => values(tracks);
 
-export const selectCurrentUserTracks = ({ tracks, currentUser }) => {
+export const selectUserTracks = ({ tracks }) => {
   let result = [];
-  if (tracks !== null ){
-    for (var i = 0; i < tracks.length; i++) {
-      if (tracks[i].id === currentUser.id){
-        result.push(tracks[i]);
+  let trackArray = selectAllTracks({tracks});
+  if (trackArray.length > 0 ){
+    for (var i = 0; i < trackArray.length; i++) {
+      if (trackArray[i].artist === window.location.hash.slice(2)){
+        result.push(trackArray[i]);
       }
     }
   }

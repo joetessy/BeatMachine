@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { requestTracks } from '../../actions/track_actions';
 import TrackFeed from './track_feed';
-import { selectCurrentUserTracks } from './../../reducers/selectors';
+import { selectUserTracks } from './../../reducers/selectors';
 
 
 const mapStateToProps = (state) => ({
-  tracks: selectCurrentUserTracks(state)
+  tracks: selectUserTracks(state)
 });
 
 const mapDispatchToProps = (dispatch) => {

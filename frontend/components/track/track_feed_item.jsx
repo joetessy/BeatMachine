@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactHowler from 'react-howler';
+import { Link } from 'react-router-dom';
 
 const TrackFeedItem = ({track}) => {
   return (
@@ -10,7 +11,9 @@ const TrackFeedItem = ({track}) => {
           <div className='play-button'></div>
           <div className='track-metadata'>
             <div className='track-artist'>
+              <Link to={`/${track.artist}`}>
               {track.artist}
+              </Link>
             </div>
             <div className='track-title'>
               {track.title}
