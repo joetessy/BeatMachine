@@ -13,7 +13,7 @@ const mapStateToProps = ({session: {currentUser}}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    createTrack: () => dispatch(createTrack()),
+    createTrack: (track) => dispatch(createTrack(track)),
   });
 };
 

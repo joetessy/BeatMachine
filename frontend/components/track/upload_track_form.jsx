@@ -15,6 +15,7 @@ class UploadTrackForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.updateImage = this.updateImage.bind(this);
     this.updateAudio = this.updateAudio.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
@@ -44,7 +45,15 @@ class UploadTrackForm extends React.Component {
   }
 
   handleSubmit(e){
-
+    e.preventDefault();
+    const track = Object.assign({}, this.state);
+    let formData = new FormData();
+      formData.append('track[title]', this.state.title);
+      formData.append('track[artist_id]', this.props.currentUser.id);
+      formData.append('track[image]', this.state.imageFile);
+      formData.append('track[audio]', this.state.audioFile);
+      this.props.createTrack(formData)
+        .then(() => this.setState({title: '', description: ''}));
   }
   render(){
     return(
@@ -52,7 +61,7 @@ class UploadTrackForm extends React.Component {
         <NavBarContainer/>
           <div className='upload-track-form'>
             <div className='form-container'>
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <h1>Upload To BeatMachine</h1>
                 <label htmlFor='title'> Title
                   <input id='title' type='text'
