@@ -4,10 +4,11 @@ import { logout } from './../../actions/session_actions';
 import { requestArtist } from '../../actions/artist_actions.js';
 
 
-const mapStateToProps = ({session: {currentUser}, artist} ) => {
+const mapStateToProps = ({session: {currentUser}, artist}) => {
   return ({
     currentUser,
-    artist
+    artist,
+
   });
 };
 

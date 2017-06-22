@@ -12,8 +12,14 @@ class TrackFeed extends React.Component {
     let path = this.props.location.pathname.slice(1);
     if (path === 'stream'){
       this.props.requestTracks();
-    } else {
-      this.props.requestTracks(this.props.location.pathname.slice(1));
+    } else if (!this.props.artist) {
+      this.props.requestTracks(this.props.match.params.username);
+    }
+  }
+  componentWillReceiveProps(nextProps){
+    if (this.props.match.params.username !==
+      nextProps.match.params.username){
+    this.props.requestArtist(nextProps.match.params.username);
     }
   }
 

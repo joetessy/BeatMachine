@@ -4,13 +4,13 @@ import TrackFeed from './track_feed';
 import { selectArtistTracks } from './../../reducers/selectors';
 
 
-const mapStateToProps = ({artist}) => ({
-  artist
+const mapStateToProps = (state, ownProps) => ({
+  artist: ownProps.artist
 });
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    requestTracks: (artist) => dispatch(requestArtist(artist))
+    requestArtist: (artist) => dispatch(requestArtist(artist))
   });
 };
 
