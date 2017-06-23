@@ -7,6 +7,12 @@ Track.reset_pk_sequence
 
 artists = User.create!([
   {
+    username: 'Guest',
+    password: 'password',
+    location: 'NYC',
+    avatar: File.open('app/assets/images/chicken.jpg')
+  },
+  {
     username: 'SnoopDogg',
     password: 'password',
     location: 'Compton',

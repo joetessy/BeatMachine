@@ -15,6 +15,7 @@ class HomePage extends React.Component{
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleModal = this.handleModal.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   handleClick(e){
@@ -51,6 +52,11 @@ class HomePage extends React.Component{
     this.openModal();
   }
 
+  guestLogin(){
+    const user = { user: {username: "Guest", password: "password" } };
+    this.props.login(user);
+  }
+
   render(){
     if (this.props.currentUser) {
       return (
@@ -70,6 +76,10 @@ class HomePage extends React.Component{
           <div className='welcome-pic'>
             <div className='home-logo'>BeatMachine</div>
             <div className='auth-links'>
+              <button className='signin'
+                onClick={this.guestLogin}>
+                  Guest
+              </button>
               <button className='signin'
                 onClick={this.handleModal}>
                   Sign in
