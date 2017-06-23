@@ -1,6 +1,7 @@
 import React from 'react';
 import TrackFeedItem from './track_feed_item';
 import {withRouter} from 'react-router-dom';
+import { selectArtistTracks } from './../../reducers/selectors.js';
 
 class TrackFeed extends React.Component {
 
@@ -18,7 +19,7 @@ class TrackFeed extends React.Component {
   render(){
     let tracks = null;
     if (this.props.artist){
-      tracks = this.props.artist.tracks.map((track) => {
+      tracks = selectArtistTracks(this.props.artist).map((track) => {
         return <TrackFeedItem track={track} key={track.id}/>;
       });
     } else if (this.props.tracks){

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import React from 'react';
 
 const handleClick = (e, logout) => {
@@ -12,16 +12,16 @@ const NavBar = ({currentUser, logout}) => {
       <div className='navbar-container'>
         <div className='navbar-content'>
             <div className='navbar-left'>
-              <Link to="/">
+              <NavLink to="/stream">
                 <div className='navbar-logo'>BeatMachine</div>
-              </Link>
+              </NavLink>
             </div>
             <div className='navbar-right'>
-              <Link to='/upload'>
-              <div className='upload-link'>
+              <NavLink to='/upload' className='upload-link'>
+              <div>
                 Upload
               </div>
-            </Link>
+            </NavLink>
               <div className='right-item user'>
                 <Link to={`/${currentUser.username}`}>
                 <div className='thumbnail-container'>

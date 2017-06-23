@@ -42,7 +42,10 @@ class ArtistPage extends React.Component{
             </div>
           </div>
           </div>
+          <div className='home-header'>
+
           <h2>All</h2>
+          </div>
           <div className='TrackFeed'>
             <TrackFeed artist={this.props.artist}/>
           </div>

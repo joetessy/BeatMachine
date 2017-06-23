@@ -14,3 +14,10 @@ export const createTrack = (track) => (
     data: track
   })
 );
+
+export const destroyTrack = (track) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/tracks/${track.id}`
+  })
+);

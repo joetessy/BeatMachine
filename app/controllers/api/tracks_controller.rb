@@ -29,8 +29,8 @@ class Api::TracksController < ApplicationController
   end
 
   def destroy
-    @Track.find(params[:id]).destroy
-    redirect_to tracks_url
+    @track = Track.find(params[:id]).destroy
+    render :show
   end
 
   private

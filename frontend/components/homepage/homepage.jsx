@@ -53,7 +53,7 @@ class HomePage extends React.Component{
   }
 
   guestLogin(){
-    const user = { user: {username: "Guest", password: "password" } };
+    const user = { user: {username: "guest", password: "password" } };
     this.props.login(user);
   }
 

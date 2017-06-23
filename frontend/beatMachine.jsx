@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { login } from "./actions/session_actions";
+import { deleteTrack, removeTrack } from "./actions/track_actions";
 import { AuthRoute } from './util/route_util';
 
-window.login = login();
-window.store = configureStore();
-
+window.deleteTrack = deleteTrack;
+window.removeTrack = removeTrack;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -19,5 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.store = store;
   ReactDOM.render(<Root store={store}/>, root);
 });

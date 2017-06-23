@@ -21,8 +21,14 @@ class LoginHomePage extends React.Component{
       return (
         <div>
           <NavBarContainer />
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+
+
           <div className='login-home-container'>
+            <div className='home-header'>
             <h2>Stream</h2>
+            </div>
             <div className='TrackFeed'>
               <TrackStreamContainer/>
             </div>

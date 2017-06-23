@@ -1,15 +1,22 @@
-import { RECEIVE_TRACKS, RECEIVE_TRACK } from '../actions/track_actions';
+import { RECEIVE_TRACKS, RECEIVE_TRACK, REMOVE_TRACK }
+  from '../actions/track_actions';
 import merge from "lodash/merge";
 
-const TrackReducer = (state = null, action) => {
+const TrackReducer = (state = {}, action) => {
+  Object.freeze(state);
+  let nextState;
   switch(action.type){
+    case REMOVE_TRACK:
+      nextState = merge({}, state);
+      delete nextState[action.track.id];
+      return nextState;
     case RECEIVE_TRACKS:
       return action.tracks;
     case RECEIVE_TRACK:
-      let newState = merge({}, state);
-      newState[action.track.id] = action.track;
-      newState.errors = action.errors;
-      return newState;
+      nextState = merge({}, state);
+      nextState[action.track.id] = action.track;
+      nextState.errors = action.errors;
+      return nextState;
     default:
       return state;
   }

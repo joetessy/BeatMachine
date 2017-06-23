@@ -4,13 +4,19 @@
   margin: auto;
   background-color: white;
   padding-top: 90px;
-
 }
 
-.form-container > form > h1 {
-  padding-top: 60px;
+.form-content > form > h1 {
   margin: 0;
   color: black;
+}
+
+.form-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-around;
 }
 
 .form-container{
@@ -18,4 +24,92 @@
   height: 418px;
   border: 1px solid #f2f2f2;
   margin: auto;
+}
+
+
+.form-content > form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 90%;
+}
+
+.audio-upload {
+  background-color: #f50;
+  padding: 10px 11px 3px 10px;
+  border-radius: 5px;
+  height: 20px;
+  color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.image-upload {
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 10px 11px 3px 10px;
+  border-radius: 5px;
+  height: 20px;
+  color: black;
+  position: relative;
+  cursor: pointer;
+  transition: border, .3s;
+}
+
+.image-upload:hover{
+  border: 1px solid black;
+}
+
+.upload-submit > input {
+  background-color: #f50;
+  border-radius: 5px;
+  height: 50px;
+  color: white;
+  width: 175px;
+  font-size: 20px;
+  font-family: interstate;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.audio-upload > input[type=file],
+.image-upload > input[type=file] {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  padding-top: 0px;
+  width: 185px;
+  height: 34px;
+  top: 0;
+  left: 0;
+}
+
+.form-content > form > label > input[type=text],
+.form-content > form > label > textarea{
+  width: 300px;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border, .3s;
+}
+
+textarea{
+  resize: none;
+}
+
+.form-content > form > label > input[type=text]:focus,
+.form-content > form > label > textarea:focus{
+  border: 1px solid black;
+  outline: 0;
+}
+
+.upload-submit{
+  padding-top: 5px;
+  background-color: #f50;
+  border-radius: 5px;
 }

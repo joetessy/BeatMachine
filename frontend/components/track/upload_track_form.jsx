@@ -74,28 +74,35 @@ class UploadTrackForm extends React.Component {
         <NavBarContainer/>
           <div className='upload-track-form'>
             <div className='form-container'>
+              <div className='form-content'>
+
+
               <form onSubmit={this.handleSubmit}>
                 <h1>Upload To BeatMachine</h1>
+                <label className='audio-upload'
+                  htmlFor='audio'>Choose a file to upload
+                  <input type='file' onChange={this.updateAudio}/>
+                </label>
                 <label htmlFor='title'> Title
                   <input id='title' type='text'
                     onChange={this.handleChange}
                     value={this.state.title}></input>
                 </label>
                 <label htmlFor='description'> Description
-                  <input id='description' type='text'
+                  <textarea id='description' rows="4" cols="53"
                     onChange={this.handleChange}
-                    value={this.state.description}></input>
+                    value={this.state.description}></textarea>
                 </label>
-                <label className='a'
+                <label className='image-upload'
     							htmlFor='image'>Choose Track Image
     							<input type='file' onChange={this.updateImage}/>
     						</label>
-                <label className='b'
-    							htmlFor='audio'>Choose Track
-    							<input type='file' onChange={this.updateAudio}/>
-    						</label>
+
+                <div className='upload-submit'>
                 <input type='submit' value='Upload Track'/>
+                </div>
               </form>
+              </div>
             </div>
           </div>
       </div>
