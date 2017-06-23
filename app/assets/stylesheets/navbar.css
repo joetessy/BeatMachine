@@ -53,6 +53,7 @@
 }
 
 .logout-navbar{
+  margin-right: 10px;
   background-color: #f50;
   height: 30px;
   padding: 0 16px;
