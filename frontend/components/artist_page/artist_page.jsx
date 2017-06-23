@@ -47,7 +47,8 @@ class ArtistPage extends React.Component{
           <h2>All</h2>
           </div>
           <div className='TrackFeed'>
-            <TrackFeed artist={this.props.artist}/>
+            <TrackFeed artist={this.props.artist}
+              currentUser={this.props.currentUser}/>
           </div>
         </div>
       </div>

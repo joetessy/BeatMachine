@@ -20,11 +20,15 @@ class TrackFeed extends React.Component {
     let tracks = null;
     if (this.props.artist){
       tracks = selectArtistTracks(this.props.artist).map((track) => {
-        return <TrackFeedItem track={track} key={track.id}/>;
+        return <TrackFeedItem track={track}
+          key={track.id}
+          currentUser={this.props.currentUser}/>;
       });
     } else if (this.props.tracks){
       tracks = this.props.tracks.map((track) => {
-        return <TrackFeedItem track={track} key={track.id}/>;
+        return <TrackFeedItem track={track}
+          currentUser={this.props.currentUser}
+          key={track.id}/>;
       });
     }
     return(
