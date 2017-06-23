@@ -34,3 +34,7 @@ export const createTrack = (track) => (dispatch) => {
   return APIUtil.createTrack(track).then((response) => dispatch(receiveTrack(response)),
   error => dispatch(receiveErrors(error.responseJSON)));
 };
+
+export const updateTrack = track => dispatch => (
+  APIUtil.updateTrack(track).then(response => dispatch(receiveTrack(response)))
+);

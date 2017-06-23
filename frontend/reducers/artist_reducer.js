@@ -1,5 +1,5 @@
 import {RECEIVE_ARTIST} from '../actions/artist_actions';
-import {REMOVE_TRACK} from './../actions/track_actions';
+import {REMOVE_TRACK, RECEIVE_TRACK} from './../actions/track_actions';
 import merge from "lodash/merge";
 
 const ArtistReducer = (state = null, action) => {
@@ -10,6 +10,11 @@ const ArtistReducer = (state = null, action) => {
     case REMOVE_TRACK:
       nextState = merge({}, state);
       delete nextState.tracks[action.track.id];
+      return nextState;
+    case RECEIVE_TRACK:
+      nextState = merge({}, state);
+      nextState.tracks[action.track.id] = action.track;
+      nextState.errors = action.errors;
       return nextState;
     default:
       return state;

@@ -5,14 +5,25 @@ import { withRouter } from 'react-router';
 import DeleteTrackContainer from './delete_track_container';
 
 
+const handleClick = (displayDropdown) => {
+  displayDropdown();
+};
+
 const TrackFeedItem = (props) => {
   let trackMenu = null;
   if (props.track.artist_id === props.currentUser.id &&
-    props.location.pathname.slice(1) === props.track.artist){
+    props.location.pathname.slice(1) === props.track.artist)
+    {
     trackMenu =
-    <div className='dropdown'>
+    <div className='dropdown' onClick={(e) => {
+        e.stopPropagation();
+        props.displayDropdown();}
+      }>
       <div className='options'>
           <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+
+          { props.visible ?
+
           <div className='dropdown-content'>
             <ul>
               <li>
@@ -28,9 +39,16 @@ const TrackFeedItem = (props) => {
               </li>
             </ul>
           </div>
+          : null
+        }
         </div>
       </div>;
   }
+
+
+
+
+
   return (
     <div className='track-body'>
       <img className='track-image'src={props.track.image_url} />

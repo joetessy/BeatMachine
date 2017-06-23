@@ -20,9 +20,9 @@ class Api::TracksController < ApplicationController
   end
 
   def update
-    @track = Tweet.find(params[:id])
+    @track = Track.find(params[:id])
     if @track.update(track_params)
-      redirect_to track_url(@track.id)
+      render :show
     else
       render json: @track.errors.full_messages, status: 422
     end

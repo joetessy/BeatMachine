@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import HomePageContainer from './homepage/homepage_container';
 import LoginHomePageContainer from './login_homepage/login_homepage_container';
 import SessionFormContainer from './homepage/session_form_container';
@@ -8,12 +9,11 @@ import UploadTrackFormContainer from './track/upload_track_form_container';
 import ModalContainer from './modal/modal_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
+import { clearDropdown } from './../actions/dropdown_actions';
 
 
-
-
-const App = () => (
-  <div>
+const App = (props) => (
+  <div onClick={() => props.clearDropdown()}>
     <ModalContainer/>
     <Switch>
       <Route
@@ -28,4 +28,8 @@ const App = () => (
   </div>
 );
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  clearDropdown: () => dispatch(clearDropdown()),
+});
+
+export default connect(null, mapDispatchToProps)(App);

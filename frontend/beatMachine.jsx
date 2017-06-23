@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { deleteTrack, removeTrack } from "./actions/track_actions";
-import { AuthRoute } from './util/route_util';
+import { updateTrack } from "./actions/track_actions";
 
-window.deleteTrack = deleteTrack;
-window.removeTrack = removeTrack;
+
+window.updateTrack = updateTrack;
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
