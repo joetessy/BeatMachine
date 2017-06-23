@@ -13,7 +13,13 @@ const NavBar = ({currentUser, logout}) => {
         <div className='navbar-content'>
             <div className='navbar-left'>
               <NavLink to="/stream">
-                <div className='navbar-logo'>BeatMachine</div>
+                <div className='navbar-logo'>
+                  <img src={window.images.logo}/>
+                </div>
+              </NavLink>
+              <NavLink to="/stream">
+                <div className='navbar-home'>
+                  Home</div>
               </NavLink>
             </div>
             <div className='navbar-right'>

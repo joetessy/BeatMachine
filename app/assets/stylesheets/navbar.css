@@ -11,24 +11,40 @@
 
 .navbar-content{
   display: flex;
-  width: 96%;
   align-items: center;
   margin: auto;
   height: 100%;
   justify-content: space-between;
 
 }
-.navbar-logo{
-  font-size:20px;
+.navbar-home{
+  font-size: 14px;
   color: white;
-  padding-top: 3px;
+  width: 100px;
+  height: 46px;
+  border-right: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo{
+  background-color: #F50;
+  height: 46px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-logo > img {
+  height: 50px;
 }
 
 
 .username{
+  font-size: 14px;
   padding: 0 10px;
   color: #ccc;
-  padding-top: 3px;
 }
 
 .username:hover{
@@ -69,8 +85,13 @@
 }
 
 .upload-link{
+  font-size: 14px;
   color: #ccc;
-  padding: 3px 10px;
+  height: 46px;
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .upload-link:hover{
   color: white;
@@ -95,6 +116,8 @@
 .user{
   display: flex;
   align-items: center;
+  height: 46px;
+  justify-content: center;
 }
 
 .navbar-left{
@@ -107,7 +130,6 @@
 .active{
   background-color: black;
   color: white;
-  height: 40px;
   display: flex;
   align-items: center;
 }
