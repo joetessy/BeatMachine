@@ -6,7 +6,7 @@
   height: 500px;
 }
 
-.modal-content{
+.session-modal-content{
   width: 430px;
   margin: 10% auto;
 }
@@ -16,7 +16,7 @@
   margin: -60% auto;
 }
 
-.modal-content:focus{outline:0;}
+.session-modal-content:focus{outline:0;}
 
 .transform {
   -webkit-transition: all .5s ease;
@@ -25,8 +25,6 @@
   -ms-transition: all .5s ease;
   transition: all .5s ease;
 }
-
-
 
 .session-form{
   width: 350px;

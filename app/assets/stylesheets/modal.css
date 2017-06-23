@@ -1,0 +1,31 @@
+.modal-root{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: inherit;
+  display: flex;
+  margin-right: auto;
+  justify-content: center;
+  height: 100vh;
+  z-index: 500;
+  background-color: rgba(242,242,242,.9);
+}
+
+
+.modal-content-pre{
+  visibility: hidden;
+  -webkit-transition: visibility .5s linear;
+  -moz-transition: visibility .5s linear;
+  transition: visibility .5s linear;
+  z-index: 1000;
+}
+
+.modal-content-post{
+  visibility: visible;
+  display: block;
+  margin-top: 5%;
+  z-index: 1000;
+  -webkit-transition: visibility .5s linear;
+  -moz-transition: visibility .5s linear;
+  transition: visibility .5s linear;
+}

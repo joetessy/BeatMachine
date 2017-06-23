@@ -68,7 +68,7 @@ class HomePage extends React.Component{
           <Modal
             onRequestClose={this.closeModal}
             isOpen={this.state.isOpen}
-            className='modal-content transform'
+            className='session-modal-content transform'
             contentLabel="Modal">
             <SessionFormContainer isOpen={this.state.isOpen}/>
           </Modal>

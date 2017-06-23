@@ -21,7 +21,8 @@ const TrackFeedItem = (props) => {
                   Edit
                 </Link>
               </li>
-              <li onClick={()=> (props.openModal(<DeleteTrackContainer/>))}>
+              <li onClick={()=> (props.openModal(<DeleteTrackContainer
+                  track={props.track}/>))}>
                 <i className="fa fa-trash" aria-hidden="true"></i>
                   Delete
               </li>

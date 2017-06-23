@@ -9,18 +9,14 @@ class Modal extends React.Component {
   render() {
     if (this.props.isOpen) {
       return (
-        <div>
-          <div className="modal-root" >
-            <div className="modal-parent">
-              <div className="modal-screen">
-                <div className="modal-wrapper">
-                  <div className="closeModal"
-                    onClick={() => this.props.closeModal()}/>
-                  <div className="modal-content">
-                    {this.props.component}
-                  </div>
-                </div>
-              </div>
+        <div className='modal-root-container'>
+          <div className="modal-root"
+            onClick={() => this.props.closeModal()}>
+            <div className={
+                this.props.isOpen ?
+                  'modal-content-post' : 'modal-content-pre'
+                }>
+              {this.props.component}
             </div>
           </div>
         </div>

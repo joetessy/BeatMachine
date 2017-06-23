@@ -14,6 +14,7 @@ import { AuthRoute, ProtectedRoute } from './../util/route_util';
 
 const App = () => (
   <div>
+    <ModalContainer/>
     <Switch>
       <Route
         exact path="/" component={HomePageContainer}/>
@@ -24,7 +25,6 @@ const App = () => (
       <ProtectedRoute
         exact path="/:username" component={ArtistPageContainer} />
     </Switch>
-    <ModalContainer/>
   </div>
 );
 
