@@ -1,0 +1,47 @@
+.delete-check{
+  width: 350px;
+  padding: 25px;
+  border: 1px solid black;
+  color: #333;
+}
+
+.delete-check-content > h1 {
+  color: #333;
+  text-align: left;
+  font-size: 22px;
+  line-height: 1;
+  padding-bottom: 9px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f2f2f2;
+  font-weight: 400;
+}
+
+.delete-check-content > p {
+  margin: 0 0 10px;
+}
+
+.delete-modal-buttons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel, .delete-button {
+  height: 26px;
+  margin: 0;
+  padding: 5px 11px 2px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.delete-button{
+  border: 1px solid #e5e5e5;
+  height: 26px;
+  line-height: 20px;
+  border-radius: 3px;
+  transition: border, .3s;
+}
+
+.delete-button:hover{
+  border: 1px solid black;
+}

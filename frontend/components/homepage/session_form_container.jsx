@@ -4,11 +4,11 @@ import { login, logout, signup }
 import SessionForm from './session_form';
 
 
-const mapStateToProps = ({session, errors, modal}) => {
+const mapStateToProps = ({session, errors, sessionModal}) => {
   return {
     loggedIn: Boolean(session.currentUser),
     errors,
-    type: modal,
+    type: sessionModal,
   };
 };
 

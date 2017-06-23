@@ -1,12 +1,22 @@
-import {LOGIN, SIGNUP} from '../actions/modal_actions';
-import merge from "lodash/merge";
+import { OPEN, CLOSE, RECEIVE_COMPONENT } from '../actions/modal_actions';
+import merge from 'lodash/merge';
 
-const ModalReducer = (state = null, action) => {
+const initialState = {
+  isOpen: false,
+  component: ''
+};
+
+const ModalReducer = ( state = initialState, action ) => {
+  Object.freeze(state);
   switch(action.type){
-    case LOGIN:
-      return 'login';
-    case SIGNUP:
-      return 'signup';
+    case RECEIVE_COMPONENT:
+      let component = action.component;
+      return Object.assign({}, state, { component });
+    case OPEN:
+      return Object.assign({}, state, {component: action.component,
+                                      isOpen: true});
+    case CLOSE:
+      return Object.assign({}, state, {component: null, isOpen: false});
     default:
       return state;
   }

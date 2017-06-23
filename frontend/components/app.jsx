@@ -5,6 +5,7 @@ import SessionFormContainer from './homepage/session_form_container';
 import NavBarContainer from './navbar/navbar_container';
 import ArtistPageContainer from './artist_page/artist_page_container.js';
 import UploadTrackFormContainer from './track/upload_track_form_container';
+import ModalContainer from './modal/modal_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 
@@ -23,6 +24,7 @@ const App = () => (
       <ProtectedRoute
         exact path="/:username" component={ArtistPageContainer} />
     </Switch>
+    <ModalContainer/>
   </div>
 );
 

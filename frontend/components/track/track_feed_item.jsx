@@ -2,6 +2,7 @@ import React from 'react';
 import ReactHowler from 'react-howler';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import DeleteTrackContainer from './delete_track_container';
 
 
 const TrackFeedItem = (props) => {
@@ -20,11 +21,9 @@ const TrackFeedItem = (props) => {
                   Edit
                 </Link>
               </li>
-              <li>
-                <Link to={`/${props.currentUser.username}/${props.track.title}/delete`}>
+              <li onClick={()=> (props.openModal(<DeleteTrackContainer/>))}>
                 <i className="fa fa-trash" aria-hidden="true"></i>
                   Delete
-                </Link>
               </li>
             </ul>
           </div>
