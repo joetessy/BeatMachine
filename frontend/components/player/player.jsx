@@ -18,9 +18,11 @@ class Player extends React.Component {
     let audioPlayer;
     if (this.props.queue){
       audioPlayer =
-          <audio controls='controls' autoPlay>
-            <source src={this.props.queue} type='audio/ogg' />
-            <source src={this.props.queue} type='audio/mpeg'/>
+          <audio controls='controls'
+            autoPlay
+            ref={(arg) => (this.music = arg)}>
+            <source src={this.props.queue[0]} type='audio/ogg' />
+            <source src={this.props.queue[0]} type='audio/mpeg'/>
           </audio>;
     }
     return (

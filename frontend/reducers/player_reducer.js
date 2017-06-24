@@ -1,16 +1,15 @@
 import { RECEIVE_AUDIO, STOP_AUDIO } from '../actions/player_actions';
 import merge from 'lodash/merge';
 
-const initialState = null;
+const initialState = [];
 
 const PlayerReducer = ( state = initialState, action ) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_AUDIO:
-      if (action.url === state){
-        return null;
-      }
-      return action.url;
+      let nextState = Object.assign([], state);
+      nextState.unshift(action.url);
+      return nextState;
     case STOP_AUDIO:
       return {};
     default:

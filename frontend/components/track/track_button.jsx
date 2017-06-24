@@ -3,6 +3,8 @@ import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { requestTracks } from './../../actions/track_actions';
 import { receiveAudio } from './../../actions/player_actions';
+import { selectAllTracks, selectArtistTracks }
+  from '../../reducers/selectors';
 
 
 class TrackButton extends React.Component{
@@ -12,7 +14,19 @@ class TrackButton extends React.Component{
   }
 
   handleClick(){
-    this.props.sendAudio(this.props.track.audio_url);
+    let tracks;
+    if (this.props.match.path.slice(1) === 'stream'){
+      tracks = this.props.tracks;
+    } else {
+      tracks = this.props.artistTracks;
+    }
+    for(let i = 0; i < tracks.length; i++){
+      if (tracks[i].id === this.props.track.id){
+        tracks = tracks.slice(i);
+        break;
+      }
+    }
+    this.props.sendAudio(tracks);
   }
 
   render(){
@@ -26,7 +40,8 @@ class TrackButton extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  state,
+  tracks: selectAllTracks(state),
+  artistTracks: selectAllTracks(state.artist),
   track: ownProps.track
 });
 
