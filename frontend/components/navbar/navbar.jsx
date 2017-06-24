@@ -34,8 +34,6 @@ const NavBar = ({currentUser, logout}) => {
                 <img className='thumbnail'
                   src={currentUser.image_url} />
                 </div>
-
-
                 <div className='username'>
                   {currentUser.username}
                 </div>

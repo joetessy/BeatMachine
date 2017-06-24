@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactHowler from 'react-howler';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import DeleteTrackContainer from './delete_track_container';
 import EditTrackContainer from './edit_track_form_container';
+import TrackButton from './track_button';
 
 const TrackFeedItem = (props) => {
   let trackMenu = null;
@@ -37,7 +37,8 @@ const TrackFeedItem = (props) => {
       <img className='track-image'src={props.track.image_url} />
       <div className='track-content'>
         <div className='track-header'>
-          <div className='play-button'></div>
+          <TrackButton
+            track={props.track}/>
           <div className='track-metadata'>
             <div className='track-artist'>
               <Link
@@ -51,9 +52,7 @@ const TrackFeedItem = (props) => {
           </div>
         </div>
           <div className='track-waveform'>
-            <audio controls="controls">
-              <source src={props.track.audio_url} />
-            </audio>
+            <img className='wave' src={window.images.wave}/>
           </div>
           {trackMenu}
       </div>

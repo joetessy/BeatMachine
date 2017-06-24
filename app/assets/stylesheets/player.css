@@ -1,0 +1,15 @@
+.footer{
+  width: 100%;
+  margin: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background-color: transparent;
+  z-index:600;
+}
+
+audio {
+  width: 100%;
+}
