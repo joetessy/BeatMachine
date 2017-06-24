@@ -35,6 +35,7 @@ class EditTrack extends React.Component{
     e.preventDefault();
     const track = merge({}, this.state);
     this.props.updateTrack(track);
+    this.props.closeModal();
   }
   render (){
     return(

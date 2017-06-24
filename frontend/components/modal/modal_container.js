@@ -4,6 +4,7 @@ import { closeModal, receiveComponent } from './../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.session.currentUser,
     isOpen: state.modal.isOpen,
     component: state.modal.component
   };

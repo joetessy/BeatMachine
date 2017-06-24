@@ -77,7 +77,8 @@
   padding-bottom: 38px;
 }
 
-.buttons{
+.buttons > .cancel,
+.buttons > .save-update{
   cursor: pointer;
 }
 

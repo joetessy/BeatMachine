@@ -10,15 +10,12 @@ class Modal extends React.Component {
     if (this.props.isOpen) {
       return (
         <div className='modal-root-container'>
-          <div className="modal-root"
-            onClick={() => this.props.closeModal()}>
             <div className={
                 this.props.isOpen ?
                   'modal-content-post' : 'modal-content-pre'
                 }>
               {this.props.component}
             </div>
-          </div>
         </div>
       );
     } else {
