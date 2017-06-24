@@ -4,10 +4,11 @@ import TrackFeed from './track_feed';
 import { selectAllTracks } from './../../reducers/selectors';
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) =>  {
+  return ({
   tracks: selectAllTracks(state),
-  currentUser: state.session.currentUser
-});
+  currentUser: state.session.currentUser});
+};
 
 const mapDispatchToProps = (dispatch) => {
   return ({

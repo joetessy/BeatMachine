@@ -5,15 +5,11 @@
 }
 .navbar-container{
   width: 1020px;
-  height: 100%;
   margin: 0 auto;
 }
 
 .navbar-content{
   display: flex;
-  align-items: center;
-  margin: auto;
-  height: 100%;
   justify-content: space-between;
 
 }
@@ -122,9 +118,7 @@
 }
 
 .navbar-left{
-  height: 100%;
   display: flex;
-  align-items: center;
 }
 
 

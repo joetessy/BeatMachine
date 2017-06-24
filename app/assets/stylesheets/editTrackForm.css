@@ -17,7 +17,7 @@
   flex-direction: column;
   background-color: white;
   padding: 30px;
-  width: 650px;
+  width: 700px;
 }
 
 .edit-track-form-content {
@@ -35,7 +35,7 @@
 .labels > label {
   display: flex;
   flex-direction: column;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .labels > label > #title,
@@ -43,15 +43,18 @@
   padding: 2px 7px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  transition: border .1s;
+  transition: border .3s;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.labels > label > #title:hover,
-.labels > label > #description:hover {
+.labels > label > #title:focus,
+.labels > label > #description:focus {
   border: 1px solid #333;
 }
 .labels > label > #description {
-  padding-top: 30px;
+
+
 }
 
 .edit-track-form > .buttons{

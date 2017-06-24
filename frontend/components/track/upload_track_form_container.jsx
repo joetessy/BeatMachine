@@ -5,9 +5,10 @@ import { logout } from './../../actions/session_actions';
 import UploadTrackForm from './upload_track_form';
 
 
-const mapStateToProps = ({session: {currentUser}}) => {
+const mapStateToProps = ({session: {currentUser}, errors}) => {
   return ({
-    currentUser
+    currentUser,
+    errors
   });
 };
 

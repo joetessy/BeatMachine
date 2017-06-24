@@ -11,11 +11,12 @@ class UploadTrackForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      imageFile: null,
-      imageUrl: null,
-      audioFile: null,
-      audioUrl: null,
-      willRedirect: false
+      imageFile: '',
+      imageUrl: '',
+      audioFile: '',
+      audioUrl: '',
+      willRedirect: false,
+      errors: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.updateImage = this.updateImage.bind(this);
@@ -51,6 +52,16 @@ class UploadTrackForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+
+    if (this.state.title === ''){
+      this.setState({errors: 'Please enter a title'});
+      return;
+    } else if (this.state.audioUrl === ''){
+      this.setState({errors: 'Please upload a track'});
+      return;
+    }
+
+
     const track = Object.assign({}, this.state);
     delete track.willRedirect;
     let formData = new FormData();
@@ -69,6 +80,8 @@ class UploadTrackForm extends React.Component {
     if (this.state.willRedirect === true){
       return <Redirect to={`/${this.props.currentUser.username}`} />;
     }
+    let errors = (this.props.errors.length > 0) ?
+      this.props.errors.join(", ") : null;
     return(
       <div>
         <NavBarContainer/>
@@ -83,7 +96,7 @@ class UploadTrackForm extends React.Component {
                   htmlFor='audio'>Choose a file to upload
                   <input type='file' onChange={this.updateAudio}/>
                 </label>
-                <label htmlFor='title'> Title
+                <label htmlFor='title'> Title *
                   <input id='title' type='text'
                     onChange={this.handleChange}
                     value={this.state.title}></input>
@@ -102,6 +115,9 @@ class UploadTrackForm extends React.Component {
                 <input type='submit' value='Upload Track'/>
                 </div>
               </form>
+              <div className='error-container'>
+              <p className='errors'>{this.state.errors}</p>
+              </div>
               </div>
             </div>
           </div>

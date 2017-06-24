@@ -8,7 +8,8 @@ class EditTrack extends React.Component{
     this.state = {
       title: this.props.track.title,
       description: this.props.track.description,
-      id: this.props.track.id
+      id: this.props.track.id,
+      errors: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.updateImage = this.updateImage.bind(this);
@@ -31,6 +32,10 @@ class EditTrack extends React.Component{
   }
 
   handleSubmit(e){
+    if (this.state.title === ''){
+      this.setState({errors: 'Please enter a title'});
+      return;
+    }
 
     e.preventDefault();
     const track = merge({}, this.state);
@@ -45,17 +50,20 @@ class EditTrack extends React.Component{
             <div className='edit-track-form-content'>
             <img src={this.props.track.image_url}></img>
             <div className='labels'>
-              <label htmlFor='title'> Title
+              <label htmlFor='title'> Title*
                 <input id='title' type='text'
                   onChange={this.handleChange}
                   value={this.state.title}></input>
               </label>
               <label htmlFor='description'> Description
-                <textarea id='description' rows="4" cols="53"
+                <textarea id='description' rows="7" cols="53"
                   onChange={this.handleChange}
                   value={this.state.description}></textarea>
               </label>
             </div>
+          </div>
+          <div className='error-container'>
+          <p className='errors'>{this.state.errors}</p>
           </div>
           <div className='buttons'>
             <div className='cancel'

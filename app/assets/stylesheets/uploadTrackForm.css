@@ -9,6 +9,7 @@
 .form-content > form > h1 {
   margin: 0;
   color: black;
+  padding-top: 20px;
 }
 
 .form-content{
@@ -104,7 +105,7 @@ textarea{
 
 .form-content > form > label > input[type=text]:focus,
 .form-content > form > label > textarea:focus{
-  border: 1px solid black;
+  border: 1px solid #333;
   outline: 0;
 }
 
@@ -112,4 +113,9 @@ textarea{
   padding-top: 5px;
   background-color: #f50;
   border-radius: 5px;
+}
+
+.errors {
+  padding-top: 5px;
+  color: red;
 }
