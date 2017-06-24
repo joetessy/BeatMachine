@@ -7,11 +7,12 @@
   background-image: url(https://www.freevector.com/uploads/vector/preview/11291/FreeVector-Orange-Wave.jpg);
 }
 
-.login-home-container > .home-header > h2 {
+.login-home-container > .home-header > a > h2 {
+  background-color: white;
   color: #f50;
   margin: 0;
   padding: 0;
-  border-bottom: 3px solid #f50;
+  border-bottom: 1px solid #f50;
   padding-top: 30px;
   font-weight: 400;
   font-size: 24px;
@@ -19,6 +20,10 @@
   z-index: 100;
   text-align: left;
   max-width: 80px;
+}
+
+.login-home-container > .home-header > .active {
+  background-color: white;
 }
 
 
