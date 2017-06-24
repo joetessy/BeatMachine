@@ -83,12 +83,12 @@
   display: inline-block;
 }
 
-/*.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
     display: block;
-}*/
+}
 
 .dropdown-content{
-  display: block;
+  display: none;
   position: absolute;
   background-color: white;
   min-width: 150px;

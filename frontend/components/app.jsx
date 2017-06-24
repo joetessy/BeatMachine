@@ -9,11 +9,10 @@ import UploadTrackFormContainer from './track/upload_track_form_container';
 import ModalContainer from './modal/modal_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
-import { clearDropdown } from './../actions/dropdown_actions';
 
 
 const App = (props) => (
-  <div onClick={() => props.clearDropdown()}>
+  <div>
     <ModalContainer/>
     <Switch>
       <Route
@@ -28,8 +27,4 @@ const App = (props) => (
   </div>
 );
 
-const mapDispatchToProps = (dispatch) => ({
-  clearDropdown: () => dispatch(clearDropdown()),
-});
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;

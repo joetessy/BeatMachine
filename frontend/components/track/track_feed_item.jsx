@@ -3,11 +3,7 @@ import ReactHowler from 'react-howler';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import DeleteTrackContainer from './delete_track_container';
-
-
-const handleClick = (displayDropdown) => {
-  displayDropdown();
-};
+import EditTrackContainer from './edit_track_form_container';
 
 const TrackFeedItem = (props) => {
   let trackMenu = null;
@@ -15,22 +11,15 @@ const TrackFeedItem = (props) => {
     props.location.pathname.slice(1) === props.track.artist)
     {
     trackMenu =
-    <div className='dropdown' onClick={(e) => {
-        e.stopPropagation();
-        props.displayDropdown();}
-      }>
+    <div className='dropdown'>
       <div className='options'>
           <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
-
-          { props.visible ?
-
           <div className='dropdown-content'>
             <ul>
-              <li>
-                <Link to={`/${props.currentUser.username}/${props.track.title}/edit`}>
+              <li onClick={()=> (props.openModal(<EditTrackContainer
+                track={props.track}/>))}>
                 <i className="fa fa-pencil" aria-hidden="true"></i>
                   Edit
-                </Link>
               </li>
               <li onClick={()=> (props.openModal(<DeleteTrackContainer
                   track={props.track}/>))}>
@@ -39,15 +28,9 @@ const TrackFeedItem = (props) => {
               </li>
             </ul>
           </div>
-          : null
-        }
         </div>
       </div>;
   }
-
-
-
-
 
   return (
     <div className='track-body'>
