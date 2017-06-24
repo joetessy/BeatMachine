@@ -34,6 +34,6 @@ export const createTrack = (track) => (dispatch) => {
   return APIUtil.createTrack(track).then((response) => dispatch(receiveTrack(response)));
 };
 
-export const updateTrack = track => dispatch => (
-  APIUtil.updateTrack(track).then(response => dispatch(receiveTrack(response)))
-);
+export const updateTrack = (track, id) => dispatch => {
+  return APIUtil.updateTrack(track, id).then(response => dispatch(receiveTrack(response)))
+};

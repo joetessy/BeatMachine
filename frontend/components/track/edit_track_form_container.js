@@ -9,7 +9,7 @@ const mapStateToProps = ({currentUser}) => ({
 });
 
 const matchDispatchToProps = (dispatch) => ({
-  updateTrack: (track) => dispatch(updateTrack(track)),
+  updateTrack: (track, id) => dispatch(updateTrack(track, id)),
   closeModal: () => dispatch(closeModal())
 });
 

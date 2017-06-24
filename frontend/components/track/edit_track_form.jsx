@@ -9,6 +9,7 @@ class EditTrack extends React.Component{
       title: this.props.track.title,
       description: this.props.track.description,
       id: this.props.track.id,
+      artist_id: this.props.track.artist_id,
       imageUrl: this.props.track.image_url,
       errors: ''
     };
@@ -40,7 +41,14 @@ class EditTrack extends React.Component{
 
     e.preventDefault();
     const track = merge({}, this.state);
-    this.props.updateTrack(track);
+    delete track.errors;
+    let formData = new FormData();
+    formData.append('track[title]', track.title);
+    formData.append('track[id]', track.id);
+    formData.append('track[description]', track.description);
+    formData.append('track[artist_id]', track.artist_id);
+    formData.append('track[image]', track.imageFile);
+    this.props.updateTrack(formData, track.id);
     this.props.closeModal();
   }
   render (){

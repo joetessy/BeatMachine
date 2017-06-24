@@ -9,7 +9,7 @@ artists = User.create!([
   {
     username: 'SnoopDogg',
     password: 'password',
-    location: 'Compton',
+    location: 'LBC',
     avatar: File.open('app/assets/images/snoopdogg.jpg')
   },
   {

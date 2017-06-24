@@ -66,6 +66,7 @@ class UploadTrackForm extends React.Component {
     delete track.willRedirect;
     let formData = new FormData();
     formData.append('track[title]', track.title);
+    formData.append('track[description]', track.description);
     formData.append('track[artist_id]', this.props.currentUser.id);
     formData.append('track[image]', track.imageFile);
     formData.append('track[audio]', track.audioFile);

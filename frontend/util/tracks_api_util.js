@@ -22,10 +22,12 @@ export const destroyTrack = (track) => (
   })
 );
 
-export const updateTrack = (track) => (
-  $.ajax({
+export const updateTrack = (track, id) => {
+  return ($.ajax({
     method: 'PATCH',
-    url: `api/tracks/${track.id}`,
-    data: {track},
-  })
-);
+    url: `api/tracks/${id}`,
+    contentType: false,
+    processData: false,
+    data: track,
+  }));
+};
