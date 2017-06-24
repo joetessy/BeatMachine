@@ -1,12 +1,12 @@
 .modal-root{
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   margin-left: inherit;
   display: flex;
   margin-right: auto;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   z-index: 500;
   background-color: rgba(242,242,242,.9);
 }
@@ -31,5 +31,6 @@
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
-  transform: translateX(-50%)
+  transform: translateX(-50%);
+  position: fixed;
 }
