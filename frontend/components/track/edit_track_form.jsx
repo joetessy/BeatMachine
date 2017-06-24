@@ -9,6 +9,7 @@ class EditTrack extends React.Component{
       title: this.props.track.title,
       description: this.props.track.description,
       id: this.props.track.id,
+      imageUrl: this.props.track.image_url,
       errors: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -43,12 +44,25 @@ class EditTrack extends React.Component{
     this.props.closeModal();
   }
   render (){
+      let imageInput = () => {
+        return(
+        <div className='image-input-button'>
+          <i className="fa fa-camera" aria-hidden="true"></i>
+          <div className='update-image-text'>Update Image</div>
+            <input type='file' onChange={this.updateImage} />
+        </div>
+      );
+    };
+
     return(
       <div className='edit-track-form-container'>
         <div className='edit-track-form'>
             <h1>Edit Track</h1>
             <div className='edit-track-form-content'>
-            <img src={this.props.track.image_url}></img>
+            <div className='image-container'>
+            <img src={this.state.imageUrl} />
+              {imageInput()}
+            </div>
             <div className='labels'>
               <label htmlFor='title'> Title*
                 <input id='title' type='text'

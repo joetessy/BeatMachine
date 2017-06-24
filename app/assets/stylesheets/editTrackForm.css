@@ -86,3 +86,49 @@
 }
 
 #title:focus, textarea:focus { outline: none }
+
+.image-input-button{
+  background-color: rgba(255,255,255,1);
+    color: #333;
+      padding: 2px 5px 2px 5px;
+    height: 26px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e5e5;
+    width: 150px;
+    position: absolute;
+    bottom: 57px;
+    left: 36px;
+    transition: border .3s;
+    transition: backgroud-color: .3s;
+    cursor: pointer;
+}
+
+.update-image-text{
+  padding-top: 4px;
+  padding-left: 11px;
+}
+
+.image-input-button:hover{
+  border: 1px solid #333;
+  background-color: white;
+}
+
+.image-input-button > input[type=file]{
+  position: absolute;
+  opacity: 0;
+  width: 160px;
+  height: 33px;
+  cursor: pointer;
+}
+
+.edit-track-form-content > .image-container {
+  position: relative;
+}
+
+.image-container > img {
+  height: 220px;
+  width: 220px;
+}
