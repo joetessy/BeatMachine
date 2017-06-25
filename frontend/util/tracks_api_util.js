@@ -5,6 +5,13 @@ export const fetchTracks = user => (
   })
 );
 
+export const fetchTrack = (title) => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/tracks/${title}`
+  })
+);
+
 export const createTrack = (track) => (
   $.ajax({
     method: 'POST',

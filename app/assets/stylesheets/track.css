@@ -38,7 +38,7 @@
   line-height: 16px;
 }
 
-.track-title{
+.track-title > a{
   font-size: 15px;
   line-height: 1.2;
   color: #333;
@@ -53,7 +53,6 @@
   width: 36px;
   transition: opacity, .3s;
   display: flex;
-  justify-content: center;
 }
 
 .play-button:hover{
@@ -138,10 +137,11 @@ ul > .track-body:last-child{
 }
 
 .fa-play{
-  padding-left: 10%;
-  padding-top: 33%;
+  padding-left: 14px;
+  padding-top: 10px;
 }
 
 .fa-pause{
-  padding-top: 35%;
+  padding-top: 10px;
+  padding-left: 11.5px;
 }

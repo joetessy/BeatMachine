@@ -36,7 +36,7 @@ class Player extends React.Component {
       this.changeTrack(currentQueue, nextQueue);
     }
   }
- 
+
 
   handlePathChange(){
     if (this.music.paused){

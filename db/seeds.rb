@@ -34,7 +34,7 @@ artists = User.create!([
     username: 'guest',
     password: 'password',
     location: 'NYC',
-    avatar: File.open('app/assets/images/logoblack.png')
+    avatar: File.open('app/assets/images/logo.png')
   }])
 
 tracks = Track.create([

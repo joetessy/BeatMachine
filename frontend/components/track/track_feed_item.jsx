@@ -31,7 +31,6 @@ const TrackFeedItem = (props) => {
         </div>
       </div>;
   }
-
   return (
     <div className='track-body'>
       <img className='track-image'src={props.track.image_url} />
@@ -47,7 +46,9 @@ const TrackFeedItem = (props) => {
               </Link>
             </div>
             <div className='track-title'>
+            <Link to={`/${props.track.artist}/${props.track.title}`}>
               {props.track.title}
+            </Link>
             </div>
           </div>
         </div>

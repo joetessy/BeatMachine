@@ -6,6 +6,7 @@ import ArtistPageContainer from './artist_page/artist_page_container.js';
 import UploadTrackFormContainer from './track/upload_track_form_container';
 import ModalContainer from './modal/modal_container';
 import PlayerContainer from './player/player';
+import TrackPage from './track/track_page';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 
@@ -20,8 +21,10 @@ const App = (props) => (
         exact path="/stream" component={LoginHomePageContainer} />
       <ProtectedRoute
         exact path="/upload" component={UploadTrackFormContainer}/>
-      <ProtectedRoute
+      <Route
         exact path="/:username" component={ArtistPageContainer} />
+      <Route
+        exact path="/:username/:title" component={TrackPage}/>
     </Switch>
     <ProtectedRoute path="/" component={PlayerContainer} />
   </div>
