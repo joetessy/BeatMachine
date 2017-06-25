@@ -11,18 +11,25 @@ class Player extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
+
     this.setState({queue: this.props.queue});
     if (this.props.location.pathname !== nextProps.location.pathname){
-      this.music.play();
+      /* Resume music on path change */
+      if (this.music.paused && nextProps.queue.length > 0){
+        this.music.play();
+      }
     } else if (this.state.queue.length === 0 &&
-    this.props.location.pathname === nextProps.location.pathname){
+    this.props.location.pathname === nextProps.location.pathname &&
+      nextProps.queue.length > 0){
+      /* Start player when recieving a queue (push play button) */
       this.music.src = nextProps.queue[0].audio_url;
-      this.setState({queue: nextProps.queue})
+      this.setState({queue: nextProps.queue});
       this.music.play();
       this.props.nowPlaying(nextProps.queue[0].id);
     } else if (this.state.queue.length > 0 &&
       nextProps.queue[0].audio_url === this.state.queue[0].audio_url){
       if (this.music.paused){
+        /* Pause / play when user pushes same button */
         this.music.play();
         this.setState({queue: nextProps.queue});
         this.props.nowPlaying(nextProps.queue[0].id);
@@ -31,24 +38,29 @@ class Player extends React.Component {
         this.props.nowPlaying(null);
       }
     } else {
+      /* Change Track when User pushes another button */
       this.music.pause();
       this.setState({queue: nextProps.queue});
       this.music.src = nextProps.queue[0].audio_url;
-      this.music.play();
-      this.props.nowPlaying(nextProps.queue[0].id);
+      if (this.state.queue.length > 0){
+        this.music.play();
+        this.props.nowPlaying(nextProps.queue[0].id);
+      }
     }
   }
 
   checkTime(){
-    setInterval(function(){
+    let myInterval = function(){
       if (this.music.ended){
         this.nextTrack();
       }
-    }.bind(this), 500);
+    }.bind(this);
+    setInterval(myInterval, 500);
   }
 
   nextTrack(){
     let currentCount = this.state.sequenceCount;
+    if (this.state.queue.length === 1) return;
     let newQueue = this.state.queue.slice(1);
     this.setState({queue: newQueue});
     this.music.src = this.state.queue[0].audio_url;
@@ -62,7 +74,9 @@ class Player extends React.Component {
             ref={(arg) => (this.music = arg)}
             src="">
           </audio>;
-    this.checkTime();
+    if (!audioPlayer.paused){
+      this.checkTime();
+    }
     return (
       <div className='footer'>
         {audioPlayer}
@@ -73,7 +87,8 @@ class Player extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  queue: state.player
+  queue: state.player,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

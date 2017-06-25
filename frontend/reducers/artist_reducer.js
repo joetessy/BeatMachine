@@ -2,7 +2,7 @@ import {RECEIVE_ARTIST} from '../actions/artist_actions';
 import {REMOVE_TRACK, RECEIVE_TRACK} from './../actions/track_actions';
 import merge from "lodash/merge";
 
-const ArtistReducer = (state = null, action) => {
+const ArtistReducer = (state = { tracks: {} }, action) => {
   let nextState;
   switch(action.type){
     case RECEIVE_ARTIST:
