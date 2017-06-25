@@ -6,66 +6,92 @@ class Player extends React.Component {
 
   constructor(props){
     super(props);
+    this.state = { queue: [], currentUser: this.props.currentUser };
+    this.checkTime = this.checkTime.bind(this);
+    this.myInterval = this.myInterval.bind(this);
     this.nextTrack = this.nextTrack.bind(this);
-    this.state = { sequenceCount: 0, queue: [] };
+    this.handlePathChange = this.handlePathChange.bind(this);
+    this.startPlayer = this.startPlayer.bind(this);
+    this.handlePauseResume = this.handlePauseResume.bind(this);
+    this.changeTrack = this.changeTrack.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
-
     this.setState({queue: this.props.queue});
+    this.setState({currentUser: nextProps.currentUser});
+    let currentQueue = this.state.queue;
+    let nextQueue = nextProps.queue;
+                                                    /* If Path Change */
     if (this.props.location.pathname !== nextProps.location.pathname){
-      /* Resume music on path change */
-      if (this.music.paused && nextProps.queue.length > 0){
-        this.music.play();
-      }
-    } else if (this.state.queue.length === 0 &&
-    this.props.location.pathname === nextProps.location.pathname &&
-      nextProps.queue.length > 0){
-      /* Start player when recieving a queue (push play button) */
-      this.music.src = nextProps.queue[0].audio_url;
-      this.setState({queue: nextProps.queue});
-      this.music.play();
-      this.props.nowPlaying(nextProps.queue[0].id);
-    } else if (this.state.queue.length > 0 &&
-      nextProps.queue[0].audio_url === this.state.queue[0].audio_url){
-      if (this.music.paused){
-        /* Pause / play when user pushes same button */
-        this.music.play();
-        this.setState({queue: nextProps.queue});
-        this.props.nowPlaying(nextProps.queue[0].id);
-      } else {
-        this.music.pause();
-        this.props.nowPlaying(null);
-      }
+      this.handlePathChange();
+                                /* Start player when recieving a queue */
+    } else if (currentQueue.length === 0 && nextQueue.length > 0){
+      this.startPlayer(nextProps, nextQueue);
+                                      /* If user pauses or resumes track*/
+    } else if (nextQueue.length > 0 &&
+      nextQueue[0].audio_url === currentQueue[0].audio_url){
+      this.handlePauseResume(nextQueue);
     } else {
-      /* Change Track when User pushes another button */
-      this.music.pause();
-      this.setState({queue: nextProps.queue});
-      this.music.src = nextProps.queue[0].audio_url;
-      if (this.state.queue.length > 0){
-        this.music.play();
-        this.props.nowPlaying(nextProps.queue[0].id);
-      }
+                      /* Change Track when User pushes another button */
+      this.changeTrack(currentQueue, nextQueue);
     }
   }
 
-  checkTime(){
-    let myInterval = function(){
-      if (this.music.ended){
-        this.nextTrack();
-      }
-    }.bind(this);
-    setInterval(myInterval, 500);
+
+  handlePathChange(){
+    if (this.music.paused){
+      this.music.pause();
+    } else {
+      this.music.play();
+    }
+  }
+
+  startPlayer(nextProps, queue){
+    this.music.src = queue[0].audio_url;
+    this.setState({queue: queue});
+    this.music.play();
+    this.props.nowPlaying(queue[0].id);
+  }
+
+  handlePauseResume(nextQueue){
+    if (this.music.paused){
+      /* Pause / play when user pushes same button */
+      this.music.play();
+      this.setState({queue: nextQueue});
+      this.props.nowPlaying(nextQueue[0].id);
+    } else {
+      this.music.pause();
+      this.props.nowPlaying(null);
+    }
+  }
+
+  changeTrack(currentQueue, nextQueue){
+    this.music.pause();
+    this.setState({queue: nextQueue});
+    this.music.src = nextQueue[0].audio_url;
+    if (currentQueue.length > 0){
+      this.music.play();
+      this.props.nowPlaying(nextQueue[0].id);
+    }
   }
 
   nextTrack(){
-    let currentCount = this.state.sequenceCount;
     if (this.state.queue.length === 1) return;
     let newQueue = this.state.queue.slice(1);
     this.setState({queue: newQueue});
     this.music.src = this.state.queue[0].audio_url;
     this.music.play();
     this.props.nowPlaying(this.state.queue[0].id);
+  }
+
+  checkTime(){
+    setInterval(() => this.myInterval(), 1000);
+  }
+
+  myInterval(){
+    if (this.music.ended){
+      this.nextTrack();
+    }
   }
 
   render(){

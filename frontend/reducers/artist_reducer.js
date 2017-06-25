@@ -13,6 +13,9 @@ const ArtistReducer = (state = { tracks: {} }, action) => {
       return nextState;
     case RECEIVE_TRACK:
       nextState = merge({}, state);
+      if (!nextState.tracks){
+        nextState.tracks = {};
+      }
       nextState.tracks[action.track.id] = action.track;
       return nextState;
     default:
