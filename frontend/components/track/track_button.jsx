@@ -16,9 +16,9 @@ class TrackButton extends React.Component{
   handleClick(){
     let tracks;
     if (this.props.match.path.slice(1) === 'stream'){
-      tracks = this.props.tracks;
+      tracks = selectAllTracks(this.props.tracks);
     } else {
-      tracks = this.props.artistTracks;
+      tracks = selectArtistTracks(this.props.artist);
     }
     for(let i = 0; i < tracks.length; i++){
       if (tracks[i].id === this.props.track.id){
@@ -26,6 +26,7 @@ class TrackButton extends React.Component{
         break;
       }
     }
+    console.log(tracks);
     this.props.sendAudio(tracks);
   }
 
@@ -40,8 +41,8 @@ class TrackButton extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  tracks: selectAllTracks(state),
-  artistTracks: selectAllTracks(state.artist),
+  tracks: state,
+  artist: state.artist,
   track: ownProps.track
 });
 

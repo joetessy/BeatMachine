@@ -1,9 +1,9 @@
 export const RECEIVE_AUDIO = 'RECEIVE_AUDIO';
 export const STOP_AUDIO = 'STOP_AUDIO';
 
-export const receiveAudio = (url) => ({
+export const receiveAudio = (queue) => ({
   type: RECEIVE_AUDIO,
-  url,
+  queue,
 });
 
 export const stopAudio = () => ({

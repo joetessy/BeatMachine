@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Player extends React.Component {
 
@@ -6,25 +7,34 @@ class Player extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-
-  }
-
   componentWillReceiveProps(nextProps){
-
+    if (this.props.location.pathname !== nextProps.location.pathname){
+      this.music.play();
+    } else if (this.props.queue.length === 0 &&
+    this.props.location.pathname === nextProps.location.pathname){
+      this.music.src = nextProps.queue[0].audio_url;
+      this.music.play();
+    } else if (this.props.queue.length > 0 &&
+      nextProps.queue[0].audio_url === this.props.queue[0].audio_url){
+      if (this.music.paused){
+        this.music.play();
+      } else {
+        this.music.pause();
+      }
+    } else {
+      this.music.pause();
+      this.music.src = nextProps.queue[0].audio_url;
+      this.music.play();
+    }
   }
 
   render(){
-    let audioPlayer;
-    if (this.props.queue){
-      audioPlayer =
+    let audioPlayer =
           <audio controls='controls'
             autoPlay
-            ref={(arg) => (this.music = arg)}>
-            <source src={this.props.queue[0]} type='audio/ogg' />
-            <source src={this.props.queue[0]} type='audio/mpeg'/>
+            ref={(arg) => (this.music = arg)}
+            src="">
           </audio>;
-    }
     return (
       <div className='footer'>
         {audioPlayer}
@@ -34,5 +44,12 @@ class Player extends React.Component {
 }
 
 
+const mapStateToProps = (state) => ({
+  queue: state.player
+});
 
-export default Player;
+const mapDispatchToProps = (dispatch) => {
+
+};
+
+export default connect(mapStateToProps, null)(Player);

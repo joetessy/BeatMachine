@@ -7,9 +7,7 @@ const PlayerReducer = ( state = initialState, action ) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_AUDIO:
-      let nextState = Object.assign([], state);
-      nextState.unshift(action.url);
-      return nextState;
+      return action.queue;
     case STOP_AUDIO:
       return {};
     default:
