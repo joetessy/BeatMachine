@@ -30,10 +30,22 @@ class TrackButton extends React.Component{
     this.props.sendAudio(tracks);
   }
 
+  componentWillReceiveProps(){
+
+  }
+
   render(){
+    let icon;
+    if (this.props.nowPlaying === this.props.track.id ){
+      icon = <i className="fa fa-pause" aria-hidden="true"></i>;
+    } else {
+      icon = <i className="fa fa-play" aria-hidden="true"></i>;
+    }
+
     return(
       <div className='play-button'
         onClick={this.handleClick}>
+        {icon}
       </div>
     );
   }
@@ -43,7 +55,8 @@ class TrackButton extends React.Component{
 const mapStateToProps = (state, ownProps) => ({
   tracks: state,
   artist: state.artist,
-  track: ownProps.track
+  track: ownProps.track,
+  nowPlaying: state.nowPlaying
 });
 
 const mapDispatchToProps = (dispatch) => ({

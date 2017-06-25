@@ -51,6 +51,8 @@
   z-index: 1;
   width: 36px;
   transition: opacity, .3s;
+  display: flex;
+  justify-content: center;
 }
 
 .play-button:hover{
@@ -127,4 +129,17 @@ ul > .track-body:last-child{
 
 .wave{
   height:110px;
+}
+
+.fa-pause, .fa-play{
+  color: white;
+}
+
+.fa-play{
+  padding-left: 10%;
+  padding-top: 33%;
+}
+
+.fa-pause{
+  padding-top: 35%;
 }
