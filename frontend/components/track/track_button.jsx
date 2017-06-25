@@ -26,7 +26,6 @@ class TrackButton extends React.Component{
         break;
       }
     }
-    console.log(tracks);
     this.props.sendAudio(tracks);
   }
 

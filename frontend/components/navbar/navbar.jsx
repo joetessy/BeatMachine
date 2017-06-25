@@ -28,8 +28,8 @@ const NavBar = ({currentUser, logout}) => {
                 Upload
               </div>
             </NavLink>
+            <NavLink className='user-link' to={`/${currentUser.username}`}>
               <div className='right-item user'>
-                <Link to={`/${currentUser.username}`}>
                 <div className='thumbnail-container'>
                 <img className='thumbnail'
                   src={currentUser.image_url} />
@@ -37,8 +37,8 @@ const NavBar = ({currentUser, logout}) => {
                 <div className='username'>
                   {currentUser.username}
                 </div>
-                </Link>
               </div>
+            </NavLink>
               <button className='logout-navbar right-item'
                 onClick={(e) => handleClick(e, logout)}>Log Out!</button>
             </div>

@@ -39,8 +39,10 @@
 
 .username{
   font-size: 14px;
-  padding: 0 10px;
-  color: #ccc;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
 }
 
 .username:hover{
@@ -72,15 +74,9 @@
   align-items: center;
   display: flex;
 }
-
-.right-item{
-  margin-left: 20px;
+.user-link{
+  margin-right: 15px;
 }
-.right-item > a {
-  display: flex;
-  align-items: center;
-}
-
 .upload-link{
   font-size: 14px;
   color: #ccc;
@@ -115,16 +111,26 @@
   align-items: center;
   height: 46px;
   justify-content: center;
+  padding: 0 16px;
+}
+.user.hover{
+  color: white;
+
 }
 
 .navbar-left{
   display: flex;
 }
 
+.user-link{
+  margin-right: 15px;
+  color: #ccc;
+}
 
 .active{
   background-color: black;
   color: white;
   display: flex;
   align-items: center;
+  pointer-events: none;
 }

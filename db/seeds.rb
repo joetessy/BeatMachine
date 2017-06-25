@@ -7,13 +7,13 @@ Track.reset_pk_sequence
 
 artists = User.create!([
   {
-    username: 'SnoopDogg',
+    username: 'Snoop Dogg',
     password: 'password',
     location: 'LBC',
     avatar: File.open('app/assets/images/snoopdogg.jpg')
   },
   {
-    username: 'FlyingLotus',
+    username: 'Flying Lotus',
     password: 'password',
     location: 'LA',
     avatar: File.open('app/assets/images/flyinglotus.jpg')
@@ -34,23 +34,16 @@ artists = User.create!([
     username: 'guest',
     password: 'password',
     location: 'NYC',
-    avatar: File.open('app/assets/images/chicken.jpg')
+    avatar: File.open('app/assets/images/logoblack.png')
   }])
 
 tracks = Track.create([
   {
-    title: 'Gin N Juice',
-    artist_id: artists[0].id,
-    description: 'Another dope track by Snoop',
-    audio: File.open('app/assets/tracks/ginNjuice.mp3'),
-    image: File.open('app/assets/images/ginNjuice.jpg')
-  },
-  {
-    title: 'Drop It Like It\'s Hot',
-    artist_id: artists[0].id,
-    description: 'Sn00000000p',
-    audio: File.open('app/assets/tracks/dropitlikeitshot.mp3'),
-    image: File.open('app/assets/images/dropit.jpg')
+    title: 'colemans groove . andreya 2',
+    artist_id: artists[1].id,
+    description: 'From Ideas, Drafts, Loops',
+    audio: File.open('app/assets/tracks/colemans groove . andreya 2.mp3'),
+    image: File.open('app/assets/images/flylofm.png')
   },
   {
     title: 'Massage Situation',
@@ -72,5 +65,26 @@ tracks = Track.create([
     description: 'Chill to this!',
     audio: File.open('app/assets/tracks/conductedrhythms.mp3'),
     image: File.open('app/assets/images/beatkonducta.jpg')
+  },
+  {
+    title: 'Secret Record Set 3',
+    artist_id: artists[3].id,
+    description: 'This is an unreleased Madlib track.',
+    audio: File.open('app/assets/tracks/secretrecordset3.mp3'),
+    image: File.open('app/assets/images/secret.jpg')
+  },
+  {
+    title: 'Gin N Juice',
+    artist_id: artists[0].id,
+    description: 'Another dope track by Snoop',
+    audio: File.open('app/assets/tracks/ginNjuice.mp3'),
+    image: File.open('app/assets/images/ginNjuice.jpg')
+  },
+  {
+    title: 'Drop It Like It\'s Hot',
+    artist_id: artists[0].id,
+    description: 'Sn00000000p',
+    audio: File.open('app/assets/tracks/dropitlikeitshot.mp3'),
+    image: File.open('app/assets/images/dropit.jpg')
   }
 ])
