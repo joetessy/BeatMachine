@@ -11,6 +11,8 @@
 #
 
 class Comment < ApplicationRecord
+  include ActionView::Helpers::DateHelper
+
   validates :author_id, :track_id, :body, presence: true;
 
   belongs_to :author,
@@ -23,5 +25,8 @@ class Comment < ApplicationRecord
   primary_key: :id,
   foreign_key: :track_id
 
+  def time_ago
+    time_ago_in_words(self.created_at)
+  end
 
 end

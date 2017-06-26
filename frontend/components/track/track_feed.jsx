@@ -11,6 +11,7 @@ class TrackFeed extends React.Component {
   }
 
   componentDidMount(){
+    window.scrollTo(0, 0);
     let path = this.props.location.pathname.slice(1);
     if (path === 'stream'){
       this.props.requestTracks();

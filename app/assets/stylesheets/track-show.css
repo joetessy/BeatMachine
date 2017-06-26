@@ -51,8 +51,10 @@
 }
 .track-show-header-content{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .track-name{
@@ -86,7 +88,7 @@
 }
 
 .track-show-container {
-
+  height: 59vh;
   height: 100vh;
   width: 1080px;
   margin: auto;
@@ -95,11 +97,6 @@
   box-sizing: border-box;
 }
 
-.comment-form-container{
-  height: 100px;
-  padding: 30px;
-  border-bottom: 1px solid #f2f2f2;
-}
 .track-show-description{
   margin: 0 0 10px;
 }
@@ -122,16 +119,17 @@
 }
 .description-comment-container{
   width: 100%;
+  padding: 0 20px;
 }
 
-.comments-header{
-  font-weight: 100;
-  color: #999;
-  font-size: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #f2f2f2;
+.track-show-time-ago{
+  color: #ccc;
+  margin: 2px;
+  font-size: 16px;
+  padding: 5px;
+  padding-right:20px;
 }
-.fa-comment{
-  color: #999;
-  padding-right: 10px;
+
+.left-of-pic{
+  width: 100%;
 }

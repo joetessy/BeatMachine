@@ -16,8 +16,8 @@ class TrackPage extends React.Component{
   }
 
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.requestTrack(this.props.match.params.title);
-
     this.setState({track: this.props.track});
   }
 
@@ -34,6 +34,8 @@ class TrackPage extends React.Component{
     let trackButton = null;
     let artistImage = null;
     let commentsIndex = null;
+    let timeAgo = null;
+    let commentCount = null;
     if (this.props.track){
       title = this.props.track.title;
       artist = this.props.track.artist;
@@ -43,12 +45,15 @@ class TrackPage extends React.Component{
       track = this.props.track;
       trackButton = <TrackButton track={track}/>;
       commentsIndex = <CommentsIndex track={track}/>;
+      commentCount = this.props.track.comments.length;
+      timeAgo = this.props.track.time_ago;
     }
     return (
       <div>
         <NavBarContainer />
         <div className='login-home-container'>
           <div className='track-show-header'>
+              <div className='left-of-pic'>
               <div className='track-show-header-content'>
                 <div className='play-and-info'>
                 <div className='track-show-button'>
@@ -65,10 +70,13 @@ class TrackPage extends React.Component{
                 </div>
                 </div>
               </div>
-                <div className='show-track-waveform'>
-                  <img src={window.images.showwave}/>
-                </div>
-
+              <div className='track-show-time-ago'>
+                {timeAgo}
+              </div>
+            </div>
+            <div className='show-track-waveform'>
+              <img src={window.images.showwave}/>
+            </div>
             </div>
               <div className='track-image'>
                 <img src={image}/>
@@ -92,7 +100,7 @@ class TrackPage extends React.Component{
               <div className='comment-list'>
                 <div className='comments-header'>
                   <i className="fa fa-comment" aria-hidden="true"></i>
-                  Comments
+                  {commentCount}  Comments
                 </div>
                 {commentsIndex}
               </div>

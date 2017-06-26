@@ -5,11 +5,12 @@ const CommentIndexItem = ({comment}) => {
 
   return(
     <div className='comment'>
-      <NavLink to={`/${comment.author}`}>
+        <div className='comment-content-left'>
+          <NavLink to={`/${comment.author}`}>
       <div className='comment-avatar'>
         <img src={comment.author_image}/>
       </div>
-      </NavLink>
+    </NavLink>
 
       <div className='comment-content'>
         <NavLink to={`/${comment.author}`}>
@@ -22,6 +23,10 @@ const CommentIndexItem = ({comment}) => {
         {comment.body}
       </div>
       </div>
+    </div>
+    <div className='comment-time-ago'>
+      {comment.time_ago}
+    </div>
     </div>
   );
 

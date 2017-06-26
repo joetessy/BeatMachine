@@ -13,6 +13,12 @@ class CommentsIndex extends React.Component{
     this.props.requestComments(this.props.track.title);
   }
 
+  componentWillReceiveProps(nextProps){
+    if (nextProps.track !== this.props.track){
+      this.props.requestComments(nextProps.track.title);
+    }
+  }
+
   render(){
     let comments;
     if (Array.isArray(this.props.comments)){

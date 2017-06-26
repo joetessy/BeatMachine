@@ -12,8 +12,40 @@
 .comment {
   display: flex;
   padding: 20px 0;
+  justify-content: space-between;
 }
 
 .comment-author {
   color: #999;
+}
+
+.comment-form-container{
+  height: 70px;
+  padding: 30px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.comments-header{
+  font-weight: 100;
+  color: #999;
+  font-size: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.fa-comment{
+  color: #999;
+  padding-right: 5px;
+}
+
+.comment-body{
+  padding-top: 4px;
+}
+
+.comment-content-left{
+  display: flex;
+}
+
+.comment-time-ago{
+   color: #999;
 }
