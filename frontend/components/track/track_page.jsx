@@ -29,11 +29,13 @@ class TrackPage extends React.Component{
     let image = null;
     let track = null;
     let trackButton = null;
+    let artistImage = null;
     if (this.props.track){
       title = this.props.track.title;
       artist = this.props.track.artist;
       description = this.props.track.description;
       image = this.props.track.image_url;
+      artistImage = this.props.track.artist_image;
       track = this.props.track;
       trackButton = <TrackButton track={track}/>;
     }
@@ -67,7 +69,29 @@ class TrackPage extends React.Component{
                 <img src={image}/>
               </div>
           </div>
-          <div className='home-header'>
+        </div>
+        <div className='track-show-container'>
+          <div className='comment-form-container'></div>
+          <div className='track-show-content'>
+            <NavLink to={`/${artist}`}>
+
+          <div className='artist-pic'>
+            <img src={artistImage}/>
+            {artist}
+          </div>
+        </NavLink>
+            <div className='description-comment-container'>
+              <div className='track-show-description'>
+                <p>{description}</p>
+              </div>
+              <div className='comment-list'>
+                <div className='comments-header'>
+                  <i className="fa fa-comment" aria-hidden="true"></i>
+                  Comments
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>

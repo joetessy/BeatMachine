@@ -76,5 +76,62 @@
 .show-track-waveform > img {
   width: 537px;
   padding-left: 11%;
+}
 
+.track-show-header {
+}
+.track-show-content{
+  display: flex;
+  padding-top: 30px;
+}
+
+.track-show-container {
+
+  height: 100vh;
+  width: 1020px;
+  margin: auto;
+  background-color: white;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.comment-form-container{
+  height: 100px;
+  padding: 30px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.track-show-description{
+  margin: 0 0 10px;
+}
+
+.artist-pic{
+
+  display: flex;
+  flex-direction: column;
+  padding-right: 30px;
+}
+.artist-pic > img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  padding-bottom: 10px;
+}
+
+.track-show-content a{
+  color: black;
+}
+.description-comment-container{
+  width: 100%;
+}
+
+.comments-header{
+  font-weight: 100;
+  color: #999;
+  font-size: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.fa-comment{
+  color: #999;
+  padding-right: 10px;
 }

@@ -6,7 +6,7 @@ class Player extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { queue: [], currentUser: this.props.currentUser };
+    this.state = { queue: [], currentUser: this.props.currentUser, intervalSet: false };
     this.checkTime = this.checkTime.bind(this);
     this.myInterval = this.myInterval.bind(this);
     this.nextTrack = this.nextTrack.bind(this);
@@ -84,12 +84,17 @@ class Player extends React.Component {
     this.props.nowPlaying(this.state.queue[0].id);
   }
 
+
   checkTime(){
-    setInterval(() => this.myInterval(), 1000);
-  }
+      // this.setState({intervalSet: true});
+      this.interval = setInterval(() => this.myInterval(), 1000);
+    }
 
   myInterval(){
-    if (this.music.ended){
+    if (!this.music){
+      clearInterval(this.interval);
+      this.interval = null;
+    } else if (this.music.ended){
       this.nextTrack();
     }
   }
@@ -101,7 +106,9 @@ class Player extends React.Component {
             src="">
           </audio>;
     if (!audioPlayer.paused){
-      this.checkTime();
+      if (!this.interval){
+        this.checkTime();
+      }
     }
     return (
       <div className='footer'>
