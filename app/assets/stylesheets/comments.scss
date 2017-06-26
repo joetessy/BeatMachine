@@ -1,3 +1,19 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-avatar > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding-right: 10px;
+}
+
+.comment {
+  display: flex;
+  padding: 20px 0;
+}
+
+.comment-author {
+  color: #999;
+}

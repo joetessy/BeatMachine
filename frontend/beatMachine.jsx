@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { requestTrack } from "./actions/track_actions";
+import { requestComments } from "./actions/comment_actions";
 
 
-window.requestTrack = requestTrack;
+window.requestComments = requestComments;
 
 
 document.addEventListener('DOMContentLoaded', () => {

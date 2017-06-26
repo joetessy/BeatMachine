@@ -4,8 +4,10 @@ import { Route, NavLink } from 'react-router-dom';
 import NavBarContainer from './../navbar/navbar_container';
 import { requestTrack } from './../../actions/track_actions';
 import { withRouter } from 'react-router-dom';
+import { requestComments } from './../../actions/comment_actions';
 import { selectSingleTrack } from './../../reducers/selectors';
 import TrackButton from './track_button';
+import CommentsIndex from './../comments/comments_index';
 
 class TrackPage extends React.Component{
   constructor(props){
@@ -15,6 +17,7 @@ class TrackPage extends React.Component{
 
   componentDidMount(){
     this.props.requestTrack(this.props.match.params.title);
+
     this.setState({track: this.props.track});
   }
 
@@ -30,6 +33,7 @@ class TrackPage extends React.Component{
     let track = null;
     let trackButton = null;
     let artistImage = null;
+    let commentsIndex = null;
     if (this.props.track){
       title = this.props.track.title;
       artist = this.props.track.artist;
@@ -38,6 +42,7 @@ class TrackPage extends React.Component{
       artistImage = this.props.track.artist_image;
       track = this.props.track;
       trackButton = <TrackButton track={track}/>;
+      commentsIndex = <CommentsIndex track={track}/>;
     }
     return (
       <div>
@@ -89,7 +94,7 @@ class TrackPage extends React.Component{
                   <i className="fa fa-comment" aria-hidden="true"></i>
                   Comments
                 </div>
-
+                {commentsIndex}
               </div>
             </div>
           </div>
@@ -107,7 +112,7 @@ const mapStateToProps = (state) => {
 };
 
 const matchDispatchToProps = (dispatch) => ({
-  requestTrack: (title) => dispatch(requestTrack(title))
+  requestTrack: (title) => dispatch(requestTrack(title)),
 });
 
 export default

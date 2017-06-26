@@ -4,6 +4,9 @@ User.reset_pk_sequence
 Track.destroy_all
 Track.reset_pk_sequence
 
+Comment.destroy_all
+Comment.reset_pk_sequence
+
 
 artists = User.create!([
   {
@@ -103,44 +106,45 @@ tracks = Track.create([
   }
 ])
 
+
 comments = Comment.create([
   {
-    author_id: artist[0],
+    author_id: artists[0].id,
     track_id: 1,
     body: 'This track is whack...'
   },
   {
-    author_id: artist[0],
+    author_id: artists[0].id,
     track_id: 1,
     body: 'JK it coo'
   },
   {
-    author_id: artist[1],
+    author_id: artists[1].id,
     track_id: 1,
     body: 'Thanks snoopie'
   },
   {
-    author_id: artist[2],
+    author_id: artists[2].id,
     track_id: 1,
     body: 'It\'s Hawt!!'
   },
   {
-    author_id: artist[0],
+    author_id: artists[0].id,
     track_id: 3,
     body: 'This is too trippy for me'
   },
   {
-    author_id: artist[4],
+    author_id: artists[4].id,
     track_id: 2,
     body: 'I\'m Lovin It!!'
   },
   {
-    author_id: artist[0],
+    author_id: artists[0].id,
     track_id: 2,
     body: 'Not My Style'
   },
   {
-    author_id: artist[1],
+    author_id: artists[1].id,
     track_id: 2,
     body: 'Let the haters hate!!'
   }
