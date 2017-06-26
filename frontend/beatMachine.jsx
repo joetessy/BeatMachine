@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { requestComments } from "./actions/comment_actions";
+import { createComment } from "./actions/comment_actions";
 
 
-window.requestComments = requestComments;
+window.createComment = createComment;
 
 
 document.addEventListener('DOMContentLoaded', () => {
