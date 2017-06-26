@@ -31,7 +31,27 @@ const TrackFeedItem = (props) => {
         </div>
       </div>;
   }
+  let header = null;
+  if (props.location.pathname === '/stream'){
+    header = (
+
+      <div className='track-index-item-header'>
+        <NavLink to={`/${props.track.artist}`}>
+          <img className='track-index-item-header-pic'
+          src={props.track.artist_image}/></NavLink>
+        <NavLink to={`/${props.track.artist}`}>
+        {props.track.artist}</NavLink>
+        has posted a
+        <NavLink to={`/${props.track.artist}/${props.track.title}`}>track
+        </NavLink> {props.track.time_ago} ago
+      </div>
+    );
+
+  }
+
   return (
+    <div className='track-feed-item'>
+    {header}
     <div className='track-body'>
       <img className='track-image'src={props.track.image_url} />
       <div className='track-content'>
@@ -57,6 +77,7 @@ const TrackFeedItem = (props) => {
           </div>
           {trackMenu}
       </div>
+    </div>
     </div>
   );
 

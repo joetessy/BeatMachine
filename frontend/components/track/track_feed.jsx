@@ -28,9 +28,13 @@ class TrackFeed extends React.Component {
       });
     } else if (this.props.tracks.length > 0){
       tracks = this.props.tracks.map((track) => {
-        return <TrackFeedItem track={track}
+        return (
+
+          <TrackFeedItem track={track}
           currentUser={this.props.currentUser}
-          key={track.id}/>;
+          key={track.id}/>
+
+      );
       });
     }
     return(

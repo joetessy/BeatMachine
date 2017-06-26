@@ -1,11 +1,16 @@
 
-
+.TrackFeed{
+  padding-top: 30px;
+}
 .track-body{
   margin: 20px;
   height: 168px;
   display: flex;
 }
 
+.track-feed-item{
+  margin-bottom: 40px;
+}
 .track-body > .track-image{
   width: 167px;
 }
@@ -144,4 +149,25 @@ ul > .track-body:last-child{
 .fa-pause{
   padding-top: 11.5px;
   padding-left: 11.5px;
+}
+
+.track-index-item-header-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.track-index-item-header {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.track-index-item-header a {
+  padding: 0 5px;
+  color: black;
+}
+
+.track-index-item-header {
+  color: #999;
 }
