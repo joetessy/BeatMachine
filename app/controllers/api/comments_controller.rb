@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    @comments = Track.find_by(title: params[:track_id]).comments
     render :index
   end
 
