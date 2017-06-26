@@ -3,7 +3,7 @@
   padding-top: 30px;
 }
 .track-body{
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   height: 168px;
   display: flex;
 }
@@ -170,4 +170,5 @@ ul > .track-body:last-child{
 
 .track-index-item-header {
   color: #999;
+  margin-bottom: 10px;
 }
