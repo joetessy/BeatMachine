@@ -102,3 +102,46 @@ tracks = Track.create([
     image: File.open('app/assets/images/dropit.jpg')
   }
 ])
+
+comments = Comment.create([
+  {
+    author_id: 0,
+    track_id: 1,
+    body: 'This track is whack...'
+  },
+  {
+    author_id: 0,
+    track_id: 1,
+    body: 'JK it coo'
+  },
+  {
+    author_id: 1,
+    track_id: 1,
+    body: 'Thanks snoopie'
+  },
+  {
+    author_id: 2,
+    track_id: 1,
+    body: 'It\'s Hawt!!'
+  },
+  {
+    author_id: 0,
+    track_id: 3,
+    body: 'This is too trippy for me'
+  },
+  {
+    author_id: 4,
+    track_id: 2,
+    body: 'I\'m Lovin It!!'
+  },
+  {
+    author_id: 0,
+    track_id: 2,
+    body: 'Not My Style'
+  },
+  {
+    author_id: 1,
+    track_id: 2,
+    body: 'Let the haters hate!!'
+  }
+])

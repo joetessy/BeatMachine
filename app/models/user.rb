@@ -12,6 +12,7 @@
 #  avatar_content_type :string
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  location            :string
 #
 
 class User < ActiveRecord::Base
@@ -29,6 +30,11 @@ class User < ActiveRecord::Base
   class_name: :Track,
   primary_key: :id,
   foreign_key: :artist_id
+
+  has_many :comments,
+  class_name: :Comment,
+  primary_key: :id,
+  foreign_key: :user_id
 
 
   def self.find_by_credentials(username, password)

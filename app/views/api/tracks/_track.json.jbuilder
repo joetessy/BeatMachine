@@ -6,3 +6,4 @@ json.artist_image track.artist.avatar.url
 json.description track.description
 json.audio_url asset_path(track.audio.url)
 json.image_url asset_path(track.image.url)
+json.comments track.comments.map(&:id)
