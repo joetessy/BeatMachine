@@ -2,7 +2,7 @@ import { RECEIVE_TRACKS, RECEIVE_TRACK, REMOVE_TRACK }
   from '../actions/track_actions';
 import merge from "lodash/merge";
 
-const TrackReducer = (state = { title: { } }, action) => {
+const TrackReducer = (state = { showTrack: { } }, action) => {
   Object.freeze(state);
   let nextState;
   switch(action.type){
@@ -15,7 +15,7 @@ const TrackReducer = (state = { title: { } }, action) => {
     case RECEIVE_TRACK:
       nextState = merge({}, state, {showTrack: {}});
       nextState[action.track.id] = action.track;
-      nextState.showTrack = action.track;
+      nextState.showTrack = action.track.id;
       return nextState;
     default:
       return state;

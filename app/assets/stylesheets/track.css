@@ -6,7 +6,7 @@
   display: flex;
 }
 
-.track-image{
+.track-body > .track-image{
   width: 167px;
 }
 

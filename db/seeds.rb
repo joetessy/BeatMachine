@@ -39,7 +39,7 @@ artists = User.create!([
 
 tracks = Track.create([
   {
-    title: 'colemans groove . andreya 2',
+    title: 'colemans groove andreya 2',
     artist_id: artists[1].id,
     description: 'From Ideas, Drafts, Loops',
     audio: File.open('app/assets/tracks/colemans groove . andreya 2.mp3'),
@@ -51,6 +51,20 @@ tracks = Track.create([
     description: 'Flylo Rulez',
     audio: File.open('app/assets/tracks/massagesituation.mp3'),
     image: File.open('app/assets/images/massagesituation.jpg')
+  },
+  {
+    title: 'Do The Astral Plane',
+    artist_id: artists[1].id,
+    description: 'Track off of Cosmogramma',
+    audio: File.open('app/assets/tracks/dotheastralplane.mp3'),
+    image: File.open('app/assets/images/cosmogramma.jpg')
+  },
+  {
+    title: 'Real Eyes',
+    artist_id: artists[2].id,
+    description: 'Long Live Quasimoto',
+    audio: File.open('app/assets/tracks/realeyes.m4a'),
+    image: File.open('app/assets/images/realeyes.jpg')
   },
   {
     title: 'Microphone Mathematics',

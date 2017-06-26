@@ -1,5 +1,66 @@
+
+
+.track-image {
+  width: 340px;
+}
+
+.track-image > img {
+  width: 340px;
+}
+
+.track-show-header {
+    justify-content: space-between;
+    height: 380px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    background-image: url(https://www.freevector.com/uploads/vector/preview/11291/FreeVector-Orange-Wave.jpg);
+}
+
+.track-show-header-content{
+  display: flex;
+  align-items: center;
+}
+
+.track-show-button > .play-button {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
+
+.track-show-button > .play-button > .fa-play {
+  font-size: 1.7em;
+  padding-left: 24px;
+  padding-top: 17px;
+}
+
+.track-show-button > .play-button > .fa-pause {
+  font-size: 1.7em;
+  padding-top: 17px;
+  padding-left: 19.5px;
+}
+
 .track-artist-name{
-  padding: 5px;
   background-color: black;
   color: white;
+}
+
+.track-artist-name > a{
+  color: #ccc;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.track-name{
+  background-color: black;
+  font-size: 24px;
+  line-height: 37px;
+  color: white;
+}
+
+.track-name, .track-artist-name{
+  margin: 2px;
+  padding: 5px;
 }
