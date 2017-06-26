@@ -69,3 +69,7 @@
   background-color: black;
   margin-top: 4px;
 }
+
+.track-artist > .active{
+  pointer-events: none;
+}

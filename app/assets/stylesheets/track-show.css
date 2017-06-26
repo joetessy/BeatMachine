@@ -12,16 +12,13 @@
     justify-content: space-between;
     height: 380px;
     padding: 30px;
-    box-sizing: border-box;
     display: flex;
     align-items: flex-start;
-    background-image: url(https://www.freevector.com/uploads/vector/preview/11291/FreeVector-Orange-Wave.jpg);
+    height: 340px;
+    background-image: url(https://ak6.picdn.net/shutterstock/videos/5501012/thumb/1.jpg?i10c);
 }
 
-.track-show-header-content{
-  display: flex;
-  align-items: center;
-}
+
 
 .track-show-button > .play-button {
   height: 60px;
@@ -52,6 +49,11 @@
   font-size: 16px;
   line-height: 1.2;
 }
+.track-show-header-content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .track-name{
   background-color: black;
@@ -63,4 +65,16 @@
 .track-name, .track-artist-name{
   margin: 2px;
   padding: 5px;
+}
+
+.play-and-info{
+  display: flex;
+}
+.show-track-waveform{
+
+}
+.show-track-waveform > img {
+  width: 537px;
+  padding-left: 11%;
+
 }

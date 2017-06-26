@@ -39,6 +39,13 @@ artists = User.create!([
 
 tracks = Track.create([
   {
+    title: 'Melt!',
+    artist_id: artists[1].id,
+    description: 'Melt! is from the Los Angeles LP',
+    audio: File.open('app/assets/tracks/Melt!.mp3'),
+    image: File.open('app/assets/images/la.jpg')
+  },
+  {
     title: 'colemans groove andreya 2',
     artist_id: artists[1].id,
     description: 'From Ideas, Drafts, Loops',
@@ -51,13 +58,6 @@ tracks = Track.create([
     description: 'Flylo Rulez',
     audio: File.open('app/assets/tracks/massagesituation.mp3'),
     image: File.open('app/assets/images/massagesituation.jpg')
-  },
-  {
-    title: 'Do The Astral Plane',
-    artist_id: artists[1].id,
-    description: 'Track off of Cosmogramma',
-    audio: File.open('app/assets/tracks/dotheastralplane.mp3'),
-    image: File.open('app/assets/images/cosmogramma.jpg')
   },
   {
     title: 'Real Eyes',

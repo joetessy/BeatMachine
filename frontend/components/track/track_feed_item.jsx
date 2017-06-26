@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import DeleteTrackContainer from './delete_track_container';
 import EditTrackContainer from './edit_track_form_container';
@@ -40,10 +40,10 @@ const TrackFeedItem = (props) => {
             track={props.track}/>
           <div className='track-metadata'>
             <div className='track-artist'>
-              <Link
+              <NavLink
                 to={`/${props.track.artist}`}>
               {props.track.artist}
-              </Link>
+            </NavLink>
             </div>
             <div className='track-title'>
             <Link to={`/${props.track.artist}/${props.track.title}`}>

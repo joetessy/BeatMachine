@@ -127,7 +127,7 @@
   color: #ccc;
 }
 
-.active{
+.navbar .active{
   background-color: black;
   color: white;
   display: flex;

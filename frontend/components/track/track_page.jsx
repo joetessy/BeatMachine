@@ -43,6 +43,7 @@ class TrackPage extends React.Component{
         <div className='login-home-container'>
           <div className='track-show-header'>
               <div className='track-show-header-content'>
+                <div className='play-and-info'>
                 <div className='track-show-button'>
                   {trackButton}
                 </div>
@@ -55,7 +56,12 @@ class TrackPage extends React.Component{
                 <div className='track-name'>
                   {title}
                 </div>
+                </div>
               </div>
+                <div className='show-track-waveform'>
+                  <img src={window.images.showwave}/>
+                </div>
+
             </div>
               <div className='track-image'>
                 <img src={image}/>
