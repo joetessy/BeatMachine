@@ -28,7 +28,7 @@
 
 .track-show-button > .play-button > .fa-play {
   font-size: 1.7em;
-  padding-left: 24px;
+  padding-left: 23px;
   padding-top: 17px;
 }
 
@@ -88,7 +88,7 @@
 .track-show-container {
 
   height: 100vh;
-  width: 1020px;
+  width: 1080px;
   margin: auto;
   background-color: white;
   padding: 0 30px;

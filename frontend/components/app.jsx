@@ -7,12 +7,14 @@ import UploadTrackFormContainer from './track/upload_track_form_container';
 import ModalContainer from './modal/modal_container';
 import PlayerContainer from './player/player';
 import TrackPage from './track/track_page';
+import Favicon from 'react-favicon';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 
 
 const App = (props) => (
   <div>
+    <Favicon url={'http://www.favicon.cc/logo3d/29288.png'}/>
     <ModalContainer/>
     <Switch>
       <Route

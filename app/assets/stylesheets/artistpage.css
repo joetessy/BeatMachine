@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   background-image: url(https://www.freevector.com/uploads/vector/preview/11291/FreeVector-Orange-Wave.jpg);
+  background-size: 100%;
 }
 
 .login-home-container > .home-header > a > h2 {

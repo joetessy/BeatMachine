@@ -36,6 +36,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-dynamic-modal": "^1.1.1",
+    "react-favicon": "0.0.9",
     "react-form-data": "^0.2.3",
     "react-logger": "^1.1.0",
     "react-modal": "^2.0.2",
