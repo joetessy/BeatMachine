@@ -66,6 +66,7 @@ class Player extends React.Component {
     this.music.src = this.state.tracks[newId].audio_url;
     this.props.setNowPlaying(newId, newIdx, true);
   }
+
   previousTrack(){
     this.music.pause();
     let newIdx = this.props.nowPlaying.idx - 1;
@@ -96,6 +97,7 @@ class Player extends React.Component {
   }
 
   handlePrevious(){
+    debugger;
     this.previousTrack();
   }
 
