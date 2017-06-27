@@ -43,12 +43,14 @@ class Player extends React.Component {
     }
 
     else if (currentId && nextId && currentId === nextId ){
-      if (this.music.paused){
+      if (this.music.paused && nextProps.nowPlaying.idx === 'z'){
         this.music.play();
         this.playButton.className = 'fa fa-pause';
       } else {
+        if (nextProps.nowPlaying.idx === 'z') {
         this.music.pause();
         this.playButton.className = 'fa fa-play';
+        }
       }
     }
 
@@ -58,6 +60,21 @@ class Player extends React.Component {
       this.music.pause();
       this.playButton.className = 'fa fa-play';
     }
+  }
+
+  handlePlayButton(){
+    let id = this.props.nowPlaying.id;
+    let idx = this.props.nowPlaying.idx;
+    if (this.music.paused){
+      this.music.play();
+      this.props.setNowPlaying(id, null, true);
+      this.playButton.className = 'fa fa-pause';
+    } else {
+      this.music.pause();
+      this.props.setNowPlaying(id, null, false);
+      this.playButton.className = 'fa fa-play';
+    }
+
   }
   startPlayer(np, queue){
     this.footer.className = 'hide footer';
@@ -75,36 +92,31 @@ class Player extends React.Component {
   }
 
   nextTrack(){
-    let newIdx = this.props.nowPlaying.idx + 1;
-    let newId = this.props.queue[newIdx];
+    this.music.pause();
+    let currentId = this.props.nowPlaying.id;
+    let queue = this.props.queue;
+    const findIdx = el => (el === currentId);
+    let newIdx = queue.findIndex(findIdx) + 1;
+    let newId = queue[newIdx];
     this.music.src = this.state.tracks[newId].audio_url;
     this.props.setNowPlaying(newId, newIdx, true);
+
   }
 
   previousTrack(){
     this.music.pause();
-    let newIdx = this.props.nowPlaying.idx - 1;
-    let newId = this.props.queue[newIdx];
+    let currentId = this.props.nowPlaying.id;
+    let queue = this.props.queue;
+    const findIdx = el => (el === currentId);
+    let newIdx = queue.findIndex(findIdx) - 1;
+    let newId = queue[newIdx];
+
     this.music.src = this.state.tracks[newId].audio_url;
     this.props.setNowPlaying(newId, newIdx, true);
-    this.music.play();
-  }
-
-
-  handlePlayButton(){
-    let id = this.props.nowPlaying.id;
-    let idx = this.props.nowPlaying.idx;
-    if (this.music.paused){
-      this.music.play();
-      this.props.setNowPlaying(id, idx, true);
-      this.playButton.className = 'fa fa-pause';
-    } else {
-      this.music.pause();
-      this.props.setNowPlaying(id, idx, false);
-      this.playButton.className = 'fa fa-play';
-    }
 
   }
+
+
 
   handleNext(){
     this.nextTrack();

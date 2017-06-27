@@ -23,9 +23,9 @@ class TrackButton extends React.Component{
     }
     if (this.props.track.id === this.props.nowPlaying.id){
       if (this.props.nowPlaying.playing === true){
-        this.props.sendNowPlaying(this.props.track.id, null, false);
+        this.props.sendNowPlaying(this.props.track.id, 'z', false);
       } else {
-        this.props.sendNowPlaying(this.props.track.id, null, true);
+        this.props.sendNowPlaying(this.props.track.id, 'z', true);
       }
     } else {
       for(let i = 0; i < tracks.length; i++){
@@ -42,6 +42,7 @@ class TrackButton extends React.Component{
     let icon;
     if (this.props.nowPlaying.id === this.props.track.id
       & this.props.nowPlaying.playing === true){
+        
       icon = <i className="fa fa-pause" aria-hidden="true"></i>;
     } else {
       icon = <i className="fa fa-play" aria-hidden="true"></i>;
