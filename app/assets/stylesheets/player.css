@@ -35,7 +35,7 @@ audio {
 
 .footer .fa-step-forward, .footer .fa-step-backward,
 .footer .fa-play, .footer .fa-pause {
-  padding-left: 10px;
+  margin-left: 20px;
 
 }
 

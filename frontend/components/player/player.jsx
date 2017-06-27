@@ -97,12 +97,8 @@ class Player extends React.Component {
     this.nextTrack();
   }
 
-  previousTrack(){
-    this.previousTrack();
-  }
 
   handlePrevious(){
-    debugger;
     this.previousTrack();
   }
 
