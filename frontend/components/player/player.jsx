@@ -48,7 +48,7 @@ class Player extends React.Component {
     }
   }
   startPlayer(np, queue){
-    this.footer.className = 'footer';
+    this.footer.className = 'hide footer';
     this.music.src = this.state.tracks[queue[np.idx]].audio_url;
     this.music.play();
     this.playButton.className = 'fa fa-pause';
@@ -152,7 +152,7 @@ class Player extends React.Component {
     }
 
     return (
-      <div className='footer hide'
+      <div className='hide'
         ref={(arg) => {this.footer = arg;}}>
         {audioPlayer}
         <div className='footer-inner'>

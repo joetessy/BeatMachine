@@ -1,4 +1,13 @@
+.hide{
+  height: 0px;
+  transition: height .2s;
+}
+
 .footer{
+  opacity: 1;
+  transition: height .2s;
+
+  visibility: visible;
   width: 100%;
   margin: auto;
   position: fixed;
@@ -10,6 +19,8 @@
   border-top: 1px solid rgba(0,0,0,.15);
   z-index:600;
 }
+
+
 
 .footer-inner{
   width: 1080px;
@@ -42,10 +53,6 @@ audio {
   color: black;
   padding: 0;
   margin: 0;
-}
-
-.hide{
-  display: none;
 }
 
 .footer-info{
