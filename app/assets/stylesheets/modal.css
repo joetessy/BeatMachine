@@ -13,10 +13,11 @@
 
 
 .modal-content-pre{
+  margin-top: -10%
   visibility: hidden;
-  -webkit-transition: visibility .5s linear;
-  -moz-transition: visibility .5s linear;
-  transition: visibility .5s linear;
+  -webkit-transition: margin-top .5s linear;
+  -moz-transition: margin-top .5s linear;
+  transition: margin-top .5s linear;
   z-index: 1000;
 }
 
@@ -25,9 +26,9 @@
   display: block;
   margin-top: 5%;
   z-index: 1000;
-  -webkit-transition: visibility .5s linear;
-  -moz-transition: visibility .5s linear;
-  transition: visibility .5s linear;
+  -webkit-transition: margin-top .5s linear;
+  -moz-transition: margin-top .5s linear;
+  transition: margin-top .5s linear;
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);

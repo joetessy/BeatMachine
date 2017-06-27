@@ -22,7 +22,11 @@ class TrackButton extends React.Component{
       tracks = selectArtistTrackIds(this.props.artist);
     }
     if (this.props.track.id === this.props.nowPlaying.id){
-      this.props.sendNowPlaying(null, null);
+      if (this.props.nowPlaying.playing === true){
+        this.props.sendNowPlaying(this.props.track.id, null, false);
+      } else {
+        this.props.sendNowPlaying(this.props.track.id, null, true);
+      }
     } else {
       for(let i = 0; i < tracks.length; i++){
         if (tracks[i] === this.props.track.id){

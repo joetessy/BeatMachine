@@ -12,7 +12,7 @@ class Modal extends React.Component {
         <div className='modal-root-container'>
             <div className={
                 this.props.isOpen ?
-                  'modal-content-post' : 'modal-content-pre'
+                  'modal-content-pre modal-content-post' : 'modal-content-pre'
                 }>
               {this.props.component}
             </div>

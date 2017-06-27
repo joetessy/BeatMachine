@@ -40,7 +40,19 @@ class Player extends React.Component {
 
     if (this.props.queue.length === 0 && nextQueue.length > 0){
       this.startPlayer(nextProps.nowPlaying, nextQueue);
-    } else if ( nextId && currentId !== nextId){
+    }
+
+    else if (currentId && nextId && currentId === nextId ){
+      if (this.music.paused){
+        this.music.play();
+        this.playButton.className = 'fa fa-pause';
+      } else {
+        this.music.pause();
+        this.playButton.className = 'fa fa-play';
+      }
+    }
+
+    else if ( nextId && currentId !== nextId){
       this.changeTrack(this.state.tracks[nextId].audio_url);
     } else if ( currentId && !nextId) {
       this.music.pause();
@@ -49,6 +61,7 @@ class Player extends React.Component {
   }
   startPlayer(np, queue){
     this.footer.className = 'hide footer';
+    this.controls.className = 'controls';
     this.music.src = this.state.tracks[queue[np.idx]].audio_url;
     this.music.play();
     this.playButton.className = 'fa fa-pause';
@@ -133,8 +146,11 @@ class Player extends React.Component {
     let artist = null;
     let trackImage = null;
     if (this.props.nowPlaying.id){
+      if (this.props.location.pathname === '/stream'){
       track = this.props.tracks[this.props.nowPlaying.id];
-
+      } else {
+        track = this.props.artistTracks[this.props.nowPlaying.id];
+      }
       trackImage =
         <NavLink to={`/${track.artist}`}>
           <img src={track.artist_image}/>
@@ -156,7 +172,8 @@ class Player extends React.Component {
         ref={(arg) => {this.footer = arg;}}>
         {audioPlayer}
         <div className='footer-inner'>
-          <div className='controls'>
+          <div className='hide'
+            ref={(arg) => {this.controls = arg;}}>
             <i className="fa fa-step-backward" aria-hidden="true"
               onClick={this.handlePrevious}></i>
             <div className='play-pause'>
