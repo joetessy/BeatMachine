@@ -2,9 +2,10 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { requestTracks } from './../../actions/track_actions';
-import { receiveAudio } from './../../actions/player_actions';
-import { selectAllTracks, selectArtistTracks }
+import { receiveAudio, nowPlaying} from './../../actions/player_actions';
+import { selectAllTrackIds, selectArtistTrackIds }
   from '../../reducers/selectors';
+import values from 'lodash/values';
 
 
 class TrackButton extends React.Component{
@@ -16,26 +17,27 @@ class TrackButton extends React.Component{
   handleClick(){
     let tracks;
     if (this.props.match.path.slice(1) === 'stream'){
-      tracks = selectAllTracks(this.props.tracks);
+      tracks = selectAllTrackIds(this.props.tracks);
     } else {
-      tracks = selectArtistTracks(this.props.artist);
+      tracks = selectArtistTrackIds(this.props.artist);
     }
-    for(let i = 0; i < tracks.length; i++){
-      if (tracks[i].id === this.props.track.id){
-        tracks = tracks.slice(i);
-        break;
+    if (this.props.track.id === this.props.nowPlaying.id){
+      this.props.sendNowPlaying(null, null);
+    } else {
+      for(let i = 0; i < tracks.length; i++){
+        if (tracks[i] === this.props.track.id){
+          this.props.sendNowPlaying(this.props.track.id, i, true);
+          break;
+        }
       }
+      this.props.sendAudio(tracks);
     }
-    this.props.sendAudio(tracks);
-  }
-
-  componentWillReceiveProps(){
-
   }
 
   render(){
     let icon;
-    if (this.props.nowPlaying === this.props.track.id ){
+    if (this.props.nowPlaying.id === this.props.track.id
+      & this.props.nowPlaying.playing === true){
       icon = <i className="fa fa-pause" aria-hidden="true"></i>;
     } else {
       icon = <i className="fa fa-play" aria-hidden="true"></i>;
@@ -55,12 +57,14 @@ const mapStateToProps = (state, ownProps) => ({
   tracks: state,
   artist: state.artist,
   track: ownProps.track,
-  nowPlaying: state.nowPlaying
+  nowPlaying: state.nowPlaying,
+  queue: state.player
 });
 
 const mapDispatchToProps = (dispatch) => ({
   sendHomeTracks: () => dispatch(requestTracks()),
-  sendAudio: (src) => dispatch(receiveAudio(src))
+  sendAudio: (src) => dispatch(receiveAudio(src)),
+  sendNowPlaying: (id, idx, playing) => dispatch(nowPlaying(id, idx, playing))
 });
 
 
