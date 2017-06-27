@@ -6,106 +6,93 @@ class Player extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { queue: [], currentUser: this.props.currentUser,
-    queueCount: 0 };
+    this.state = {
+      queue: [],
+      currentUser: this.props.currentUser,
+      queueCount: 0,
+      tracks: {},
+      nowPlaying: null};
     this.checkTime = this.checkTime.bind(this);
     this.myInterval = this.myInterval.bind(this);
-    this.nextTrack = this.nextTrack.bind(this);
-    this.handlePathChange = this.handlePathChange.bind(this);
+
     this.startPlayer = this.startPlayer.bind(this);
-    this.handlePauseResume = this.handlePauseResume.bind(this);
     this.changeTrack = this.changeTrack.bind(this);
+    this.nextTrack = this.nextTrack.bind(this);
+    this.previousTrack = this.previousTrack.bind(this);
+
     this.handlePlayButton = this.handlePlayButton.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
-    this.previousTrack = this.previousTrack.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
-    this.setState({queue: this.props.queue});
-    this.setState({currentUser: nextProps.currentUser});
-    let currentQueue = this.state.queue;
+    let currentId = this.props.nowPlaying.id;
+    let nextId = nextProps.nowPlaying.id;
+
+    if (this.props.location.pathname === '/stream'){
+      this.setState({tracks: nextProps.tracks});
+    } else {
+        this.setState({tracks: nextProps.artistTracks});
+    }
+    let currentQueue = this.props.queue;
     let nextQueue = nextProps.queue;
-                                                    /* If Path Change */
-    if (this.props.location.pathname !== nextProps.location.pathname){
-      this.handlePathChange();
-                                /* Start player when recieving a queue */
-    } else if (currentQueue.length === 0 && nextQueue.length > 0){
-      this.startPlayer(nextProps, nextQueue);
-                                      /* If user pauses or resumes track*/
-    } else if (nextQueue.length > 0 &&
-      nextQueue[0].audio_url === currentQueue[0].audio_url){
-      this.handlePauseResume(nextQueue);
-    } else {
-                      /* Change Track when User pushes another button */
-      this.changeTrack(currentQueue, nextQueue);
-    }
-  }
 
-
-  handlePathChange(){
-    if (this.music.paused){
-      this.music.pause();
-    } else {
-      this.music.play();
-    }
-  }
-
-  startPlayer(nextProps, queue){
-    this.footer.className = 'footer';
-    this.playButton.className = 'fa fa-pause';
-    this.music.src = queue[0].audio_url;
-    this.setState({queue: queue});
-    this.music.play();
-    this.props.nowPlaying(queue[0].id);
-  }
-
-  handlePauseResume(nextQueue){
-    if (this.music.paused){
-      /* Pause / play when user pushes same button */
-      this.playButton.className = 'fa fa-pause';
-      this.music.play();
-      this.setState({queue: nextQueue});
-      this.props.nowPlaying(nextQueue[this.state.queueCount].id);
-    } else {
+    if (this.props.queue.length === 0 && nextQueue.length > 0){
+      this.startPlayer(nextProps.nowPlaying, nextQueue);
+    } else if ( nextId && currentId !== nextId){
+      this.changeTrack(this.state.tracks[nextId].audio_url);
+    } else if ( currentId && !nextId) {
       this.music.pause();
       this.playButton.className = 'fa fa-play';
-      this.props.nowPlaying(null);
     }
   }
-
-  handlePlayButton(){
-    this.handlePauseResume(this.state.queue);
+  startPlayer(np, queue){
+    this.footer.className = 'footer';
+    this.music.src = this.state.tracks[queue[np.idx]].audio_url;
+    this.music.play();
+    this.playButton.className = 'fa fa-pause';
   }
 
-  changeTrack(currentQueue, nextQueue){
-    this.music.pause();
-    this.setState({queue: nextQueue});
-    this.music.src = nextQueue[0].audio_url;
-    if (currentQueue.length > 0){
-      this.playButton.className = 'fa fa-pause';
-      this.music.play();
-      this.props.nowPlaying(nextQueue[0].id);
-    }
+  changeTrack(src){
+    this.music.src = src;
+    this.music.play();
+    this.playButton.className = 'fa fa-pause';
+
   }
 
   nextTrack(){
-    if (this.state.queue.length === 1) return;
-    let count = this.state.queueCount + 1;
-    this.setState({queueCount: count});
-    this.music.src = this.state.queue[count].audio_url;
-    this.playButton.className = 'fa fa-pause';
+    let newIdx = this.props.nowPlaying.idx + 1;
+    let newId = this.props.queue[newIdx];
+    this.music.src = this.state.tracks[newId].audio_url;
+    this.props.setNowPlaying(newId, newIdx, true);
+  }
+  previousTrack(){
+    this.music.pause();
+    let newIdx = this.props.nowPlaying.idx - 1;
+    let newId = this.props.queue[newIdx];
+    this.music.src = this.state.tracks[newId].audio_url;
+    this.props.setNowPlaying(newId, newIdx, true);
     this.music.play();
-    this.props.nowPlaying(this.state.queue[count].id);
+  }
+
+
+  handlePlayButton(){
+    let id = this.props.nowPlaying.id;
+    let idx = this.props.nowPlaying.idx;
+    if (this.music.paused){
+      this.music.play();
+      this.props.setNowPlaying(id, idx, true);
+      this.playButton.className = 'fa fa-pause';
+    } else {
+      this.music.pause();
+      this.props.setNowPlaying(id, idx, false);
+      this.playButton.className = 'fa fa-play';
+    }
+
   }
 
   handleNext(){
     this.nextTrack();
-  }
-
-  previousTrack(){
-
-
   }
 
   handlePrevious(){
@@ -163,12 +150,15 @@ class Player extends React.Component {
 
 
 const mapStateToProps = (state) => ({
+  tracks: state.tracks,
+  artistTracks: state.artist.tracks,
   queue: state.player,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  nowPlaying: state.nowPlaying
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  nowPlaying: (id) => dispatch(nowPlaying(id))
+  setNowPlaying: (id, idx, playing) => dispatch(nowPlaying(id, idx, playing))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);
