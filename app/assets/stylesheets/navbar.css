@@ -2,7 +2,14 @@
   width: 100%;
   height: 46px;
   background-color: #333;
+  position: fixed;
+  z-index: 700;
 }
+
+.push-below-navbar{
+  padding-top: 46px;
+}
+
 .navbar-container{
   width: 1080px;
   margin: 0 auto;

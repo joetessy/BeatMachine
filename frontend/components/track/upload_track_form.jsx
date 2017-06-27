@@ -86,6 +86,7 @@ class UploadTrackForm extends React.Component {
     return(
       <div>
         <NavBarContainer/>
+        <div className='push-below-navbar'>
           <div className='upload-track-form'>
             <div className='form-container'>
               <div className='form-content'>
@@ -121,6 +122,7 @@ class UploadTrackForm extends React.Component {
               </div>
               </div>
             </div>
+          </div>
           </div>
       </div>
 

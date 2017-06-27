@@ -35,6 +35,8 @@ class ArtistPage extends React.Component{
       <div>
         {modalRoot}
         <NavBarContainer />
+          <div className='push-below-navbar'>
+
         <div className='login-home-container'>
           <div className='profile-header'>
             <div className='profile-header-content'>
@@ -58,6 +60,7 @@ class ArtistPage extends React.Component{
               currentUser={this.props.currentUser}/>
           </div>
         </div>
+      </div>
       </div>
     );
   }

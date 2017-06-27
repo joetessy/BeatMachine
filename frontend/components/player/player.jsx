@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { nowPlaying } from './../../actions/player_actions';
+import { NavLink } from 'react-router-dom';
 
 class Player extends React.Component {
 
@@ -118,7 +119,6 @@ class Player extends React.Component {
   render(){
     let audioPlayer =
           <audio
-            controls='controls'
             ref={(arg) => {this.music = arg;}}
             src="">
           </audio>;
@@ -127,23 +127,57 @@ class Player extends React.Component {
         this.checkTime();
       }
     }
+    let tracks = null;
+    let track = null;
+    let title = null;
+    let artist = null;
+    let trackImage = null;
+    if (this.props.nowPlaying.id){
+      track = this.props.tracks[this.props.nowPlaying.id];
+
+      trackImage =
+        <NavLink to={`/${track.artist}`}>
+          <img src={track.artist_image}/>
+        </NavLink>;
+
+      title =
+        <NavLink to={`/${track.artist}/${track.title}`}>
+          <div className='footer-title'>{track.title}</div>
+        </NavLink>;
+
+      artist =
+        <NavLink to={`/${track.artist}`}>
+          <div className='footer-artist'>{track.artist}</div>
+        </NavLink>;
+    }
+
     return (
       <div className='footer hide'
         ref={(arg) => {this.footer = arg;}}>
+        {audioPlayer}
         <div className='footer-inner'>
           <div className='controls'>
             <i className="fa fa-step-backward" aria-hidden="true"
               onClick={this.handlePrevious}></i>
-
+            <div className='play-pause'>
             <i className=""
                 ref={(btn) => {this.playButton = btn;}}
                 onClick={this.handlePlayButton}>
             </i>
+            </div>
             <i className="fa fa-step-forward" aria-hidden="true"
               onClick={this.handleNext}></i>
-
           </div>
-          {audioPlayer}
+
+          <div className='footer-info'>
+            <div className='footer-image'>
+              {trackImage}
+            </div>
+            <div className='footer-links'>
+              {artist}
+              {title}
+            </div>
+          </div>
         </div>
       </div>
     );

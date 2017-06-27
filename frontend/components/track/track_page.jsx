@@ -52,6 +52,7 @@ class TrackPage extends React.Component{
     return (
       <div>
         <NavBarContainer />
+        <div className='push-below-navbar'>
         <div className='login-home-container'>
           <div className='track-show-header'>
               <div className='left-of-pic'>
@@ -103,6 +104,7 @@ class TrackPage extends React.Component{
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     );

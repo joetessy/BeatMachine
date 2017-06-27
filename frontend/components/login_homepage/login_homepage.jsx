@@ -21,6 +21,7 @@ class LoginHomePage extends React.Component{
       return (
         <div>
           <NavBarContainer />
+          <div className='push-below-navbar'>
           <div className='login-home-container'>
             <div className='home-header'>
             <h2>Stream</h2>
@@ -28,6 +29,7 @@ class LoginHomePage extends React.Component{
             <div className='TrackFeed'>
               <TrackStreamContainer/>
             </div>
+          </div>
           </div>
         </div>
       );

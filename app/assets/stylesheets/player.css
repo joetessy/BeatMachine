@@ -17,10 +17,21 @@
   display: flex;
   align-items: center;
   height: 100%;
+  justify-content: space-between;
+  position: relative;
 }
 
 .controls{
   display: flex;
+  height: 100%;
+  align-items: center;
+  width: 100px;
+  justify-content: space-around;
+}
+
+.footer-links{
+
+
 }
 
 audio {
@@ -33,12 +44,42 @@ audio {
   margin: 0;
 }
 
-.footer .fa-step-forward, .footer .fa-step-backward,
-.footer .fa-play, .footer .fa-pause {
-  margin-left: 20px;
-
-}
-
 .hide{
   display: none;
+}
+
+.footer-info{
+  display: flex;
+  height: 30px;
+  position: absolute;
+  right: 0;
+}
+
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:space-between;
+}
+
+.footer-title{
+    font-size: 11px;
+    color: #666;
+}
+.footer-title:hover{
+  color:#333;
+}
+
+.footer-artist{
+    font-size: 11px;
+    color: #999;
+}
+.footer-artist:hover{
+  color: #333;
+}
+
+.footer-image > a > img{
+  height:30px;
+  width:30px;
+  margin-right: 10px;
 }
