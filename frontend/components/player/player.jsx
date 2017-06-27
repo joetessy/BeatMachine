@@ -68,7 +68,6 @@ class Player extends React.Component {
   }
 
   previousTrack(){
-    debugger;
     this.music.pause();
     let newIdx = this.props.nowPlaying.idx - 1;
     let newId = this.props.queue[newIdx];

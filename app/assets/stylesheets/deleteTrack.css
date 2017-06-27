@@ -25,7 +25,8 @@
   justify-content: flex-end;
 }
 
-.delete-modal-buttons > .cancel, .delete-button {
+.delete-modal-buttons > .cancel,
+.delete-modal-buttons > .delete-button {
   height: 26px;
   margin: 0;
   display: flex;
@@ -37,7 +38,7 @@
   margin: 5px 11px 2px 10px;
 }
 
-.delete-button{
+.delete-modal-buttons > .delete-button{
   padding: 5px 11px 2px 10px;
   border: 1px solid #e5e5e5;
   height: 26px;
@@ -46,6 +47,6 @@
   transition: border, .3s;
 }
 
-.delete-button:hover{
+.delete-modal-buttons > .delete-button:hover{
   border: 1px solid black;
 }

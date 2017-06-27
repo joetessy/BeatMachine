@@ -11,6 +11,7 @@
   display: flex;
   padding: 20px 0;
   justify-content: space-between;
+  height: 50px;
 }
 
 .comment-author {
@@ -19,7 +20,7 @@
 
 .comment-form-container{
   height: 70px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #d2d2d2;
   padding: 30px 0;
   display: flex;
   align-items: center;
@@ -30,7 +31,7 @@
   color: #999;
   font-size: 14px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #d2d2d2;
 }
 
 .fa-comment{
@@ -54,7 +55,7 @@
   box-sizing: border-box;
   padding: 5px;
   background: #f2f2f2;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #999;
   width: 100%;
   display: flex;
   align-items: center;
@@ -81,4 +82,30 @@
 }
 .comment-button{
   display: none;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.right-side .delete-button{
+  display: none;
+  border: 1px solid #999;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.delete-button > .fa-trash {
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+.comment:hover .right-side .delete-button{
+  display: block;
+}
+
+.right-side .delete-button:hover{
+  border: 1px solid #353535;
+  cursor: pointer;
 }

@@ -7,6 +7,11 @@ export const selectAllTracks = ({ tracks }) => {
   return values(tracksClone);
 };
 
+export const selectAllComments = (comments) => {
+  let myComments = merge({}, comments);
+  return values(comments);
+};
+
 export const selectAllTrackIds = ({ tracks }) => {
   let tracksClone = merge({}, tracks);
   let trackArray = values(tracksClone);

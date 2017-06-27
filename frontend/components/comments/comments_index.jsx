@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestComments } from './../../actions/comment_actions';
+import { selectAllComments } from './../../reducers/selectors';
 import CommentIndexItem from './comment_index_item';
 
 
@@ -14,18 +15,19 @@ class CommentsIndex extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.value !== this.props.value){
+    if(nextProps.comments.length !== this.props.comments.length){
       nextProps.requestComments(nextProps.track.title);
     }
   }
 
   render(){
-    let comments;
-    if (Array.isArray(this.props.comments)){
-      comments = this.props.comments.map((comment) => {
-        return <CommentIndexItem comment={comment} key={comment.id}/>;
+    let comments = this.props.comments.map((comment) => {
+        return <CommentIndexItem
+          artist={this.props.track.artist}
+          currentUser={this.props.currentUser}
+          comment={comment}
+          key={comment.id}/>;
       });
-    }
     return(
       <div>
         {comments}
@@ -37,7 +39,7 @@ class CommentsIndex extends React.Component{
 const mapStateToProps = (state, ownProps) => {
   return({
     currentUser: state.session.currentUser,
-    comments: state.comments,
+    comments: selectAllComments(state.comments),
     track: ownProps.track
   });
 };
