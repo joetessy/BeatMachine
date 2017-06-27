@@ -99,10 +99,6 @@ class TrackPage extends React.Component{
                 <p>{description}</p>
               </div>
               <div className='comment-list'>
-                <div className='comments-header'>
-                  <i className="fa fa-comment" aria-hidden="true"></i>
-                  {commentCount}  Comments
-                </div>
                 {commentsIndex}
               </div>
             </div>

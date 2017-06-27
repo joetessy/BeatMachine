@@ -28,8 +28,14 @@ class CommentsIndex extends React.Component{
           comment={comment}
           key={comment.id}/>;
       });
+      let commentCount;
+      commentCount = this.props.comments.length;
     return(
       <div>
+        <div className='comments-header'>
+          <i className="fa fa-comment" aria-hidden="true"></i>
+          {commentCount}  Comments
+        </div>
         {comments}
       </div>
     );
