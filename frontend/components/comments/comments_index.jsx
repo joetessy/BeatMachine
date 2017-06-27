@@ -14,8 +14,8 @@ class CommentsIndex extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    if (nextProps.track !== this.props.track){
-      this.props.requestComments(nextProps.track.title);
+    if(nextProps.value !== this.props.value){
+      nextProps.requestComments(nextProps.track.title);
     }
   }
 
@@ -36,6 +36,7 @@ class CommentsIndex extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
   return({
+    currentUser: state.session.currentUser,
     comments: state.comments,
     track: ownProps.track
   });

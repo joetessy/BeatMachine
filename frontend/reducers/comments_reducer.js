@@ -9,8 +9,9 @@ const CommentReducer = (state = [], action) => {
     case RECEIVE_COMMENTS:
       return action.comments;
     case RECEIVE_COMMENT:
-      nextState = merge([], state, action.comment);
-      return action.comment;
+      nextState = merge([], state);
+      nextState.push(action.comment);
+      return nextState;
     default:
       return state;
   }

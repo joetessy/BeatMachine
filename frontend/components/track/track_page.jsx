@@ -8,6 +8,7 @@ import { requestComments } from './../../actions/comment_actions';
 import { selectSingleTrack } from './../../reducers/selectors';
 import TrackButton from './track_button';
 import CommentsIndex from './../comments/comments_index';
+import CommentForm from './../comments/comment_form';
 
 class TrackPage extends React.Component{
   constructor(props){
@@ -84,7 +85,7 @@ class TrackPage extends React.Component{
           </div>
         </div>
         <div className='track-show-container'>
-          <div className='comment-form-container'></div>
+            <CommentForm track={track}/>
           <div className='track-show-content'>
             <NavLink to={`/${artist}`}>
 

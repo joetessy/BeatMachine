@@ -6,7 +6,8 @@ class Player extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { queue: [], currentUser: this.props.currentUser, intervalSet: false };
+    this.state = { queue: [], currentUser: this.props.currentUser,
+    queueCount: 0 };
     this.checkTime = this.checkTime.bind(this);
     this.myInterval = this.myInterval.bind(this);
     this.nextTrack = this.nextTrack.bind(this);
@@ -14,6 +15,10 @@ class Player extends React.Component {
     this.startPlayer = this.startPlayer.bind(this);
     this.handlePauseResume = this.handlePauseResume.bind(this);
     this.changeTrack = this.changeTrack.bind(this);
+    this.handlePlayButton = this.handlePlayButton.bind(this);
+    this.handleNext = this.handleNext.bind(this);
+    this.handlePrevious = this.handlePrevious.bind(this);
+    this.previousTrack = this.previousTrack.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -47,6 +52,8 @@ class Player extends React.Component {
   }
 
   startPlayer(nextProps, queue){
+    this.footer.className = 'footer';
+    this.playButton.className = 'fa fa-pause';
     this.music.src = queue[0].audio_url;
     this.setState({queue: queue});
     this.music.play();
@@ -56,13 +63,19 @@ class Player extends React.Component {
   handlePauseResume(nextQueue){
     if (this.music.paused){
       /* Pause / play when user pushes same button */
+      this.playButton.className = 'fa fa-pause';
       this.music.play();
       this.setState({queue: nextQueue});
-      this.props.nowPlaying(nextQueue[0].id);
+      this.props.nowPlaying(nextQueue[this.state.queueCount].id);
     } else {
       this.music.pause();
+      this.playButton.className = 'fa fa-play';
       this.props.nowPlaying(null);
     }
+  }
+
+  handlePlayButton(){
+    this.handlePauseResume(this.state.queue);
   }
 
   changeTrack(currentQueue, nextQueue){
@@ -70,6 +83,7 @@ class Player extends React.Component {
     this.setState({queue: nextQueue});
     this.music.src = nextQueue[0].audio_url;
     if (currentQueue.length > 0){
+      this.playButton.className = 'fa fa-pause';
       this.music.play();
       this.props.nowPlaying(nextQueue[0].id);
     }
@@ -77,16 +91,29 @@ class Player extends React.Component {
 
   nextTrack(){
     if (this.state.queue.length === 1) return;
-    let newQueue = this.state.queue.slice(1);
-    this.setState({queue: newQueue});
-    this.music.src = this.state.queue[0].audio_url;
+    let count = this.state.queueCount + 1;
+    this.setState({queueCount: count});
+    this.music.src = this.state.queue[count].audio_url;
+    this.playButton.className = 'fa fa-pause';
     this.music.play();
-    this.props.nowPlaying(this.state.queue[0].id);
+    this.props.nowPlaying(this.state.queue[count].id);
+  }
+
+  handleNext(){
+    this.nextTrack();
+  }
+
+  previousTrack(){
+
+
+  }
+
+  handlePrevious(){
+    this.previousTrack();
   }
 
 
   checkTime(){
-      // this.setState({intervalSet: true});
       this.interval = setInterval(() => this.myInterval(), 1000);
     }
 
@@ -101,8 +128,9 @@ class Player extends React.Component {
 
   render(){
     let audioPlayer =
-          <audio controls='controls'
-            ref={(arg) => (this.music = arg)}
+          <audio
+            controls='controls'
+            ref={(arg) => {this.music = arg;}}
             src="">
           </audio>;
     if (!audioPlayer.paused){
@@ -111,8 +139,23 @@ class Player extends React.Component {
       }
     }
     return (
-      <div className='footer'>
-        {audioPlayer}
+      <div className='footer hide'
+        ref={(arg) => {this.footer = arg;}}>
+        <div className='footer-inner'>
+          <div className='controls'>
+            <i className="fa fa-step-backward" aria-hidden="true"
+              onClick={this.handlePrevious}></i>
+
+            <i className=""
+                ref={(btn) => {this.playButton = btn;}}
+                onClick={this.handlePlayButton}>
+            </i>
+            <i className="fa fa-step-forward" aria-hidden="true"
+              onClick={this.handleNext}></i>
+
+          </div>
+          {audioPlayer}
+        </div>
       </div>
     );
   }

@@ -5,11 +5,40 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 32px;
-  background-color: transparent;
+  height: 46px;
+  background-color: #f2f2f2;
+  border-top: 1px solid rgba(0,0,0,.15);
   z-index:600;
+}
+
+.footer-inner{
+  width: 1080px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.controls{
+  display: flex;
 }
 
 audio {
   width: 100%;
+}
+
+.footer .fa-play, .footer .fa-pause {
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .fa-step-forward, .footer .fa-step-backward,
+.footer .fa-play, .footer .fa-pause {
+  padding-left: 10px;
+
+}
+
+.hide{
+  display: none;
 }

@@ -103,6 +103,7 @@
 .thumbnail-container > img {
   display: inline;
   margin: 0 auto;
+  background-color: #f50;
   height: 100%;
   width: auto;
 }

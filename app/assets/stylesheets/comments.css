@@ -1,6 +1,4 @@
-// Place all the styles related to the Comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 
 .comment-avatar > img {
   height: 40px;
@@ -21,8 +19,10 @@
 
 .comment-form-container{
   height: 70px;
-  padding: 30px;
   border-bottom: 1px solid #f2f2f2;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
 }
 
 .comments-header{
@@ -48,4 +48,37 @@
 
 .comment-time-ago{
    color: #999;
+}
+
+.comment-form{
+  box-sizing: border-box;
+  padding: 5px;
+  background: #f2f2f2;
+  border: 1px solid #e5e5e5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.comment-input{
+  border-radius: 4px;
+  height: 27px;
+  font-size: 14px;
+  width: 100%;
+  border: 0px;
+}
+
+.comment-input:focus{
+  outline: 0;
+  width: 100%;
+  border: 0px;
+}
+
+
+.comment-form-container img {
+  height: 40px;
+  width: 40px;
+}
+.comment-button{
+  display: none;
 }
