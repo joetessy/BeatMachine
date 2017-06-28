@@ -15,15 +15,15 @@
 #  location            :string
 #
 
-class User < ActiveRecord::Base
-  require 'paperclip/media_type_spoof_detector'
-  module Paperclip
-    class MediaTypeSpoofDetector
-      def spoofed?
-        false
-      end
+require 'paperclip/media_type_spoof_detector'
+module Paperclip
+  class MediaTypeSpoofDetector
+    def spoofed?
+      false
     end
   end
+end
+class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
