@@ -108,6 +108,7 @@ progress[value] {
   -webkit-appearance: none;
    appearance: none;
    width: 512px;
+   padding: 3% 0;
    height: 1px;
 }
 
@@ -129,6 +130,7 @@ progress[value]::-webkit-progress-value {
   margin: auto;
   align-items: center;
   padding: 0 20px;
+
 }
 
 #seek-obj-container{
@@ -136,6 +138,8 @@ progress[value]::-webkit-progress-value {
   height: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  position: relative;
 }
 
 .current-time{
@@ -153,6 +157,15 @@ progress[value]::-webkit-progress-value {
   width: 40px;
 }
 
-progress{
+.seek-button{
+  display: none;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  background-color: #f50;
+  position:absolute;
+ }
 
-}
+ #seek-obj-container:hover .seek-button{
+   display: block;
+ }

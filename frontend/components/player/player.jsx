@@ -153,6 +153,15 @@ class Player extends React.Component {
     let progressBar = this.seekObj;
     if (this.state.length !== 'NaN:NaN'){
       progressBar.value = (player.currentTime / player.duration);
+      progressBar.addEventListener('click', seek);
+    }
+
+    this.seekButton.style.left = `${progressBar.value * 100}%`;
+
+    function seek(e) {
+      var percent = e.offsetX / this.offsetWidth;
+      player.currentTime = percent * player.duration;
+      progressBar.value = percent / 100;
     }
   }
 
@@ -232,6 +241,8 @@ class Player extends React.Component {
             <span id='seek-obj-container'>
               <progress id='seek-obj' value='0' max='1'
                 ref={(arg => {this.seekObj = arg;})}></progress>
+              <div className='seek-button'
+                ref={(arg => {this.seekButton = arg;})}></div>
             </span>
             {length}
 
