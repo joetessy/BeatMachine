@@ -34,7 +34,9 @@ class CommentsIndex extends React.Component{
       <div>
         <div className='comments-header'>
           <i className="fa fa-comment" aria-hidden="true"></i>
-          {commentCount}  Comments
+          {commentCount} {
+            commentCount === 1 ? 'Comment' : 'Comments' 
+          }
         </div>
         {comments}
       </div>
