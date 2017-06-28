@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import TrackButton from './../track/track_button';
 import { NavLink } from 'react-router-dom';
 
@@ -20,8 +21,6 @@ class HomePageIndexItem extends React.Component {
             <div className='home-index-artist'>{this.props.track.artist}</div>
           </NavLink>
       </li>
-
-      );
+    );
   }
 }
-export default HomePageIndexItem;
