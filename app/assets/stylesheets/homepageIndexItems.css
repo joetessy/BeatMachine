@@ -1,0 +1,50 @@
+.home-index-item > img {
+  height: 153px;
+  width: 153px;
+  padding-bottom: 10px;
+}
+.home-index-item > .play-button{
+  opacity: 1;
+  display: block;
+  position: absolute;
+  left: 31%;
+  top: 27%;
+  height: 50px;
+  width: 50px;
+}
+
+.home-index-item > .play-button > .fa-play{
+  font-size: 1.5em;
+  padding-left: 19px;
+  padding-top: 12px;
+}
+
+.home-index-item:hover > .play-button{
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+
+.home-index-item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% * (1/6) - 10px - 1px);
+}
+
+.homepage-track-index {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 100%;
+}
+
+.home-index-ititle{
+  font-size: 14px;
+  color: black;
+}
+
+.home-index-artist{
+  font-size: 14px;
+  color: #999;
+}

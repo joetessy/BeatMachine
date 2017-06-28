@@ -10,7 +10,9 @@ export const receiveCurrentUser = (currentUser) => ({
 
 export const signup = (user) => dispatch => {
   return APIUtil.signup(user).then(response => dispatch(receiveCurrentUser(response)) && dispatch(receiveErrors([])),
-  error => dispatch(receiveErrors(error.responseJSON)));
+  error => {
+    return dispatch(receiveErrors(error.responseJSON));
+  });
 };
 
 export const login = (user) => dispatch => {

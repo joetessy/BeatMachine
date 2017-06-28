@@ -28,7 +28,7 @@ const App = (props) => (
       <Route
         exact path="/:username/:title" component={TrackPage}/>
     </Switch>
-    <ProtectedRoute path="/" component={PlayerContainer} />
+    <Route path="/" component={PlayerContainer} />
   </div>
 );
 

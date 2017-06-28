@@ -6,6 +6,7 @@ import LoginHomePageContainer
   from './../login_homepage/login_homepage_container';
 import { findDOMNode } from 'react-dom';
 import $ from 'jquery';
+import HomePageTrackIndex from './homepage_track_index';
 
 class HomePage extends React.Component{
   constructor(props){
@@ -74,7 +75,12 @@ class HomePage extends React.Component{
           </Modal>
           <div className='orange-bar'></div>
           <div className='welcome-pic'>
-            <div className='home-logo'>BeatMachine</div>
+            <div className='home-logo'>
+              <img src={window.images.logo}/>
+              <div className='logo-title'>
+              BeatMachine
+              </div>
+            </div>
             <div className='auth-links'>
               <button className='signin'
                 onClick={this.guestLogin}>
@@ -100,6 +106,10 @@ class HomePage extends React.Component{
                     Sign up for free
                 </button>
               </main>
+          </div>
+          <div className='home-discover'>
+            <h1>Hear what's trending for free in the BeatMachine Community</h1>
+            <HomePageTrackIndex/>
           </div>
         </div>
       );

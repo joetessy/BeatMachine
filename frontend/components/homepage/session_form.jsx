@@ -11,7 +11,8 @@ class SessionForm extends React.Component {
 			username: "",
 			password: "",
 			imageFile: null,
-			imageUrl: null
+			imageUrl: null,
+			errors: '',
 		};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,6 +32,11 @@ class SessionForm extends React.Component {
 				formData.append('user[avatar]', this.state.imageFile);
 				this.props.signup(formData);
 		}
+
+		if (this.state.username === "" || this.state.password === "" ||
+			this.state.imageFile === null){
+				this.setState({errors: 'Please fill out all values'});
+			}
   }
 
   handleChange(e){
@@ -60,6 +66,7 @@ class SessionForm extends React.Component {
 		let title = null;
 		let buttonText = null;
 		let pwText = null;
+		let feErrors = null;
 		let imageInput = () => {return null;};
 		switch(this.props.type){
 			case 'login':
@@ -107,7 +114,9 @@ class SessionForm extends React.Component {
 					<input type='submit' value={buttonText}/>
         </form>
 					<div className='error-container'>
-					<p className='errors'>{errors}</p>
+					<p className='errors'>
+						{ this.props.type === 'login' ? errors : this.state.errors }
+					</p>
 					</div>
       	</div>
 			</div>
