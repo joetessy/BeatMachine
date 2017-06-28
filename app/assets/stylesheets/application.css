@@ -1,4 +1,6 @@
 @font-face {
   font-family: 'interstate';
   src: url('Interstate.tff') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
 }
