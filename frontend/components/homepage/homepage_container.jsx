@@ -2,13 +2,13 @@ import HomePage from "./homepage";
 import { connect } from "react-redux";
 import { logout, login } from './../../actions/session_actions';
 import { clearErrors } from './../../actions/errors_actions';
-import { signupForm, loginForm }
-  from './../../actions/session_modal_actions';
+import { closeModal, openModal } from './../../actions/modal_actions';
 
 
-const mapStateToProps = ({session: {currentUser}}) => {
+const mapStateToProps = ({session: {currentUser}, modal}) => {
   return ({
-    currentUser
+    currentUser,
+    modal
   });
 };
 
@@ -16,8 +16,8 @@ const mapDispatchToProps = dispatch => {
   return ({
     login: (u) => dispatch(login(u)),
     logout: () => dispatch(logout()),
-    signupForm: () => dispatch(signupForm()),
-    loginForm: () => dispatch(loginForm()),
+    closeModal: () => dispatch(closeModal()),
+    openModal: (component) => dispatch(openModal(component)),
     clearErrors: () => dispatch(clearErrors()),
   });
 };

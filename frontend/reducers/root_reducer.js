@@ -1,5 +1,4 @@
 import session from './session_reducer';
-import sessionModal from './session_modal_reducer';
 import tracks from './tracks_reducer';
 import artist from './artist_reducer';
 import modal from './modal_reducer';
@@ -17,7 +16,6 @@ const RootReducer = combineReducers({
   comments,
   artist,
   modal,
-  sessionModal,
   errors
 });
 

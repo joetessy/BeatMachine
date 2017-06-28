@@ -26,14 +26,8 @@ class ArtistPage extends React.Component{
       return null;
     }
     let image = <img src={this.props.artist.image_url}/>;
-    let modalRoot;
-    if (this.props.modal.isOpen){
-      modalRoot = <div className="modal-root"
-        onClick={() => this.props.closeModal()}></div>;
-    }
     return (
       <div>
-        {modalRoot}
         <NavBarContainer />
           <div className='push-below-navbar'>
 

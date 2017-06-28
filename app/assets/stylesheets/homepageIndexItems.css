@@ -62,12 +62,14 @@
 }
 
 
- a > .home-index-title{
+.home-index-title{
   font-size: 14px;
   color: black;
+  cursor: pointer;
 }
 
-a > .home-index-artist{
+.home-index-artist{
   font-size: 14px;
   color: #999;
+  cursor: pointer;
 }

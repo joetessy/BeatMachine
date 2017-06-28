@@ -10,6 +10,8 @@ module BeatMachine
   class Application < Rails::Application
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+
     config.paperclip_defaults = {
       :storage => :s3,
       :s3_region => ENV["AWS_REGION"],
