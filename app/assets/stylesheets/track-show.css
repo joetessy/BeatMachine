@@ -15,7 +15,7 @@
     display: flex;
     align-items: flex-start;
     height: 340px;
-    background-image: url(https://ak6.picdn.net/shutterstock/videos/5501012/thumb/1.jpg?i10c);
+    background-image: url(http://wallup.net/wp-content/uploads/2016/07/20/26484-colorful-minimalism-orange-gradient-simple.png);
 }
 
 
@@ -35,7 +35,7 @@
 .track-show-button > .play-button > .fa-pause {
   font-size: 1.7em;
   padding-top: 17px;
-  padding-left: 19.5px;
+  padding-left: 19px;
 }
 
 .track-artist-name{
@@ -76,8 +76,9 @@
 
 }
 .show-track-waveform > img {
-  width: 537px;
-  padding-left: 11%;
+  width: 660px;
+  height: 223px;
+  padding-top: 13%;
 }
 
 .track-show-header {
