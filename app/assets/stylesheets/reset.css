@@ -1,14 +1,9 @@
-@font-face {
-  font-family: 'interstateplus';
-  src: font-url('InterstatePlus Regular.ttf');
-}
-
 body, li, ul, div, a, p {
   padding: 0;
   margin: 0;
   text-decoration: none;
   list-style: none;
-  font-family: interstateplus;
+  font-family: interstate-light;
   font-weight: lighter;
 }
 
