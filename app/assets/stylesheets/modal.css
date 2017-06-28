@@ -14,24 +14,27 @@
 
 .modal-content-pre{
   margin-top: -10%;
-  visibility: hidden;
-  -webkit-transition: margin-top .5s linear;
-  -moz-transition: margin-top .5s linear;
-  transition: margin-top .5s linear;
-  z-index: 1000;
 }
 
 .modal-content-post{
   visibility: visible;
   display: block;
-  margin-top: 5%;
-  z-index: 1000;
-  -webkit-transition: margin-top .5s linear;
-  -moz-transition: margin-top .5s linear;
-  transition: margin-top .5s linear;
-  position: absolute;
-  left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  z-index: 1000;
+  margin-top:8%;
+  position: absolute;
+  left: 50%;
   position: fixed;
+  animation-duration: .5s;
+  animation-name: slidein;
+}
+
+@keyframes slidein{
+  from{
+    margin-top: -10%;
+  }
+  to {
+    margin-top: 8%;
+  }
 }
