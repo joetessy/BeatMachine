@@ -13,7 +13,7 @@
 
 
 .modal-content-pre{
-  margin-top: -10%
+  margin-top: -10%;
   visibility: hidden;
   -webkit-transition: margin-top .5s linear;
   -moz-transition: margin-top .5s linear;
