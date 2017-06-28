@@ -109,7 +109,9 @@ class HomePage extends React.Component{
           </div>
           <div className='home-discover'>
             <h1>Hear what's trending for free in the BeatMachine Community</h1>
+            <div className='homepage-track-index-container'>
             <HomePageTrackIndex/>
+            </div>
           </div>
         </div>
       );

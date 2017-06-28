@@ -7,6 +7,10 @@ const handleClick = (e, logout) => {
 };
 
 const NavBar = ({currentUser, logout}) => {
+  let username = null;
+  if (currentUser){
+    username = currentUser.username;
+  }
   return(
     <div className='navbar'>
       <div className='navbar-container'>

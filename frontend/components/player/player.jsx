@@ -35,7 +35,8 @@ class Player extends React.Component {
     let currentId = this.props.nowPlaying.id;
     let nextId = nextProps.nowPlaying.id;
 
-    if (this.props.location.pathname === '/stream'){
+    if (this.props.location.pathname === '/stream' ||
+    this.props.location.pathname === '/'){
       this.setState({tracks: nextProps.tracks});
     } else {
         this.setState({tracks: nextProps.artistTracks});
@@ -93,7 +94,6 @@ class Player extends React.Component {
     this.music.src = src;
     this.music.play();
     this.playButton.className = 'fa fa-pause';
-
   }
 
   nextTrack(){

@@ -16,7 +16,8 @@ class TrackButton extends React.Component{
 
   handleClick(){
     let tracks;
-    if (this.props.match.path.slice(1) === 'stream'){
+    if (this.props.match.path.slice(1) === 'stream'
+      || this.props.match.path === '/'){
       tracks = selectAllTrackIds(this.props.tracks);
     } else {
       tracks = selectArtistTrackIds(this.props.artist);
@@ -42,14 +43,20 @@ class TrackButton extends React.Component{
     let icon;
     if (this.props.nowPlaying.id === this.props.track.id
       & this.props.nowPlaying.playing === true){
-        
+
       icon = <i className="fa fa-pause" aria-hidden="true"></i>;
     } else {
       icon = <i className="fa fa-play" aria-hidden="true"></i>;
     }
 
+    let buttonClass = '';
+    if (this.props.location.pathname === '/' &&
+      this.props.nowPlaying.id === this.props.track.id){
+      buttonClass='play-button-show';
+    }
+
     return(
-      <div className='play-button'
+      <div className={`play-button ${buttonClass}`}
         onClick={this.handleClick}>
         {icon}
       </div>

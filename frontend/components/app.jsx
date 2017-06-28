@@ -23,9 +23,9 @@ const App = (props) => (
         exact path="/stream" component={LoginHomePageContainer} />
       <ProtectedRoute
         exact path="/upload" component={UploadTrackFormContainer}/>
-      <Route
+      <ProtectedRoute
         exact path="/:username" component={ArtistPageContainer} />
-      <Route
+      <ProtectedRoute
         exact path="/:username/:title" component={TrackPage}/>
     </Switch>
     <Route path="/" component={PlayerContainer} />

@@ -16,7 +16,10 @@ class HomePageTrackIndex extends React.Component {
     let tracks = null;
     if (this.props.tracks.length > 0){
       tracks = this.props.tracks.map((track) => {
-        return <HomePageIndexItem track={track} key={track.id}/>;
+        return <HomePageIndexItem
+          track={track}
+          nowPlaying={this.props.nowPlaying}
+          key={track.id}/>;
       });
     }
     return (
@@ -30,7 +33,8 @@ class HomePageTrackIndex extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  tracks: selectAllTracks(state)
+  tracks: selectAllTracks(state),
+  nowPlaying: state.nowPlaying
 });
 
 const mapDispatchToProps = (dispatch) => {
