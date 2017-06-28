@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   position: relative;
 }
 
@@ -60,8 +60,16 @@ audio {
 .footer-info{
   display: flex;
   height: 30px;
-  position: absolute;
   right: 0;
+  position:absolute;
+}
+
+.footer-info-container{
+  display: flex;
+    position: relative;
+    height: 100%;
+    width: 200px;
+    align-items: center;
 }
 
 .footer-links{
@@ -91,4 +99,60 @@ audio {
   height:30px;
   width:30px;
   margin-right: 10px;
+}
+
+
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+   width: 512px;
+   height: 1px;
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 1px;
+  height: 1px;
+  background-color: #ccc
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #f50;
+  height: 1px;
+}
+
+.progress{
+  height: 100%;
+  display: flex;
+  width: 600px;
+  margin: auto;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#seek-obj-container{
+  margin: 0 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.current-time{
+  color: #f50;
+  text-align: right;
+  font-size: 11px;
+  padding-top: 2px;
+  width: 40px;
+}
+.end-time{
+  color: #333;
+  text-align: right;
+  font-size: 11px;
+  padding-top: 2px;
+  width: 40px;
+}
+
+progress{
+
 }

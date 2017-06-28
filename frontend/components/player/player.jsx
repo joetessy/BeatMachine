@@ -12,7 +12,9 @@ class Player extends React.Component {
       currentUser: this.props.currentUser,
       queueCount: 0,
       tracks: {},
-      nowPlaying: null};
+      nowPlaying: null,
+      currentTime: null,
+      length: null};
     this.checkTime = this.checkTime.bind(this);
     this.myInterval = this.myInterval.bind(this);
 
@@ -24,6 +26,9 @@ class Player extends React.Component {
     this.handlePlayButton = this.handlePlayButton.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
+
+    this.calculateCurrentValue = this.calculateCurrentValue.bind(this);
+    this.updateTime = this.updateTime.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -102,7 +107,6 @@ class Player extends React.Component {
       this.music.src = this.state.tracks[newId].audio_url;
       this.props.setNowPlaying(newId, newIdx, true);
     }
-
   }
 
   previousTrack(){
@@ -118,20 +122,15 @@ class Player extends React.Component {
     }
   }
 
-
-
   handleNext(){
     this.nextTrack();
   }
-
-
   handlePrevious(){
     this.previousTrack();
   }
 
-
   checkTime(){
-      this.interval = setInterval(() => this.myInterval(), 1000);
+      this.interval = setInterval(() => this.myInterval(), 200);
     }
 
   myInterval(){
@@ -141,6 +140,31 @@ class Player extends React.Component {
     } else if (this.music.ended){
       this.nextTrack();
     }
+    this.updateTime();
+  }
+
+  updateTime(){
+    let player = this.music;
+    let length = this.calculateCurrentValue(player.duration);
+    let currentTime = this.calculateCurrentValue(player.currentTime);
+    this.setState({currentTime: currentTime});
+    this.setState({length: length});
+
+    let progressBar = this.seekObj;
+    if (this.state.length !== 'NaN:NaN'){
+      progressBar.value = (player.currentTime / player.duration);
+    }
+  }
+
+  calculateCurrentValue(currentTime){
+    var currentHour = parseInt(currentTime / 36000)  % 24,
+    currentMinute = parseInt(currentTime / 60) % 60,
+    currentSecondsLong = currentTime % 60,
+    currentSeconds = currentSecondsLong.toFixed(),
+    theTime =
+    ( currentMinute < 10 ? '0' + currentMinute : currentMinute)
+    + ':' + (currentSeconds < 10 ? "0" + currentSeconds : currentSeconds);
+    return theTime;
   }
 
   render(){
@@ -176,6 +200,14 @@ class Player extends React.Component {
           <div className='footer-artist'>{track.artist}</div>
         </NavLink>;
     }
+    let currentTime = null;
+    let length = <small className='end-time'>00:00</small>;
+    if (this.state.currentTime){
+      currentTime = <small className='current-time'>
+        {this.state.currentTime}</small>;
+      length = <small className='end-time'>
+        {this.state.length}</small>;
+    }
 
     return (
       <div className='hide'
@@ -195,15 +227,26 @@ class Player extends React.Component {
             <i className="fa fa-step-forward" aria-hidden="true"
               onClick={this.handleNext}></i>
           </div>
+          <div className='progress'>
+            {currentTime}
+            <span id='seek-obj-container'>
+              <progress id='seek-obj' value='0' max='1'
+                ref={(arg => {this.seekObj = arg;})}></progress>
+            </span>
+            {length}
 
+          </div>
+          <div className='footer-info-container'>
           <div className='footer-info'>
             <div className='footer-image'>
               {trackImage}
             </div>
+
             <div className='footer-links'>
               {artist}
               {title}
             </div>
+          </div>
           </div>
         </div>
       </div>

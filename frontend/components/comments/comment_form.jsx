@@ -31,8 +31,8 @@ class CommentForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     let comment = merge({}, this.state);
-    this.props.createComment({comment})
-      .then(() => this.setState({body: ''}));
+    this.props.createComment({comment});
+    this.setState({body: ''});
   }
 
   render (){
