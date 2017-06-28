@@ -19,19 +19,20 @@
 }
 
 .comment-form-container{
-  height: 70px;
-  border-bottom: 1px solid #d5d5d5;
+  height: 40px;
+  border-bottom: 1px solid #e5e5e5;
   padding: 30px 0;
   display: flex;
   align-items: center;
 }
+
 
 .comments-header{
   font-weight: 100;
   color: #999;
   font-size: 14px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .fa-comment{
@@ -55,10 +56,10 @@
   box-sizing: border-box;
   padding: 5px;
   background: #f2f2f2;
-  border: 1px solid #999;
   width: 100%;
   display: flex;
   align-items: center;
+  height: 40px;
 }
 
 .comment-input{
@@ -108,4 +109,11 @@
 .right-side .delete-button:hover{
   border: 1px solid #353535;
   cursor: pointer;
+}
+
+.comment-form-box{
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  width: 100%
 }

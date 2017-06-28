@@ -97,9 +97,11 @@ class Player extends React.Component {
     let queue = this.props.queue;
     const findIdx = el => (el === currentId);
     let newIdx = queue.findIndex(findIdx) + 1;
-    let newId = queue[newIdx];
-    this.music.src = this.state.tracks[newId].audio_url;
-    this.props.setNowPlaying(newId, newIdx, true);
+    if (queue[newIdx]){
+      let newId = queue[newIdx];
+      this.music.src = this.state.tracks[newId].audio_url;
+      this.props.setNowPlaying(newId, newIdx, true);
+    }
 
   }
 
@@ -109,11 +111,11 @@ class Player extends React.Component {
     let queue = this.props.queue;
     const findIdx = el => (el === currentId);
     let newIdx = queue.findIndex(findIdx) - 1;
-    let newId = queue[newIdx];
-
-    this.music.src = this.state.tracks[newId].audio_url;
-    this.props.setNowPlaying(newId, newIdx, true);
-
+    if (queue[newIdx]){
+      let newId = queue[newIdx];
+      this.music.src = this.state.tracks[newId].audio_url;
+      this.props.setNowPlaying(newId, newIdx, true);
+    }
   }
 
 
@@ -158,11 +160,7 @@ class Player extends React.Component {
     let artist = null;
     let trackImage = null;
     if (this.props.nowPlaying.id){
-      if (this.props.location.pathname === '/stream'){
       track = this.props.tracks[this.props.nowPlaying.id];
-      } else {
-        track = this.props.artistTracks[this.props.nowPlaying.id];
-      }
       trackImage =
         <NavLink to={`/${track.artist}`}>
           <img src={track.artist_image}/>

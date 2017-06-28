@@ -38,6 +38,7 @@ class CommentForm extends React.Component {
   render (){
     return(
       <div className='comment-form-container'>
+        <div className='comment-form-box'>
       <img src={this.props.currentUser.image_url}/>
       <form className='comment-form' onSubmit={this.handleSubmit}>
         <input className='comment-input' type='text'
@@ -47,6 +48,7 @@ class CommentForm extends React.Component {
         </input>
           <button className='comment-button' type='submit'></button>
       </form>
+      </div>
       </div>
     );
 
