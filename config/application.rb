@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module BeatMachine
   class Application < Rails::Application
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
 
