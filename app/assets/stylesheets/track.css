@@ -10,7 +10,7 @@
 }
 
 .track-feed-item{
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 .track-body > .track-image{
   width: 167px;
@@ -184,7 +184,7 @@ ul > .track-body:last-child{
 }
 
 .like-button > .fa-heart{
-  padding: 5px 7px 3px 7px;
+  padding: 5px 7px 3px 8px;
   margin-right: 5px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
@@ -196,7 +196,7 @@ ul > .track-body:last-child{
 }
 
 .liked-button > .fa-heart {
-  padding: 5px 7px 3px 7px;
+  padding: 5px 7px 3px 8px;
   margin-right: 5px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;

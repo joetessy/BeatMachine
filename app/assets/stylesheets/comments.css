@@ -119,5 +119,41 @@
 
 .comment-like{
   margin: 3px 0px;
-  padding-left: 6px;
+}
+
+.comment-form-edit{
+  margin-top: 3px;
+  margin-left: 1px;
+}
+.comment-form-edit > .fa-pencil{
+  padding: 1px 5px 2px 7px;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+}
+
+.comment-form-delete{
+  margin-top: 3px;
+  margin-left: 6px;
+}
+
+.comment-form-delete > .fa-trash{
+  padding: 1px 6px 2px 6px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+}
+
+.comment-form-delete > .fa-trash:hover {
+  border: 1px solid #333;
+}
+
+.comment-form-edit > .fa-pencil:hover {
+  border: 1px solid #333;
+}
+
+.comment-form-buttons{
+  display: flex;
+}
+
+.editDelete{
+  display: flex;
 }

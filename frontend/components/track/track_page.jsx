@@ -119,7 +119,7 @@ const mapStateToProps = (state) => {
 };
 
 const matchDispatchToProps = (dispatch) => ({
-  requestTrack: (title) => dispatch(requestTrack(title)),
+  requestTrack: (title) => dispatch(requestTrack(title))
 });
 
 export default

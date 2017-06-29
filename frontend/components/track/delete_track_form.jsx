@@ -4,13 +4,21 @@ class DeleteTrack extends React.Component{
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
+
   }
 
   handleClick(e){
     e.preventDefault();
     this.props.deleteTrack(this.props.track);
+    if (this.props.location.pathname
+      === `/${this.props.track.artist}/${this.props.track.title}`){
+        this.props.history.push(`/${this.props.track.artist}`);
+      }
     this.props.closeModal();
   }
+
+
+
 
   render(){
     return(

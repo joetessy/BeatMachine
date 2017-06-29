@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createComment } from './../../actions/comment_actions';
-import { createFavorite } from './../../actions/favorite_actions';
+import { createFavorite, deleteFavorite }
+  from './../../actions/favorite_actions';
+import { openModal } from './../../actions/modal_actions';
 import merge from 'lodash/merge';
+import EditTrackContainer from './../track/edit_track_form_container';
+import DeleteTrackContainer from './../track/delete_track_container';
 
 class CommentForm extends React.Component {
   constructor(props){
@@ -27,9 +31,13 @@ class CommentForm extends React.Component {
   }
 
   handleFavorite(){
+    if (this.props.currentUser.favorite_tracks.includes(this.props.track.id)){
+      this.props.deleteFavorite(this.props.track.id);
+    } else {
     this.props.createFavorite(
       { user_id: this.props.currentUser.id,
         track_id: this.props.track.id});
+    }
   }
 
   handleInput(e){
@@ -51,6 +59,24 @@ class CommentForm extends React.Component {
     } else {
       likeClass = 'like-button comment-like';
     }
+    let editDelete = null;
+    if (this.props.currentUser.id === this.state.author_id){
+      editDelete =
+      <div className='editDelete'>
+      <div className='comment-form-edit'>
+        <i className="fa fa-pencil" aria-hidden="true"
+          onClick={()=> (this.props.openModal(<EditTrackContainer
+            track={this.props.track}/>))}></i>
+      </div>
+      <div className='comment-form-delete'>
+        <i className="fa fa-trash" aria-hidden="true"
+          onClick={()=> (this.props.openModal(<DeleteTrackContainer
+            track={this.props.track}/>))}></i>
+      </div>
+      </div>;
+
+    }
+
     return(
       <div className='comment-form-container'>
         <div className='comment-form-box'>
@@ -64,10 +90,13 @@ class CommentForm extends React.Component {
           <button className='comment-button' type='submit'></button>
       </form>
     </div>
-      <div className={likeClass}
-        onClick={()=> this.handleFavorite()}>
-        <i className="fa fa-heart" aria-hidden="true"></i>
-      </div>
+      <div className='comment-form-buttons'>
+        <div className={likeClass}
+          onClick={()=> this.handleFavorite()}>
+          <i className="fa fa-heart" aria-hidden="true"></i>
+        </div>
+          {editDelete}
+        </div>
       </div>
     );
 
@@ -84,7 +113,9 @@ const mapStateToProps = ({session: {currentUser}}, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   createComment: (comment) => dispatch(createComment(comment)),
-  createFavorite: (favorite) => dispatch(createFavorite(favorite))
+  createFavorite: (favorite) => dispatch(createFavorite(favorite)),
+  deleteFavorite: (trackId) => dispatch(deleteFavorite(trackId)),
+  openModal: (component) => dispatch(openModal(component)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);
