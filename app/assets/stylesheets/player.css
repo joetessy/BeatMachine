@@ -169,3 +169,8 @@ progress[value]::-webkit-progress-value {
  #seek-obj-container:hover .seek-button{
    display: block;
  }
+
+.controls .fa-pause, .controls .fa-play,
+.controls .fa-step-forward, .controls .fa-step-backward{
+  cursor: pointer;
+}

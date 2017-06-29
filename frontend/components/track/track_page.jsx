@@ -87,7 +87,7 @@ class TrackPage extends React.Component{
         </div>
         <div className='track-show-container'>
             <CommentForm track={track}/>
-          <div className='track-show-content'>
+        <div className='track-show-content'>
             <NavLink to={`/${artist}`}>
 
           <div className='artist-pic'>

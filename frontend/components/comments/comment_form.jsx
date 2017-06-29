@@ -49,6 +49,9 @@ class CommentForm extends React.Component {
         </input>
           <button className='comment-button' type='submit'></button>
       </form>
+    </div>
+      <div className='like-button comment-like'>
+        <i className="fa fa-heart" aria-hidden="true"></i>
       </div>
       </div>
     );

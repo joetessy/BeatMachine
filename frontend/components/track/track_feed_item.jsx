@@ -46,7 +46,12 @@ const TrackFeedItem = (props) => {
         </NavLink> {props.track.time_ago} ago
       </div>
     );
-
+  }
+  let likeClass = null;
+  if (props.currentUser.favorite_tracks.includes(props.track.id)){
+    likeClass = 'liked-button';
+  } else {
+    likeClass = 'like-button';
   }
 
   return (
@@ -75,7 +80,12 @@ const TrackFeedItem = (props) => {
           <div className='track-waveform'>
             <img className='wave' src={window.images.wave}/>
           </div>
-          {trackMenu}
+          <div className='options-bar'>
+            <div className={likeClass}>
+              <i className="fa fa-heart" aria-hidden="true"></i>
+            </div>
+            {trackMenu}
+          </div>
       </div>
     </div>
     </div>
