@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
 		this.state = {
 			username: "",
 			password: "",
+			location: "",
 			imageFile: null,
 			imageUrl: null,
 			errors: '',
@@ -29,6 +30,7 @@ class SessionForm extends React.Component {
 			let formData = new FormData();
 				formData.append('user[username]', this.state.username);
 				formData.append('user[password]', this.state.password);
+				formData.append('user[location]', this.state.location);
 				formData.append('user[avatar]', this.state.imageFile);
 				this.props.signup(formData).then(this.props.closeModal());
 		}
@@ -67,17 +69,24 @@ class SessionForm extends React.Component {
 		let buttonText = null;
 		let pwText = null;
 		let feErrors = null;
+		let formClass = null;
+		let containerClass = null;
 		let imageInput = () => {return null;};
+		let locationInput = () => {return null;};
 		switch(this.props.type){
 			case 'login':
+				formClass = 'auth-login';
+				containerClass = 'login-container';
 				title = 'Sign in to BeatMachine';
 				buttonText = 'Sign In';
 				pwText = 'Enter Your Password';
 			break;
 			case 'signup':
+				formClass = 'auth-signup';
+				containerClass = 'signup-container';
 				title = 'Create your BeatMachine Account';
 				buttonText = 'Continue';
-				pwText = 'Choose a password';
+				pwText = 'Choose a Password';
 				imageInput = () => {
 					return (
 						<div className='image-input'>
@@ -91,13 +100,22 @@ class SessionForm extends React.Component {
 						</div>
 					);
 				};
+				locationInput = () => {
+					return (
+							<label>
+								Enter Location
+								<input id='location' onChange={this.handleChange}
+									 value={this.state.location}/>
+							</label>
+					);
+				};
 			break;
 		}
     let errors = (this.props.errors.length > 0) ?
 			this.props.errors.join(", ") : null;
     return(
-			<div className='auth-form-container'>
-      <div className='session-form'>
+			<div className={containerClass}>
+      <div className={formClass}>
         <form onSubmit={this.handleSubmit}>
 					<header><h1>{title}</h1></header>
           <label htmlFor='username'>Enter Your Username
@@ -110,12 +128,14 @@ class SessionForm extends React.Component {
             	onChange={this.handleChange}
             	value={this.state.password}></input>
 					</label>
+					{locationInput()}
 					{imageInput()}
 					<input type='submit' value={buttonText}/>
         </form>
 					<div className='error-container'>
 					<p className='errors'>
-						{ this.props.type === 'login' ? errors : this.state.errors }
+						{ this.props.type === 'login' ?
+							errors : this.state.errors }
 					</p>
 					</div>
       	</div>

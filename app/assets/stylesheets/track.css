@@ -1,6 +1,7 @@
 
 .TrackFeed{
   padding-top: 30px;
+  padding-bottom: 70px;
 }
 .track-body{
   margin: 0 20px 20px 20px;
@@ -62,6 +63,7 @@
 
 .play-button:hover{
   opacity: 1;
+  cursor: pointer;
 }
 
 .fa-ellipsis-h:focus{

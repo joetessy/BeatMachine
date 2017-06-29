@@ -1,8 +1,17 @@
-.auth-form-container{
+.signup-container,
+.login-container{
   background-color: white;
   text-align: center;
   margin: 0 auto;
   justify-content: space-around;
+  width: 400px;
+}
+
+.signup-container{
+  height: 600px
+}
+
+.login-container{
   height: 500px;
 }
 
@@ -26,9 +35,9 @@
   transition: all .5s ease;
 }
 
-.session-form{
+.session-form, .auth-login, .auth-signup{
   width: 350px;
-  height: 600px;
+  height: 500px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -36,13 +45,27 @@
   position: relative;
 }
 
-.session-form > form > header > h1 {
+.auth-login {
+  width: 350px;
+  height: 500px;
+}
+
+.auth-signup{
+  width: 350px;
+  height: 600px;
+}
+
+.session-form > form > header > h1,
+.auth-login > form > header > h1,
+.auth-signup > form > header > h1 {
   color: black;
   font-size: 31px;
   padding-top: 25px;
 }
 
-.session-form > form{
+.session-form > form,
+.auth-login > form,
+.auth-signup > form{
   display: flex;
   flex-direction: column;
   padding-top: 0px;
@@ -55,7 +78,9 @@ form > label{
   flex-direction: column;
 }
 
-.session-form input {
+.session-form input,
+.auth-login input,
+.auth-signup input{
   font-size: 18px;
   line-height: 24px;
   padding: 7px 8px;
@@ -64,7 +89,8 @@ form > label{
   transition: border, 0.3s;
 }
 
-.session-form input[type=submit] {
+.auth-login input[type=submit],
+.auth-signup input[type=submit] {
   background-color: #f50;
   color: white;
   border-radius: 3px;
@@ -72,9 +98,20 @@ form > label{
   line-height: 18px;
   padding: 10px 15px;
   height: 40px;
+}
+
+.auth-login input[stype=subit]{
   margin-bottom: 30px;
 }
-.session-form input:focus {
+
+.auth-signup input[type=submit]{
+  margin-bottom: 0px;
+}
+
+
+.session-form input:focus,
+.auth-login input:focus,
+.auth-signup input:focus{
   outline:0;
   border: 1px solid black;
 }
@@ -95,7 +132,9 @@ form > label{
   position: relative;
   overflow: hidden;
   border-radius: 50%;
-  margin: 16px auto;
+  margin-top: 26px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img-cropper > img {
@@ -106,25 +145,26 @@ form > label{
 }
 
 .file-container [type=file] {
-  bottom: 247px;
+
   opacity: 0;
   width: 341px;
   height: 38px;
   position: absolute;
   right: -2px;
+  bottom: 208px;
 }
 
 .file-container{
   border: 1px solid rgba(128, 128, 128, 0.48);
   border-radius: 8px;
   padding: 13px 98px;
+  margin-top: 5px;
 }
 
 .file-container:hover {
   border: 1px solid black;
 }
 .image-input{
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
 }

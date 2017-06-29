@@ -61,11 +61,12 @@
 
 .artist-location{
   color: #ccc;
+  display: inherit;
 }
 
 .artist-location > p {
   font-size: 16px;
-  padding: 5px 7px 2px;
+  padding: 5px 10px 2px 7px;
   background-color: black;
   margin-top: 4px;
 }

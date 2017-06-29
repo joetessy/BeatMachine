@@ -38,6 +38,18 @@ artists = User.create!([
     password: 'password',
     location: 'NYC',
     avatar: File.open('app/assets/images/dpwave.png')
+  },
+  {
+    username: 'Nujabes',
+    password: 'password',
+    location: 'Shibuya, Tokyo',
+    avatar: File.open('app/assets/images/nujabes.jpg')
+  },
+  {
+    username: 'Onra',
+    password: 'password',
+    location: 'Paris',
+    avatar: File.open('app/assets/images/onra.jpg')
   }])
 
 tracks = Track.create([
@@ -103,6 +115,27 @@ tracks = Track.create([
     description: 'Sn00000000p',
     audio: File.open('app/assets/tracks/dropitlikeitshot.mp3'),
     image: File.open('app/assets/images/dropit.jpg')
+  },
+  {
+    title: 'Mind Touch',
+    artist_id: artists[3].id,
+    description: 'Another great beat off the Beat Conductor',
+    audio: File.open('app/assets/tracks/mindtouch.mp3'),
+    image: File.open('app/assets/images/mindtouch.jpg')
+  },
+  {
+    title: 'Moon Strut',
+    artist_id: artists[5].id,
+    description: 'Nujabes!! REST IN PEACE',
+    audio: File.open('app/assets/tracks/moonstrut.mp3'),
+    image: File.open('app/assets/images/moonstrut.jpg')
+  },
+  {
+    title: 'I WANNA GO BACK',
+    artist_id: artists[6].id,
+    description: 'Quick beat off the Chinoiseries',
+    audio: File.open('app/assets/tracks/iwannagoback.mp3'),
+    image: File.open('app/assets/images/chinoiseries.jpg')
   }
 ])
 
@@ -147,5 +180,10 @@ comments = Comment.create([
     author_id: artists[1].id,
     track_id: 2,
     body: 'Let the haters hate!!'
+  },
+  {
+    author_id: artist[6].id,
+    track_id: 11,
+    body: 'RIP ILY NUJABES'
   }
 ])
