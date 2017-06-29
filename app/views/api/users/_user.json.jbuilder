@@ -7,5 +7,8 @@ json.set! 'tracks' do
     json.set! track.id do
       json.partial! 'api/tracks/track.json.jbuilder', track: track
   end
+  end
 end
+json.set! 'favorite_tracks' do
+  json.array! user.favorite_tracks.map(&:id)
 end

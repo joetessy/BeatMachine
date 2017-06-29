@@ -21,6 +21,7 @@
 class Track < ApplicationRecord
   include ActionView::Helpers::DateHelper
   validates :title, :artist_id, presence: true
+
   has_attached_file :image, styles: { medium: "300x300", thumb: "100x100" }, default_url: 'chicken.jpg'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/, defualt_url: 'greatest.mp3'
 

@@ -7,6 +7,8 @@ Track.reset_pk_sequence
 Comment.destroy_all
 Comment.reset_pk_sequence
 
+Favorite.destroy_all
+Favorite.reset_pk_sequence
 
 artists = User.create!([
   {
@@ -185,5 +187,61 @@ comments = Comment.create([
     author_id: artists[6].id,
     track_id: 11,
     body: 'RIP ILY NUJABES'
+  }
+])
+
+
+favorites = Favorite.create!([
+  {
+    user_id: artists[0].id,
+    track_id: tracks[1].id
+  },
+  {
+    user_id: artists[0].id,
+    track_id: tracks[2].id
+  },
+  {
+    user_id: artists[0].id,
+    track_id: tracks[3].id
+  },
+  {
+    user_id: artists[0].id,
+    track_id: tracks[4].id
+  },
+  {
+    user_id: artists[0].id,
+    track_id: tracks[5].id
+  },
+  {
+    user_id: artists[3].id,
+    track_id: tracks[2].id
+  },
+  {
+    user_id: artists[3].id,
+    track_id: tracks[4].id
+  },
+  {
+    user_id: artists[3].id,
+    track_id: tracks[6].id
+  },
+  {
+    user_id: artists[3].id,
+    track_id: tracks[7].id
+  },
+  {
+    user_id: artists[3].id,
+    track_id: tracks[5].id
+  },
+  {
+    user_id: artists[5].id,
+    track_id: tracks[1].id
+  },
+  {
+    user_id: artists[5].id,
+    track_id: tracks[0].id
+  },
+  {
+    user_id: artists[4].id,
+    track_id: tracks[1].id
   }
 ])

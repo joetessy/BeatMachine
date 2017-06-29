@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :user_id
 
-  has_many :favorited_tracks,
+  has_many :favorite_tracks,
   through: :favorites,
   source: :track
 
