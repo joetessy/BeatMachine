@@ -59,7 +59,6 @@ h2{
   text-align: center;
   border: 0;
   font-size: 14px;
-  font-family: interstate-light;
   font-weight: lighter;
   border-radius: 3px;
   box-sizing: border-box;
@@ -86,7 +85,6 @@ h2{
   font-weight: lighter;
   box-sizing: border-box;
   font-size: 14px;
-  font-family: interstate-light;
   border-radius: 3px;
 }
 .signin:hover{
