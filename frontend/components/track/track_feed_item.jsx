@@ -21,6 +21,8 @@ class TrackFeedItem extends React.Component{
     }
   }
 
+  
+
   render(){
     let trackMenu = null;
     if (this.props.track.artist_id === this.props.currentUser.id &&
@@ -65,10 +67,18 @@ class TrackFeedItem extends React.Component{
       );
     }
     let likeClass = null;
+    let countClass = null;
     if (this.props.currentUser.favorite_tracks.includes(this.props.track.id)){
       likeClass = 'liked-button';
+      countClass = 'liked-count';
     } else {
       likeClass = 'like-button';
+      countClass = 'like-count';
+    }
+    let trackCount = null;
+    if (this.props.track.favorited_users.length >= 1){
+      trackCount = <div className={countClass}>
+          {`  ${this.props.track.favorited_users.length}`}</div>;
     }
 
     return (
@@ -102,6 +112,7 @@ class TrackFeedItem extends React.Component{
               <div className={likeClass}
                 onClick={()=>this.handleFavorite()}>
                 <i className="fa fa-heart" aria-hidden="true"></i>
+                {trackCount}
               </div>
               {trackMenu}
             </div>

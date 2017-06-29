@@ -78,6 +78,7 @@
   border: 1px solid #e5e5e5;
   border-radius: 3px;
   padding: 2px 6px 1px 7px;
+  margin-left: 6px;
 }
 
 .fa-ellipsis-h:hover{
@@ -106,6 +107,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .dropdown-content > ul > li > a {
@@ -184,30 +186,41 @@ ul > .track-body:last-child{
 }
 
 .like-button > .fa-heart{
-  padding: 4px 7px 3px 8px;
-  margin-right: 5px;
-  border: 1px solid #e5e5e5;
   border-radius: 3px;
   font-size: .7em;
 }
 
-.like-button > .fa-heart:hover {
+.like-button:hover{
   border: 1px solid #333;
 }
 
 .liked-button > .fa-heart {
-  padding: 4px 7px 3px 8px;
-  margin-right: 5px;
-  border: 1px solid #e5e5e5;
   border-radius: 3px;
   font-size: .7em;
   color: #f50;
 }
 
-.liked-button > .fa-heart:hover {
+.liked-button:hover {
   border: 1px solid #f50;
 }
 
 .liked-button, .like-button{
+  padding: 5px 7px;
+  display: flex;
   cursor: pointer;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.like-count {
+  font-size: 12px;
+  padding-left: 4px;
+  color: black
+}
+
+.liked-count {
+  font-size: 12px;
+  padding-left: 4px;
+  color: #f50;
 }

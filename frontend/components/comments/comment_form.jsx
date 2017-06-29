@@ -54,11 +54,29 @@ class CommentForm extends React.Component {
 
   render (){
     let likeClass;
+    let likeId;
+    let countClass = null;
     if (this.props.currentUser.favorite_tracks.includes(this.state.track_id)){
-      likeClass = 'liked-button comment-like';
+      likeClass = 'liked-button';
+      likeId = 'comment-liked';
+      countClass = 'liked-count';
+
     } else {
-      likeClass = 'like-button comment-like';
+      likeClass = 'like-button ';
+      likeId = 'comment-like';
+      countClass = 'like-count';
+
     }
+    let trackCount = null;
+
+    if (this.props.track){
+      if (this.props.track.favorited_users &&
+        this.props.track.favorited_users.length >= 1){
+          trackCount = <div className={countClass}>
+        {`  ${this.props.track.favorited_users.length}`}</div>;
+      }
+    }
+
     let editDelete = null;
     if (this.props.currentUser.id === this.state.author_id){
       editDelete =
@@ -92,8 +110,10 @@ class CommentForm extends React.Component {
     </div>
       <div className='comment-form-buttons'>
         <div className={likeClass}
+          id={likeId}
           onClick={()=> this.handleFavorite()}>
           <i className="fa fa-heart" aria-hidden="true"></i>
+          {trackCount}
         </div>
           {editDelete}
         </div>
