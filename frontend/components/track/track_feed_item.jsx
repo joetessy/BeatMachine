@@ -21,8 +21,6 @@ class TrackFeedItem extends React.Component{
     }
   }
 
-  
-
   render(){
     let trackMenu = null;
     if (this.props.track.artist_id === this.props.currentUser.id &&
