@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createComment } from './../../actions/comment_actions';
+import { createFavorite } from './../../actions/favorite_actions';
 import merge from 'lodash/merge';
 
 class CommentForm extends React.Component {
@@ -14,6 +15,7 @@ class CommentForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleFavorite = this.handleFavorite.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -22,6 +24,12 @@ class CommentForm extends React.Component {
         track_id: nextProps.track.id,
         track: nextProps.track.title
       });
+  }
+
+  handleFavorite(){
+    this.props.createFavorite(
+      { user_id: this.props.currentUser.id,
+        track_id: this.props.track.id});
   }
 
   handleInput(e){
@@ -56,7 +64,8 @@ class CommentForm extends React.Component {
           <button className='comment-button' type='submit'></button>
       </form>
     </div>
-      <div className={likeClass}>
+      <div className={likeClass}
+        onClick={()=> this.handleFavorite()}>
         <i className="fa fa-heart" aria-hidden="true"></i>
       </div>
       </div>
@@ -74,7 +83,8 @@ const mapStateToProps = ({session: {currentUser}}, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  createComment: (comment) => dispatch(createComment(comment))
+  createComment: (comment) => dispatch(createComment(comment)),
+  createFavorite: (favorite) => dispatch(createFavorite(favorite))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);

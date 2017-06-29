@@ -8,8 +8,6 @@ const ArtistReducer = (state = { tracks: {} }, action) => {
   switch(action.type){
     case RECEIVE_ARTIST:
       return action.artist;
-    case RECEIVE_FAVORITE:
-      return action.favorite.user;
     case REMOVE_TRACK:
       nextState = merge({}, state);
       delete nextState.tracks[action.track.id];

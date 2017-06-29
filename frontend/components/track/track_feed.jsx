@@ -30,7 +30,7 @@ class TrackFeed extends React.Component {
       tracks = this.props.tracks.map((track) => {
         return (
 
-          <TrackFeedItem track={track}
+          <TrackFeedItemContainer track={track}
           currentUser={this.props.currentUser}
           key={track.id}/>
 
