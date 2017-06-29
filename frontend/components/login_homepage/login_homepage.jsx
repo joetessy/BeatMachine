@@ -32,7 +32,7 @@ class LoginHomePage extends React.Component{
             </div>
           </div>
           <div className='side-bar'>
-            <SidebarLikes/>
+
           </div>
           </div>
         </div>
