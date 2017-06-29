@@ -3,7 +3,7 @@ body, li, ul, div, a, p {
   margin: 0;
   text-decoration: none;
   list-style: none;
-  font-family: interstate-light;
+  font-family: "Interstate-Light", "Interstate", "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
   font-weight: lighter;
 }
 
