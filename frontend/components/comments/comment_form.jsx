@@ -31,8 +31,9 @@ class CommentForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     let comment = merge({}, this.state);
-    this.props.createComment({comment});
-    this.setState({body: ''});
+    this.props.createComment({comment}).then(()=> {
+      this.setState({body: ''});
+    });
   }
 
   render (){
@@ -43,7 +44,7 @@ class CommentForm extends React.Component {
       <form className='comment-form' onSubmit={this.handleSubmit}>
         <input className='comment-input' type='text'
           onChange={this.handleInput}
-          value={this.state.title}
+          value={this.state.body}
           placeholder="Write a comment">
         </input>
           <button className='comment-button' type='submit'></button>
