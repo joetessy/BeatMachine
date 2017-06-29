@@ -39,6 +39,15 @@ class Track < ApplicationRecord
   primary_key: :id,
   foreign_key: :track_id
 
+  has_many :favorites,
+  class_name: :Favorite,
+  primary_key: :id,
+  foreign_key: :track_id
+
+  has_many :favorite_users,
+  through: :favorites,
+  source: :user
+
   def time_ago
     time_ago_in_words(self.created_at)
   end

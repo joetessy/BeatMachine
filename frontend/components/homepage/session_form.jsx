@@ -104,7 +104,8 @@ class SessionForm extends React.Component {
 					return (
 							<label>
 								Enter Location
-								<input id='location' onChange={this.handleChange}
+								<input id='location'
+									onChange={this.handleChange}
 									 value={this.state.location}/>
 							</label>
 					);

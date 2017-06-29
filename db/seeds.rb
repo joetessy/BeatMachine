@@ -182,7 +182,7 @@ comments = Comment.create([
     body: 'Let the haters hate!!'
   },
   {
-    author_id: artist[6].id,
+    author_id: artists[6].id,
     track_id: 11,
     body: 'RIP ILY NUJABES'
   }

@@ -44,6 +44,15 @@ class User < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :author_id
 
+  has_many :favorites,
+  class_name: :Favorite,
+  primary_key: :id,
+  foreign_key: :user_id
+
+  has_many :favorited_tracks,
+  through: :favorites,
+  source: :track
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
