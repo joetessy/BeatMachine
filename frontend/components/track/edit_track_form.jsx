@@ -47,7 +47,9 @@ class EditTrack extends React.Component{
     formData.append('track[id]', track.id);
     formData.append('track[description]', track.description);
     formData.append('track[artist_id]', track.artist_id);
-    formData.append('track[image]', track.imageFile);
+    if (track.imageFile){
+      formData.append('track[image]', track.imageFile);
+    }
     this.props.updateTrack(formData, track.id);
     this.props.closeModal();
   }
