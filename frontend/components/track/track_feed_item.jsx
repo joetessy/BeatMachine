@@ -12,9 +12,13 @@ class TrackFeedItem extends React.Component{
   }
 
   handleFavorite(){
+    if (this.props.currentUser.favorite_tracks.includes(this.props.track.id)){
+      this.props.deleteFavorite(this.props.track.id);
+    } else {
     this.props.createFavorite(
       { user_id: this.props.currentUser.id,
         track_id: this.props.track.id});
+    }
   }
 
   render(){

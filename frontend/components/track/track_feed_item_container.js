@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { deleteTrack } from './../../actions/track_actions';
 import TrackFeedItem from './track_feed_item';
 import { closeModal, openModal } from '../../actions/modal_actions';
-import { createFavorite } from './../../actions/favorite_actions';
+import { createFavorite, deleteFavorite }
+  from './../../actions/favorite_actions';
 import { requestTracks } from './../../actions/track_actions';
 
 const mapStateToProps = (state) => ({
@@ -16,6 +17,7 @@ const mapDispatchToProps = (dispatch) => {
     closeModal: () => dispatch(closeModal()),
     openModal: (component) => dispatch(openModal(component)),
     createFavorite: (favorite) => dispatch(createFavorite(favorite)),
+    deleteFavorite: (trackId) => dispatch(deleteFavorite(trackId)),
     requestTracks: () => dispatch(requestTracks())
   });
 };

@@ -16,8 +16,13 @@ class Api::FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = currentUser.favorite_tracks.find(params[:id])
+    @favorite = Favorite.find_by(track_id: [current_user.favorite_tracks.find(params[:id])])
+    user_id = @favorite.user_id
+    track_id = @favorite.track_id
     @favorite.destroy
+    @user = User.find(user_id)
+    @track = Track.find(track_id)
+    render :show
   end
 
   private
