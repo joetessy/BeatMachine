@@ -207,3 +207,7 @@ ul > .track-body:last-child{
 .liked-button > .fa-heart:hover {
   border: 1px solid #f50;
 }
+
+.liked-button, .like-button{
+  cursor: pointer;
+}
