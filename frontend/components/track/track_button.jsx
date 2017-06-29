@@ -51,7 +51,8 @@ class TrackButton extends React.Component{
 
     let buttonClass = '';
     if (this.props.location.pathname === '/' &&
-      this.props.nowPlaying.id === this.props.track.id){
+      this.props.nowPlaying.id === this.props.track.id
+      && this.props.nowPlaying.playing === true){
       buttonClass='play-button-show';
     }
 
