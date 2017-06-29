@@ -1,5 +1,6 @@
 import { RECEIVE_TRACKS, RECEIVE_TRACK, REMOVE_TRACK }
   from '../actions/track_actions';
+import { RECEIVE_FAVORITE } from './../actions/favorite_actions';
 import merge from "lodash/merge";
 
 const TrackReducer = (state = { }, action) => {
@@ -12,6 +13,10 @@ const TrackReducer = (state = { }, action) => {
       return nextState;
     case RECEIVE_TRACKS:
       return action.tracks;
+    case RECEIVE_FAVORITE:
+      nextState = merge({}, state);
+      nextState[action.favorite.track.id] = action.favorite.track;
+      return nextState;
     case RECEIVE_TRACK:
       nextState = merge({}, state, {showTrack: {}});
       nextState[action.track.id] = action.track;

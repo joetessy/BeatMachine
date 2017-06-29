@@ -37,6 +37,12 @@ class CommentForm extends React.Component {
   }
 
   render (){
+    let likeClass;
+    if (this.props.currentUser.favorite_tracks.includes(this.state.track_id)){
+      likeClass = 'liked-button comment-like';
+    } else {
+      likeClass = 'like-button comment-like';
+    }
     return(
       <div className='comment-form-container'>
         <div className='comment-form-box'>
@@ -50,7 +56,7 @@ class CommentForm extends React.Component {
           <button className='comment-button' type='submit'></button>
       </form>
     </div>
-      <div className='like-button comment-like'>
+      <div className={likeClass}>
         <i className="fa fa-heart" aria-hidden="true"></i>
       </div>
       </div>

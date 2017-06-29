@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { deleteComment } from "./actions/comment_actions";
+import { createFavorite } from "./actions/favorite_actions";
 
 
-window.deleteComment = deleteComment;
+window.createFavorite = createFavorite;
 
 
 document.addEventListener('DOMContentLoaded', () => {
