@@ -1,10 +1,10 @@
 class Api::FavoritesController < ApplicationController
   def create
-    @like = Favorite.create(favorite_params)
+    @favorite = Favorite.create(favorite_params)
   end
 
   def destroy
-    @like = Favorite.find(params[:id]).destroy
+    @favorite = Favorite.find(params[:id]).destroy
   end
 
   private
