@@ -81,14 +81,14 @@ tracks = Track.create([
     artist_id: artists[2].id,
     description: 'Long Live Quasimoto',
     audio: File.open('app/assets/tracks/realeyes.m4a'),
-    image: File.open('app/assets/images/realeyes.jpg')
+    image: File.open('app/assets/images/unseen.jpg')
   },
   {
-    title: 'Microphone Mathematics',
+    title: 'Catchin\' The Vibe',
     artist_id: artists[2].id,
-    description: 'Respect for Lord Quas',
-    audio: File.open('app/assets/tracks/microphonemathematics.mp3'),
-    image: File.open('app/assets/images/microphonemathematics.jpg')
+    description: 'Mucho Respect for Lord Quas',
+    audio: File.open('app/assets/tracks/catchin.mp3'),
+    image: File.open('app/assets/images/catchin.jpg')
   },
   {
     title: 'Conducted Rhythms',
