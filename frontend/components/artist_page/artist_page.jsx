@@ -47,7 +47,8 @@ class ArtistPage extends React.Component{
           </div>
           <div className='home-header'>
 
-          <NavLink to={`/${this.props.artist.username}`}><h2>All</h2></NavLink>
+          <NavLink to={`/${this.props.artist.username}`}>
+            <h2 className='artist-all'>All</h2></NavLink>
           </div>
           <div className='TrackFeed'>
             <TrackFeed artist={this.props.artist}

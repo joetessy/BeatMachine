@@ -2,6 +2,7 @@
 .TrackFeed{
   padding-top: 30px;
   padding-bottom: 70px;
+  min-height: 100vh;
 }
 .track-body{
   margin: 0 20px 20px 20px;
