@@ -115,6 +115,6 @@ textarea{
 }
 
 .errors {
-  padding-top: 5px;
-  color: red;
+padding-top: 10px;
+color: red;
 }

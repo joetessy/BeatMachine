@@ -25,14 +25,14 @@ class SessionForm extends React.Component {
 		this.props.clearErrors();
     const user = Object.assign({}, this.state);
 		if (this.props.type === 'login'){
-			this.props.login({user}).then(this.props.closeModal());
+			this.props.login({user}).then(() => this.props.closeModal());
 		} else {
 			let formData = new FormData();
 				formData.append('user[username]', this.state.username);
 				formData.append('user[password]', this.state.password);
 				formData.append('user[location]', this.state.location);
 				formData.append('user[avatar]', this.state.imageFile);
-				this.props.signup(formData).then(this.props.closeModal());
+				this.props.signup(formData).then(() => this.props.closeModal());
 		}
 
 		if (this.state.username === "" || this.state.password === "" ||
