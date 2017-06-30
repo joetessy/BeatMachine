@@ -41,6 +41,7 @@
 .track-artist-name{
   background-color: black;
   color: white;
+  display: table;
 }
 
 .track-artist-name > a{
