@@ -26,13 +26,13 @@ artists = User.create!([
   {
     username: 'Quasimoto',
     password: 'password',
-    location: 'cloud 9',
+    location: 'Oxnard, CA',
     avatar: File.open('app/assets/images/quasimoto.jpg')
   },
   {
     username: 'Madlib',
     password: 'password',
-    location: 'tha bombshelter',
+    location: 'The bombshelter',
     avatar: File.open('app/assets/images/madlib.jpg')
   },
   {
@@ -86,7 +86,7 @@ tracks = Track.create([
   {
     title: 'Catchin\' The Vibe',
     artist_id: artists[2].id,
-    description: 'Mucho Respect for Lord Quas',
+    description: 'Much Respect for Lord Quas',
     audio: File.open('app/assets/tracks/catchin.mp3'),
     image: File.open('app/assets/images/catchin.jpg')
   },
@@ -107,7 +107,7 @@ tracks = Track.create([
   {
     title: 'Gin N Juice',
     artist_id: artists[0].id,
-    description: 'Another dope track by Snoop',
+    description: 'Winner of the 1995 Grammy Award for Best Rap Solo Performance',
     audio: File.open('app/assets/tracks/ginNjuice.mp3'),
     image: File.open('app/assets/images/ginNjuice.jpg')
   },
@@ -121,7 +121,7 @@ tracks = Track.create([
   {
     title: 'Mind Touch',
     artist_id: artists[3].id,
-    description: 'Another great beat off the Beat Conductor',
+    description: 'Another great beat by the Beat Conductor',
     audio: File.open('app/assets/tracks/mindtouch.mp3'),
     image: File.open('app/assets/images/mindtouch.jpg')
   },
@@ -135,7 +135,7 @@ tracks = Track.create([
   {
     title: 'I WANNA GO BACK',
     artist_id: artists[6].id,
-    description: 'Quick beat off the Chinoiseries',
+    description: 'Short Onra beat off the Chinoiseries',
     audio: File.open('app/assets/tracks/iwannagoback.mp3'),
     image: File.open('app/assets/images/chinoiseries.jpg')
   }
