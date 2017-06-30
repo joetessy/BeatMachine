@@ -10,7 +10,7 @@ BeatMachine is a full-stack web application clone of the popular music-sharing s
 
 ### Tracks
 
-Users can access a general feed of audio tracks on the home page that are fetched from the database on page load. Tracks, images, and user avatars are attached using the Paperclip attachment Gem and hosted on Amazon Web Services. In addition to the general feed, Each user has a profile page that displays their own tracks. Users can upload, edit and delete their own tracks from their profile page. Tracks also have their own respective show page where users can add comments. Users have the ability to delete their own comments as well as any comments on one of their track's pages.
+Users can access a general feed of audio tracks on a home page that are fetched from the database when the page loads. Tracks, images, and user avatars are attached using the Paperclip attachment gem and are hosted on Amazon Web Services. In addition to the general feed, Each user has a profile page that displays their own tracks. Users can upload, edit and delete their own tracks from their profile page. Tracks also have their own respective show page where users can add comments. Users have the ability to delete their own comments as well as any comments on one of their track show pages.
 
 ![image of track page](/docs/wireframes/5-Track.png)
 
@@ -37,7 +37,25 @@ if (this.props.track.favorited_users.length >= 1){
 
 ### Player
 
-The audio player is the primary feature of BeatMachine. Users should be able to log in, navigate through the app, and log out while music is streaming continuously. The player will persist from page to page including moving backwards and forward through history. The music feed has a natural playback queue that is initialized and altered through pressing track index play buttons.  Each track index item has a play button that will show a 'play' or 'pause' icon depending if the track is currently playing. The logic below allows the correct button icon to persist across different pages.
+The audio player is the primary feature of BeatMachine. Users should be able to log in, navigate through the app, and log out while music is streaming continuously. The player will persist from page to page including moving backwards and forward through history. The music feed has a natural playback queue that is initialized and altered through pressing track index play buttons. When a track end, the player will load and play the next track in the queue. Below is a code snippet that shows how the player checks if a track has ended before playing the next track in the queue.
+
+```
+checkTime(){
+    this.interval = setInterval(() => this.myInterval(), 200);
+  }
+
+myInterval(){
+  if (!this.music){
+    clearInterval(this.interval);
+    this.interval = null;
+  } else if (this.music.ended){
+    this.nextTrack();
+  }
+  this.updateTime();
+}
+```
+
+ The track index item play button will show a 'play' or 'pause' icon depending on whether the track is currently playing or not. The logic below allows the correct button icon to persist across different pages.
 
 ```
 
@@ -59,7 +77,7 @@ The audio player is the primary feature of BeatMachine. Users should be able to 
 
 ```
 
-Audio can also be controlled through using the audio player's control buttons.
+Finally, audio can also be controlled through using the audio player's control buttons.
 
 
 ## Next Steps
