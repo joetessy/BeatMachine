@@ -1,4 +1,4 @@
-# BeaatMachine
+# BeatMachine
 
 [BeatMachine Live][heroku]
 
@@ -10,16 +10,56 @@ BeatMachine is a full-stack web application clone of the popular music-sharing s
 
 ### Tracks
 
-Users can access a general feed of audio tracks on the home page that are fetched from the database on page load. Tracks, images, and user avatars are attached using the Paperclip attachment Gem and hosted on Amazon Web Services. In addition to the general feed, Each user has a profile page that displays their own tracks. Users can upload, edit and delete their own tracks from their profile page. Tracks also have their own respective show page where users can add comments. Users have the ability to delete their own comments as well as any comments on one of their track's pages
+Users can access a general feed of audio tracks on the home page that are fetched from the database on page load. Tracks, images, and user avatars are attached using the Paperclip attachment Gem and hosted on Amazon Web Services. In addition to the general feed, Each user has a profile page that displays their own tracks. Users can upload, edit and delete their own tracks from their profile page. Tracks also have their own respective show page where users can add comments. Users have the ability to delete their own comments as well as any comments on one of their track's pages.
+
+![image of tarck page](wireframes/5-Track.png)
+
+
 
 ### Favorites
 
-Users have the ability to favorite tracks. They can do this byclicking the 'heart' icon from either the general feed, a user page, or a track show page. This icon will also display the number of likes for its respective track. The current user's favorites are highlighted orange. A future version of this app will have a sidebar displaying tracks liked by the current user that will navigate to a 'favorites' show page.
+Users have the ability to favorite tracks. They can do this by clicking a heart icon on the general feed, a user page, or a track show page. Below is the rendering logic for the 'favorite' button. It displays the current users favorites in orange and also the total number of favorites for the track.
 
+```
+if (this.props.currentUser.favorite_tracks.includes(this.props.track.id)){
+  likeClass = 'liked-button'; //Current users likes are orange
+  countClass = 'liked-count';
+} else {
+  likeClass = 'like-button'; //Other likes are black
+  countClass = 'like-count';
+}
+let trackCount = null;
+if (this.props.track.favorited_users.length >= 1){
+  trackCount = <div className={countClass}>
+      {`  ${this.props.track.favorited_users.length}`}</div>;
+}
+```
 
 ### Player
 
-The audio player is the primary feature of BeatMachine. Users should be able to log in, navigate through the app, and log out while music is streaming continuously. The player will persist from page to page including moving backwards and forward through history. The music feed has a natural playback queue that is initialized and altered through pressing track index play buttons. Audio can also be controlled through using the audio player's control buttons.
+The audio player is the primary feature of BeatMachine. Users should be able to log in, navigate through the app, and log out while music is streaming continuously. The player will persist from page to page including moving backwards and forward through history. The music feed has a natural playback queue that is initialized and altered through pressing track index play buttons.  Each track index item has a play button that will show a 'play' or 'pause' icon depending if the track is currently playing. The logic below allows the correct button icon to persist across different pages.
+
+```
+
+    let icon;
+    if (this.props.nowPlaying.id === this.props.track.id
+      & this.props.nowPlaying.playing === true){
+
+      icon = <i className="fa fa-pause" aria-hidden="true"></i>;
+    } else {
+      icon = <i className="fa fa-play" aria-hidden="true"></i>;
+    }
+
+    let buttonClass = '';
+    if (this.props.location.pathname === '/' &&
+      this.props.nowPlaying.id === this.props.track.id
+      && this.props.nowPlaying.playing === true){
+      buttonClass='play-button-show';
+    }
+
+```
+
+Audio can also be controlled through using the audio player's control buttons.
 
 
 ## Next Steps
@@ -36,4 +76,4 @@ Instead of fetching all tracks from the database, users will only see the 20 mos
 
 ### Design
 
-Currently, each track item shows an image of a waveform. I intend to replace this with an actual audio waveform for the track.  I also intend to re-style the app to have a mobile-first responsive layout.
+Each track item currently shows an image of a waveform. I intend to replace this with an actual audio waveform for the track that will also serve as a progress bar.  I also intend to re-style the app to have a mobile-first responsive layout.

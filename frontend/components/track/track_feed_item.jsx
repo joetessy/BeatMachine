@@ -70,7 +70,7 @@ class TrackFeedItem extends React.Component{
       likeClass = 'liked-button';
       countClass = 'liked-count';
     } else {
-      likeClass = 'like-button';
+      likeClass = 'like-button'; 
       countClass = 'like-count';
     }
     let trackCount = null;
