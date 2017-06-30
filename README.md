@@ -21,12 +21,15 @@ Users can access a general feed of audio tracks on a home page that are fetched 
 Users have the ability to favorite tracks. They can do this by clicking a heart icon on the general feed, a user page, or a track show page. The favorite button will render in black by default and orange if the current user has favorited the track. The button also displays the total number of times the track has been favorited. Example below:
 
 Liked by current user
+
 ![Liked by Current User](/docs/wireframes/favorited.png)
 
 Liked by other users
+
 ![Liked by Other Users](/docs/wireframes/twolikes.png)
 
 Liked by no users
+
 ![Liked by No Users](/docs/wireframes/nolikes.png)
 
 
