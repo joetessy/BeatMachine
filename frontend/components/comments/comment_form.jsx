@@ -78,21 +78,22 @@ class CommentForm extends React.Component {
     }
 
     let editDelete = null;
-    if (this.props.currentUser.id === this.state.author_id){
-      editDelete =
-      <div className='editDelete'>
-      <div className='comment-form-edit'>
-        <i className="fa fa-pencil" aria-hidden="true"
-          onClick={()=> (this.props.openModal(<EditTrackContainer
-            track={this.props.track}/>))}></i>
-      </div>
-      <div className='comment-form-delete'>
-        <i className="fa fa-trash" aria-hidden="true"
-          onClick={()=> (this.props.openModal(<DeleteTrackContainer
-            track={this.props.track}/>))}></i>
-      </div>
-      </div>;
-
+    if (this.props.track){
+      if (this.props.currentUser.username === this.props.track.artist){
+        editDelete =
+        <div className='editDelete'>
+        <div className='comment-form-edit'>
+          <i className="fa fa-pencil" aria-hidden="true"
+            onClick={()=> (this.props.openModal(<EditTrackContainer
+              track={this.props.track}/>))}></i>
+        </div>
+        <div className='comment-form-delete'>
+          <i className="fa fa-trash" aria-hidden="true"
+            onClick={()=> (this.props.openModal(<DeleteTrackContainer
+              track={this.props.track}/>))}></i>
+        </div>
+        </div>;
+      }
     }
 
     return(

@@ -12,13 +12,14 @@ class Api::FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     @user = User.find(@favorite.user_id)
     @track = Track.find(@favorite.track_id)
+    @author = @track.artist
     render :show
   end
 
   def destroy
-    @favorite = Favorite.find_by(track_id: [current_user.favorite_tracks.find(params[:id])])
-    track_id = @favorite.track_id
+    @favorite = Favorite.where(track_id: (params[:id])).find_by(user_id: current_user.id)
     @favorite.destroy
+    track_id = @favorite.track_id
     @user = current_user
     @track = Track.find(track_id)
     render :show
