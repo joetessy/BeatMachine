@@ -12,7 +12,7 @@ BeatMachine is a full-stack web application clone of the popular music-sharing s
 
 Users can access a general feed of audio tracks on the home page that are fetched from the database on page load. Tracks, images, and user avatars are attached using the Paperclip attachment Gem and hosted on Amazon Web Services. In addition to the general feed, Each user has a profile page that displays their own tracks. Users can upload, edit and delete their own tracks from their profile page. Tracks also have their own respective show page where users can add comments. Users have the ability to delete their own comments as well as any comments on one of their track's pages.
 
-![image of tarck page](wireframes/5-Track.png)
+![image of track page](/docs/wireframes/5-Track.png)
 
 
 
