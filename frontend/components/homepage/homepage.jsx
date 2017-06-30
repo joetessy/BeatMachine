@@ -22,6 +22,7 @@ class HomePage extends React.Component{
   }
 
   handleAuth(component){
+    this.props.clearErrors();
     return (e) => { this.props.openModal(component); };
   }
 
