@@ -72,28 +72,10 @@ class Player extends React.Component {
       }
     }
 
-    //Handles Pressing another Track Index Button;
+    //Handles Track change;
     else if ( nextId && currentId !== nextId){
       this.changeTrack(this.state.tracks[nextId].audio_url);
     }
-  }
-
-
-  //player controls pause / resume
-  handlePlayButton(){
-    let id = this.props.nowPlaying.id;
-    let idx = this.props.nowPlaying.idx;
-    let status = this.props.nowPlaying.status;
-    if (this.music.paused && status === 'paused'){
-      this.music.play();
-      this.props.setNowPlaying(id, idx, 'playing');
-      this.playButton.className = 'fa fa-pause';
-    } else {
-      this.music.pause();
-      this.props.setNowPlaying(id, idx, 'paused');
-      this.playButton.className = 'fa fa-play';
-    }
-
   }
   startPlayer(np, queue){
     this.footer.className = 'hide footer';
@@ -102,7 +84,6 @@ class Player extends React.Component {
     this.music.play();
     this.playButton.className = 'fa fa-pause';
   }
-
   changeTrack(src){
     this.music.src = src;
     this.music.play();
@@ -131,6 +112,23 @@ class Player extends React.Component {
     }
   }
 
+  //player controls pause / resume
+  handlePlayButton(){
+    let id = this.props.nowPlaying.id;
+    let idx = this.props.nowPlaying.idx;
+    let status = this.props.nowPlaying.status;
+    if (this.music.paused && status === 'paused'){
+      this.music.play();
+      this.props.setNowPlaying(id, idx, 'playing');
+      this.playButton.className = 'fa fa-pause';
+    } else {
+      this.music.pause();
+      this.props.setNowPlaying(id, idx, 'paused');
+      this.playButton.className = 'fa fa-play';
+    }
+  }
+
+  //player controls next / previous
   handleNext(){
     this.nextTrack(this.props.nowPlaying.id, this.props.nowPlaying.idx);
   }
