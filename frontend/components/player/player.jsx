@@ -84,6 +84,7 @@ class Player extends React.Component {
     this.music.play();
     this.playButton.className = 'fa fa-pause';
   }
+  
   changeTrack(src){
     this.music.src = src;
     this.music.play();

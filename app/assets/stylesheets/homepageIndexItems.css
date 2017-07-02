@@ -4,14 +4,14 @@
   padding-bottom: 10px;
 }
 .home-index-item > .play-button{
-  opacity: 1;
-  display: none;
+  opacity: 0;
   position: absolute;
   left: 34%;
   top: 24%;
   height: 50px;
   width: 50px;
 }
+
 
 .home-index-item > .play-button-show{
   opacity: 1;
@@ -37,6 +37,8 @@
 }
 .home-index-item:hover > .play-button{
   display: block;
+  opacity: 1;
+  opacity: 1;
   height: 50px;
   width: 50px;
 }
