@@ -1,7 +1,7 @@
 import { NOW_PLAYING } from '../actions/player_actions';
 import merge from 'lodash/merge';
 
-const initialState = {id: null, idx: null};
+const initialState = {id: null, idx: null, status: null};
 
 const NowPlayingReducer = ( state = initialState, action ) => {
   Object.freeze(state);
@@ -10,7 +10,7 @@ const NowPlayingReducer = ( state = initialState, action ) => {
       let newState = merge({}, state);
       newState.idx = action.idx;
       newState.id = action.id;
-      newState.playing = action.playing;
+      newState.status = action.status;
       return newState;
     default:
       return state;

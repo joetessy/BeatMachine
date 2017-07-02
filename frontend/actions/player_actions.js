@@ -7,9 +7,9 @@ export const receiveAudio = (queue) => ({
 });
 
 
-export const nowPlaying = (id, idx, playing) => ({
+export const nowPlaying = (id, idx, status) => ({
   type: NOW_PLAYING,
   idx,
   id,
-  playing
+  status
 });

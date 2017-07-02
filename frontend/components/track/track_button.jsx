@@ -22,16 +22,21 @@ class TrackButton extends React.Component{
     } else {
       tracks = selectArtistTrackIds(this.props.artist);
     }
-    if (this.props.track.id === this.props.nowPlaying.id){
-      if (this.props.nowPlaying.playing === true){
-        this.props.sendNowPlaying(this.props.track.id, 'z', false);
+    let thisId = this.props.track.id;
+    let currentId = this.props.nowPlaying.id;
+    let currentIdx = this.props.nowPlaying.idx;
+    let status = this.props.nowPlaying.status;
+
+    if (thisId === currentId){
+      if (status === 'playing'){
+        this.props.sendNowPlaying(thisId, currentIdx, 'paused');
       } else {
-        this.props.sendNowPlaying(this.props.track.id, 'z', true);
+        this.props.sendNowPlaying(thisId, currentIdx, 'playing');
       }
     } else {
       for(let i = 0; i < tracks.length; i++){
-        if (tracks[i] === this.props.track.id){
-          this.props.sendNowPlaying(this.props.track.id, i, true);
+        if (tracks[i] === thisId){
+          this.props.sendNowPlaying(thisId, i, 'playing');
           break;
         }
       }
@@ -42,8 +47,7 @@ class TrackButton extends React.Component{
   render(){
     let icon;
     if (this.props.nowPlaying.id === this.props.track.id
-      & this.props.nowPlaying.playing === true){
-
+      & this.props.nowPlaying.status === 'playing'){
       icon = <i className="fa fa-pause" aria-hidden="true"></i>;
     } else {
       icon = <i className="fa fa-play" aria-hidden="true"></i>;
@@ -77,7 +81,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   sendHomeTracks: () => dispatch(requestTracks()),
   sendAudio: (src) => dispatch(receiveAudio(src)),
-  sendNowPlaying: (id, idx, playing) => dispatch(nowPlaying(id, idx, playing))
+  sendNowPlaying: (id, idx, status) => dispatch(nowPlaying(id, idx, status))
 });
 
 
