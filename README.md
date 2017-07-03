@@ -36,7 +36,7 @@ Liked by no users
 
  Below is the rendering logic for the 'favorite' button.
 
-```
+```javascript
 if (this.props.currentUser.favorite_tracks.includes(this.props.track.id)){
   likeClass = 'liked-button'; //Current users likes are orange
   countClass = 'liked-count';
@@ -55,7 +55,7 @@ if (this.props.track.favorited_users.length >= 1){
 
 The audio player is the primary feature of BeatMachine. Users should be able to log in, navigate through the app, and log out while music is streaming continuously. The player will persist from page to page including moving backwards and forward through history. The music feed has a natural playback queue that is initialized and altered through pressing track index play buttons. When a track end, the player will load and play the next track in the queue. Below is a code snippet that shows how the player checks if a track has ended before playing the next track in the queue.
 
-```
+```javascript
 checkTime(){
     this.interval = setInterval(() => this.myInterval(), 200);
   }
@@ -73,7 +73,7 @@ myInterval(){
 
  The track index item play button will show a 'play' or 'pause' icon depending on whether the track is currently playing or not. The logic below allows the correct button icon to persist across different pages.
 
-```
+```javascript
 
     let icon;
     if (this.props.nowPlaying.id === this.props.track.id
