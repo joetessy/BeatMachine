@@ -38,7 +38,6 @@
     "react-dynamic-modal": "^1.1.1",
     "react-favicon": "0.0.9",
     "react-form-data": "^0.2.3",
-    "react-logger": "^1.1.0",
     "react-modal": "^2.0.2",
     "react-native-modal": "^2.4.0",
     "react-redux": "^5.0.5",
@@ -49,5 +48,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "react-logger": "^1.1.0",
   }
 }
