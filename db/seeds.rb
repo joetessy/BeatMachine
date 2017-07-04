@@ -12,10 +12,10 @@ Favorite.reset_pk_sequence
 
 artists = User.create!([
   {
-    username: 'Snoop Dogg',
+    username: 'Heralds of Change',
     password: 'password',
-    location: 'LBC',
-    avatar: File.open('app/assets/images/snoopdogg.jpg')
+    location: 'Scotland?',
+    avatar: File.open('app/assets/images/herald.jpg')
   },
   {
     username: 'Flying Lotus',
@@ -105,18 +105,18 @@ tracks = Track.create([
     image: File.open('app/assets/images/secret.jpg')
   },
   {
-    title: 'Gin N Juice',
+    title: 'Alone',
     artist_id: artists[0].id,
-    description: 'Winner of the 1995 Grammy Award for Best Rap Solo Performance',
-    audio: File.open('app/assets/tracks/ginNjuice.mp3'),
-    image: File.open('app/assets/images/ginNjuice.jpg')
+    description: 'Very pretty track off of Show You EP',
+    audio: File.open('app/assets/tracks/alone.mp3'),
+    image: File.open('app/assets/images/showyou.jpg')
   },
   {
-    title: 'Drop It Like It\'s Hot',
+    title: 'Sittin\' on the Side (Instrumental)',
     artist_id: artists[0].id,
-    description: 'Sn00000000p',
-    audio: File.open('app/assets/tracks/dropitlikeitshot.mp3'),
-    image: File.open('app/assets/images/dropit.jpg')
+    description: 'Heralds of Change!!!',
+    audio: File.open('app/assets/tracks/sittin.mp3'),
+    image: File.open('app/assets/images/sittin.jpg')
   },
   {
     title: 'Mind Touch',
