@@ -1,8 +1,8 @@
 # BeatMachine
 
-[BeatMachine Live][heroku]
+[BeatMachine Live][live]
 
-[heroku]: https://thebeatmachine.herokuapp.com
+[live]: http://www.beatmachine.zone/
 
 BeatMachine is a full-stack web application clone of the popular music-sharing site SoundCloud. It was built using Ruby on Rails for the backend, and React.js with Redux for the frontend.
 
