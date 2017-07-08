@@ -18,7 +18,26 @@ class TrackPage extends React.Component{
 
   componentDidMount(){
     window.scrollTo(0, 0);
-    this.props.requestTrack(this.props.match.params.title);
+    this.props.requestTrack(this.props.match.params.title)
+      .then(() => {
+        let wavesurfer = WaveSurfer.create({
+          container: '#wave-' + this.props.track.id,
+          waveColor: '#fff',
+          progressColor: '#ff5000',
+          height: 100,
+          barWidth: 2,
+          cursorColor: 'transparent'
+
+        });
+        wavesurfer.load(this.props.track.audio_url);
+        const audio = $('audio')[0];
+        wavesurfer.on("seek", (progress) => {
+          if(audio.src === this.props.track.audio_url) {
+            audio.currentTime = progress * audio.duration;
+          }
+        });
+
+      });
     this.setState({track: this.props.track});
   }
 
@@ -36,6 +55,7 @@ class TrackPage extends React.Component{
     let artistImage = null;
     let commentsIndex = null;
     let timeAgo = null;
+    let waveForm = null;
     let commentCount = null;
     if (this.props.track){
       title = this.props.track.title;
@@ -48,6 +68,9 @@ class TrackPage extends React.Component{
       commentsIndex = <CommentsIndex track={track}/>;
       commentCount = this.props.track.comments.length;
       timeAgo = this.props.track.time_ago;
+      waveForm = <div className="track-waveform"
+        id={"wave-" + this.props.track.id}></div>;
+
     }
     return (
       <div>
@@ -76,9 +99,7 @@ class TrackPage extends React.Component{
                 {timeAgo}
               </div>
             </div>
-            <div className='show-track-waveform'>
-              <img src={window.images.showwave}/>
-            </div>
+            {waveForm}
             </div>
               <div className='track-image'>
                 <img src={image}/>

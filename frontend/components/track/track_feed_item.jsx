@@ -21,6 +21,26 @@ class TrackFeedItem extends React.Component{
     }
   }
 
+  componentDidMount(){
+    const wavesurfer = WaveSurfer.create({
+        container: '#wave-' + this.props.track.id,
+        waveColor: '#8c8c8c',
+        progressColor: '#ff5000',
+        height: 50,
+        barWidth: 2,
+        cursorColor: 'transparent'
+
+    });
+
+    wavesurfer.load(this.props.track.audio_url);
+    const audio = $('audio')[0];
+    wavesurfer.on("seek", (progress) => {
+      if(audio.src === this.props.track.audio_url) {
+        audio.currentTime = progress * audio.duration;
+      }
+    });
+  }
+
   render(){
     let trackMenu = null;
     if (this.props.track.artist_id === this.props.currentUser.id &&
@@ -70,7 +90,7 @@ class TrackFeedItem extends React.Component{
       likeClass = 'liked-button';
       countClass = 'liked-count';
     } else {
-      likeClass = 'like-button'; 
+      likeClass = 'like-button';
       countClass = 'like-count';
     }
     let trackCount = null;
@@ -103,9 +123,7 @@ class TrackFeedItem extends React.Component{
               </div>
             </div>
           </div>
-            <div className='track-waveform'>
-              <img className='wave' src={window.images.wave}/>
-            </div>
+          <div className="track-waveform" id={"wave-" + this.props.track.id}></div>
             <div className='options-bar'>
               <div className={likeClass}
                 onClick={()=>this.handleFavorite()}>
