@@ -42,6 +42,7 @@ class TrackFeedItem extends React.Component{
   }
 
   render(){
+    debugger;
     let trackMenu = null;
     if (this.props.track.artist_id === this.props.currentUser.id &&
       this.props.location.pathname.slice(1) === this.props.track.artist)
