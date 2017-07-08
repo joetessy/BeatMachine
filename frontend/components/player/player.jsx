@@ -89,6 +89,10 @@ class Player extends React.Component {
     this.music.src = src;
     this.music.play();
     this.playButton.className = 'fa fa-pause';
+    const waveForm = $('#wave-' + this.props.nowPlaying.id)[0];
+    if (waveForm){
+      waveForm.firstChild.firstChild.style.width = "0px";
+    }
   }
 
   nextTrack(id, idx){
@@ -157,6 +161,11 @@ class Player extends React.Component {
     let currentTime = this.calculateCurrentValue(player.currentTime);
     this.setState({currentTime: currentTime});
     this.setState({length: length});
+    const waveForm = $('#wave-' + this.props.nowPlaying.id)[0];
+    if (waveForm){
+      waveForm.firstChild.firstChild.style.width =
+       Math.floor(waveForm.offsetWidth/player.duration * player.currentTime) + "px";
+    }
 
     let progressBar = this.seekObj;
     if (this.state.length !== 'NaN:NaN'){
