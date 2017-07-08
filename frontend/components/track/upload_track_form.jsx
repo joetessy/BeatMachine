@@ -83,6 +83,14 @@ class UploadTrackForm extends React.Component {
     }
     let errors = (this.props.errors.length > 0) ?
       this.props.errors.join(", ") : null;
+    let imageInput = () => {
+      return(
+      <div className='image-input-button'>
+        <i className="fa fa-camera" aria-hidden="true"></i>
+        <div className='update-image-text'>Choose Track Image</div>
+          <input type='file' onChange={this.updateImage} />
+      </div>);
+    };
     return(
       <div>
         <NavBarContainer/>
@@ -91,30 +99,35 @@ class UploadTrackForm extends React.Component {
             <div className='form-container'>
               <div className='form-content'>
 
+                <h1>Upload To BeatMachine</h1>
 
               <form onSubmit={this.handleSubmit}>
-                <h1>Upload To BeatMachine</h1>
-                <label className='audio-upload'
-                  htmlFor='audio'>Choose a file to upload
-                  <input type='file' onChange={this.updateAudio}/>
-                </label>
-                <label htmlFor='title'> Title *
-                  <input id='title' type='text'
-                    onChange={this.handleChange}
-                    value={this.state.title}></input>
-                </label>
-                <label htmlFor='description'> Description
-                  <textarea id='description' rows="4" cols="53"
-                    onChange={this.handleChange}
-                    value={this.state.description}></textarea>
-                </label>
-                <label className='image-upload'
-    							htmlFor='image'>Choose Track Image
-    							<input type='file' onChange={this.updateImage}/>
-    						</label>
+                <div className='upload-container'>
+                  <div className='image-container'>
+                    <img src={ this.state.imageUrl ?
+                        this.state.imageUrl : null} />
+                      {imageInput()}
+                  </div>
 
+                  <div className='upload-form-content'>
+                    <label className='audio-upload'
+                      htmlFor='audio'>Choose a file to upload
+                      <input type='file' onChange={this.updateAudio}/>
+                    </label>
+                    <label htmlFor='title'> Title * <br/>
+                      <input id='title' type='text'
+                        onChange={this.handleChange}
+                        value={this.state.title}></input>
+                    </label>
+                    <label htmlFor='description'> Description <br/>
+                      <textarea id='description' rows="4" cols="53"
+                        onChange={this.handleChange}
+                        value={this.state.description}></textarea>
+                    </label>
+                  </div>
+                </div>
                 <div className='upload-submit'>
-                <input type='submit' value='Upload Track'/>
+                  <input type='submit' value='Upload Track'/>
                 </div>
               </form>
               <div className='error-container'>

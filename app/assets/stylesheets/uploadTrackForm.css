@@ -6,10 +6,23 @@
   padding-top: 90px;
 }
 
-.form-content > form > h1 {
+.upload-container{
+  display: flex;
+  justify-content: space-around;
+  width: 85%;
+  height: 67%;
+}
+
+.form-container h1 {
   margin: 0;
   color: black;
-  padding-top: 20px;
+  padding: 20px 0;
+}
+
+.upload-form-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .form-content{
@@ -31,9 +44,15 @@
 .form-content > form {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   height: 90%;
+  width: 100%
+}
+
+.image-container{
+  height: 220px;
+  position: relative;
 }
 
 .audio-upload {
@@ -41,6 +60,7 @@
   padding: 10px 11px 3px 10px;
   border-radius: 5px;
   height: 20px;
+  width: 164px;
   color: white;
   position: relative;
   cursor: pointer;
@@ -86,8 +106,8 @@
   left: 0;
 }
 
-.form-content > form > label > input[type=text],
-.form-content > form > label > textarea{
+.form-content > form  label > input[type=text],
+.form-content > form  label > textarea{
   width: 300px;
   font-weight: 100;
   font-size: 14px;
@@ -102,19 +122,26 @@ textarea{
   resize: none;
 }
 
-.form-content > form > label > input[type=text]:focus,
-.form-content > form > label > textarea:focus{
+.form-content > form  label > input[type=text]:focus,
+.form-content > form  label > textarea:focus{
   border: 1px solid #333;
   outline: 0;
-}
-
-.upload-submit{
-  padding-top: 5px;
-  background-color: #f50;
-  border-radius: 5px;
 }
 
 .errors {
 padding-top: 10px;
 color: red;
+}
+
+.upload-container .image-input-button{
+  width: 177px;
+  bottom: 10px;
+  left: 16px;
+}
+
+.upload-container .image-input-button > input[type=file] {
+  width: 187px;
+}
+
+.upload-container .image-container > img {
 }
