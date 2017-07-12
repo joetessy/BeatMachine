@@ -22,8 +22,11 @@ class Track < ApplicationRecord
   include ActionView::Helpers::DateHelper
   validates :title, :artist_id, presence: true
 
+  has_attached_file :peaks
   has_attached_file :image, styles: { medium: "300x300", thumb: "100x100" }, default_url: 'chicken.jpg'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/, defualt_url: 'greatest.mp3'
+  validates_attachment_content_type :peaks, content_type: "text/plain"
+
 
   has_attached_file :audio
   do_not_validate_attachment_file_type :audio
@@ -51,5 +54,21 @@ class Track < ApplicationRecord
 
   def time_ago
     time_ago_in_words(self.created_at)
+  end
+
+  def self.reset_peaks
+    self.all.each { |track| track.peaks.destroy; track.peaks.clear; track.save }
+  end
+
+  def self.peak_size
+    self.all.each { |track| puts track.peaks_file_size }
+  end
+
+  def decoded_peaks
+    if self.peaks.url == ""
+      ""
+    else
+      URI.parse(self.peaks.url).read
+    end
   end
 end

@@ -42,7 +42,6 @@ class TrackShowWaveForm extends React.Component {
           backend='MediaElement'
           audioFile={this.props.track.audio_url}
           ref={this.wavesurfer}
-          onSeek={this.handleSeek}
           options={
             {
             waveColor: '#fff',
