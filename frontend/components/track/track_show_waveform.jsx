@@ -27,9 +27,10 @@ class TrackShowWaveForm extends React.Component {
       pos: e.originalArgs[0]
     });
     const audio = $('audio')[0];
-
+    if (audio.src === this.props.track.audio_url){
+      audio.currentTime = this.state.pos;
+    }
   }
-
 
   render(){
     return (
@@ -47,9 +48,7 @@ class TrackShowWaveForm extends React.Component {
             progressColor: '#ff5000',
             height: 100,
             barWidth: 2,
-            cursorColor: 'transparent',
-            mediaType: 'audio',
-            backend:'MediaElement'}
+            cursorColor: 'transparent'}
           }/>
         </div>
 

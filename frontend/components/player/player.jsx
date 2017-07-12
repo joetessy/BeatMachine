@@ -74,7 +74,7 @@ class Player extends React.Component {
 
     //Handles Track change;
     else if ( nextId && currentId !== nextId){
-      this.changeTrack(this.state.tracks[nextId].audio_url);
+      this.changeTrack(this.state.tracks[nextId].audio_url, nextId);
     }
   }
   startPlayer(np, queue){
@@ -85,11 +85,11 @@ class Player extends React.Component {
     this.playButton.className = 'fa fa-pause';
   }
 
-  changeTrack(src){
+  changeTrack(src, id){
     this.music.src = src;
     this.music.play();
     this.playButton.className = 'fa fa-pause';
-    const waveForm = $('#wave-' + this.props.nowPlaying.id);
+    const waveForm = $('#wave-' + id);
     if (waveForm){
       waveForm.find('wave')[1].style.width = '0px';
     }
