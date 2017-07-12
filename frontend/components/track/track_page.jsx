@@ -21,6 +21,7 @@ class TrackPage extends React.Component{
     window.scrollTo(0, 0);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.props.requestTrack(this.props.match.params.title)
       .then(() => {
         let wavesurfer = WaveSurfer.create({
@@ -47,6 +48,9 @@ class TrackPage extends React.Component{
 >>>>>>> bad604a... convereted to react wavesurfer
 =======
 >>>>>>> cb87219... fix conflict
+=======
+    this.props.requestTrack(this.props.match.params.title);
+>>>>>>> c1b1cd6... fix track show page
     this.setState({track: this.props.track});
   }
 
