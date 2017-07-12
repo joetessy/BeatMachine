@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import DeleteTrackContainer from './delete_track_container';
 import EditTrackContainer from './edit_track_form_container';
 import TrackButton from './track_button';
+import WaveForm from './waveform.jsx';
 
 class TrackFeedItem extends React.Component{
   constructor(props){
@@ -21,6 +22,7 @@ class TrackFeedItem extends React.Component{
     }
   }
 
+<<<<<<< HEAD
   componentDidMount(){
     const wavesurfer = WaveSurfer.create({
         container: '#wave-' + this.props.track.id,
@@ -42,8 +44,9 @@ class TrackFeedItem extends React.Component{
     });
   }
 
+=======
+>>>>>>> bad604a... convereted to react wavesurfer
   render(){
-    debugger;
     let trackMenu = null;
     if (this.props.track.artist_id === this.props.currentUser.id &&
       this.props.location.pathname.slice(1) === this.props.track.artist)
@@ -125,7 +128,7 @@ class TrackFeedItem extends React.Component{
               </div>
             </div>
           </div>
-          <div className="track-waveform" id={"wave-" + this.props.track.id}></div>
+              <WaveForm track={this.props.track}/>
             <div className='options-bar'>
               <div className={likeClass}
                 onClick={()=>this.handleFavorite()}>

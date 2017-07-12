@@ -89,9 +89,9 @@ class Player extends React.Component {
     this.music.src = src;
     this.music.play();
     this.playButton.className = 'fa fa-pause';
-    const waveForm = $('#wave-' + this.props.nowPlaying.id)[0];
+    const waveForm = $('#wave-' + this.props.nowPlaying.id);
     if (waveForm){
-      waveForm.firstChild.firstChild.style.width = "0px";
+      waveForm.find('wave')[1].style.width = '0px';
     }
   }
 
@@ -161,9 +161,9 @@ class Player extends React.Component {
     let currentTime = this.calculateCurrentValue(player.currentTime);
     this.setState({currentTime: currentTime});
     this.setState({length: length});
-    const waveForm = $('#wave-' + this.props.nowPlaying.id)[0];
-    if (waveForm){
-      waveForm.firstChild.firstChild.style.width =
+    if ($('#wave-' + this.props.nowPlaying.id)[0]){
+      let waveForm = $('#wave-' + this.props.nowPlaying.id)[0];
+      $('#wave-' + this.props.nowPlaying.id).find('wave')[1].style.width =
        Math.floor(waveForm.offsetWidth/player.duration * player.currentTime) + "px";
     }
 

@@ -9,6 +9,7 @@ import { selectSingleTrack } from './../../reducers/selectors';
 import TrackButton from './track_button';
 import CommentsIndex from './../comments/comments_index';
 import CommentForm from './../comments/comment_form';
+import TrackShowWaveForm from './track_show_waveform';
 
 class TrackPage extends React.Component{
   constructor(props){
@@ -18,6 +19,7 @@ class TrackPage extends React.Component{
 
   componentDidMount(){
     window.scrollTo(0, 0);
+<<<<<<< HEAD
     this.props.requestTrack(this.props.match.params.title)
       .then(() => {
         let wavesurfer = WaveSurfer.create({
@@ -39,6 +41,9 @@ class TrackPage extends React.Component{
         });
 
       });
+=======
+    this.props.requestTrack(this.props.match.params.title);
+>>>>>>> bad604a... convereted to react wavesurfer
     this.setState({track: this.props.track});
   }
 
@@ -69,10 +74,9 @@ class TrackPage extends React.Component{
       commentsIndex = <CommentsIndex track={track}/>;
       commentCount = this.props.track.comments.length;
       timeAgo = this.props.track.time_ago;
-      waveForm = <div className="track-waveform"
-        id={"wave-" + this.props.track.id}></div>;
-
+      waveForm = <TrackShowWaveForm track={this.props.track}/>;
     }
+    
     return (
       <div>
         <NavBarContainer />
