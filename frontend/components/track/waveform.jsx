@@ -27,8 +27,9 @@ class WaveForm extends React.Component {
       pos: e.originalArgs[0]
     });
     const audio = $('audio')[0];
-    audio.currentTime = this.state.pos;
-
+    if (audio.src === this.props.track.audio_url){
+      audio.currentTime = this.state.pos;
+    }
   }
 
 
