@@ -74,7 +74,7 @@ class Player extends React.Component {
 
     //Handles Track change;
     else if ( nextId && currentId !== nextId){
-      this.changeTrack(this.state.tracks[nextId].audio_url, nextId);
+      this.changeTrack(this.state.tracks[nextId].audio_url, currentId);
     }
   }
   startPlayer(np, queue){
