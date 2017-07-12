@@ -24,6 +24,7 @@ class TrackPage extends React.Component{
           container: '#wave-' + this.props.track.id,
           waveColor: '#fff',
           progressColor: '#ff5000',
+          backend: 'MediaElement',
           height: 100,
           barWidth: 2,
           cursorColor: 'transparent'

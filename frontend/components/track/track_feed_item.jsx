@@ -27,6 +27,7 @@ class TrackFeedItem extends React.Component{
         waveColor: '#8c8c8c',
         progressColor: '#ff5000',
         height: 50,
+        backend: 'MediaElement',
         barWidth: 2,
         cursorColor: 'transparent'
 
