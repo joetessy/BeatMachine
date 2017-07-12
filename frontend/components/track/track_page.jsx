@@ -20,6 +20,7 @@ class TrackPage extends React.Component{
   componentDidMount(){
     window.scrollTo(0, 0);
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.props.requestTrack(this.props.match.params.title)
       .then(() => {
         let wavesurfer = WaveSurfer.create({
@@ -44,6 +45,8 @@ class TrackPage extends React.Component{
 =======
     this.props.requestTrack(this.props.match.params.title);
 >>>>>>> bad604a... convereted to react wavesurfer
+=======
+>>>>>>> cb87219... fix conflict
     this.setState({track: this.props.track});
   }
 
@@ -76,7 +79,7 @@ class TrackPage extends React.Component{
       timeAgo = this.props.track.time_ago;
       waveForm = <TrackShowWaveForm track={this.props.track}/>;
     }
-    
+
     return (
       <div>
         <NavBarContainer />

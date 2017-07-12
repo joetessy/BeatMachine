@@ -21,6 +21,7 @@ class TrackFeedItem extends React.Component{
         track_id: this.props.track.id});
     }
   }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
   componentDidMount(){
@@ -46,6 +47,9 @@ class TrackFeedItem extends React.Component{
 
 =======
 >>>>>>> bad604a... convereted to react wavesurfer
+=======
+  
+>>>>>>> cb87219... fix conflict
   render(){
     let trackMenu = null;
     if (this.props.track.artist_id === this.props.currentUser.id &&
