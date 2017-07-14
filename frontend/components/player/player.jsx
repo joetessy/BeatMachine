@@ -232,7 +232,7 @@ class Player extends React.Component {
       currentTime = <small className='current-time'>
         {this.state.currentTime}</small>;
       length = <small className='end-time'>
-        {this.state.length}</small>;
+        {this.state.length === 'NaN:NaN' ? '--:--' : this.state.length}</small>;
     }
 
     return (

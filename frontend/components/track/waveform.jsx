@@ -7,10 +7,8 @@ class WaveForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      playing: false,
       pos: 0,
       loading: true};
-    this.handleTogglePlay = this.handleTogglePlay.bind(this);
     this.handlePosChange = this.handlePosChange.bind(this);
     this.handleReady = this.handleReady.bind(this);
   }
@@ -19,11 +17,6 @@ class WaveForm extends React.Component {
     const audio = $('audio')[0];
   }
 
-  handleTogglePlay(){
-    this.setState({
-      playing: !this.state.playing
-    });
-  }
 
   handlePosChange(e){
     this.setState({
@@ -38,6 +31,7 @@ class WaveForm extends React.Component {
   handleReady(){
     this.setState({loading: false});
   }
+
 
   render(){
     let loader = this.state.loading ?
@@ -67,11 +61,10 @@ class WaveForm extends React.Component {
           onPosChange={this.handlePosChange}
           container={`#wave-${this.props.track.id}`}
           backend='MediaElement'
+          mediaElt={this.wave}
           audioFile={this.props.track.audio_url}
-          ref={this.wavesurfer}
           onSeek={this.handleSeek}
           onReady={this.handleReady}
-          onFinish={this.handleFinish}
           options={
             {
             waveColor: '#8c8c8c',
