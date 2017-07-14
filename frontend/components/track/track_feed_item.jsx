@@ -22,6 +22,7 @@ class TrackFeedItem extends React.Component{
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
   componentDidMount(){
@@ -50,6 +51,9 @@ class TrackFeedItem extends React.Component{
 =======
   
 >>>>>>> cb87219... fix conflict
+=======
+
+>>>>>>> b633983... added load spinner
   render(){
     let trackMenu = null;
     if (this.props.track.artist_id === this.props.currentUser.id &&
