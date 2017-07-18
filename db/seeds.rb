@@ -80,7 +80,7 @@ tracks = Track.create([
     title: 'Real Eyes',
     artist_id: artists[2].id,
     description: 'Long Live Quasimoto',
-    audio: File.open('app/assets/tracks/realeyes.m4a'),
+    audio: File.open('app/assets/tracks/realeyes.mp3'),
     image: File.open('app/assets/images/unseen.jpg')
   },
   {
@@ -156,7 +156,7 @@ comments = Comment.create([
   {
     author_id: artists[1].id,
     track_id: 1,
-    body: 'Thanks snoopie'
+    body: 'Thanks'
   },
   {
     author_id: artists[2].id,
