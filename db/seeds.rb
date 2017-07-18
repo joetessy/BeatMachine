@@ -134,8 +134,8 @@ tracks = Track.create([
   },
   {
     title: 'I WANNA GO BACK',
-    artist_id: artists[6].id,
-    description: 'Short Onra beat off the Chinoiseries',
+    artist_id: artists[4].id,
+    description: 'Short beat off the Chinoiseries',
     audio: File.open('app/assets/tracks/iwannagoback.mp3'),
     image: File.open('app/assets/images/chinoiseries.jpg')
   }
