@@ -46,6 +46,7 @@
     "react-timeago": "^3.3.0",
     "react-wavesurfer": "^0.8.3",
     "redux": "^3.7.0",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "wavesurfer.js": "^1.4.0",
     "webpack": "^2.6.1"
